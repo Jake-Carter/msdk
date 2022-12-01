@@ -195,13 +195,9 @@
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#overview_1">Overview</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#documentation">Documentation</a>
-    </li>
     <li class="toctree-l3"><a class="reference internal" href="#organization">Organization</a>
-        <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#die-types-to-part-number">Die Types to Part Number</a>
     </li>
-        </ul>
+    <li class="toctree-l3"><a class="reference internal" href="#api-references">API References</a>
     </li>
         </ul>
     </li>
@@ -240,6 +236,10 @@
               </ul>
               <ul>
                 <li class="toctree-l1"><a class="reference internal" href="../CONTRIBUTING/">Contributing</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="" href="../Libraries/PeriphDrivers/MAX32520/Documentation/index.html">test</a>
                 </li>
               </ul>
       </div>
@@ -373,11 +373,8 @@
 </li>
 <li><a href="#peripheral-driver-api">Peripheral Driver API</a><ul>
 <li><a href="#overview_1">Overview</a></li>
-<li><a href="#documentation">Documentation</a></li>
-<li><a href="#organization">Organization</a><ul>
-<li><a href="#die-types-to-part-number">Die Types to Part Number</a></li>
-</ul>
-</li>
+<li><a href="#organization">Organization</a></li>
+<li><a href="#api-references">API References</a></li>
 </ul>
 </li>
 <li><a href="#libraries">Libraries</a><ul>
@@ -2153,11 +2150,8 @@ MFLOAT_ABI=hard # Enable hardware floating point acceleration
 <h2 id="peripheral-driver-api">Peripheral Driver API</h2>
 <h3 id="overview_1">Overview</h3>
 <p>A microcontroller is made up of a Central Processing Unit (CPU) that is surrounded by additional <em>peripheral</em> hardware blocks such as timers, memory controllers, UART controllers, ADCs, RTCs, audio interfaces, and many more.  The <strong>Peripheral Driver API</strong> is an important core library in the MSDK that allows the CPU to utilize the microcontroller's hardware blocks over a higher-level <strong><em>Application Programming Interface (API)</em></strong>.</p>
-<h3 id="documentation">Documentation</h3>
-<p>A detailed API reference can be found in the <a href="Documentation"><strong>Documentation</strong></a> folder of the MSDK installation for each of the <a href="#supported-parts">supported parts</a>.  The top level <strong><code>Documentation/index.html</code></strong> file can be opened locally with a web browser.</p>
-<p>The documentation is organized into <em>modules</em> matching each of the available hardware peripherals, and the MSDK will contain at <em>minimum</em> one <a href="Examples">example</a> per module demonstrating its usage.</p>
 <p><img alt="Figure 38" src="../res/Fig38.jpg" /></p>
-<p>This documentation is auto-generated with DoxyGen from the API's source code.</p>
+<p>A detailed API reference can be found in the <a href="Documentation">Documentation</a> folder of the MSDK installation for each microcontroller.  This documentation is auto-generated with DoxyGen from the API's source code, and is organized into <em>modules</em> matching each of the available hardware peripherals.  The MSDK will contain at <em>minimum</em> one example per module demonstrating its usage.</p>
 <h3 id="organization">Organization</h3>
 <p>The Peripheral Driver API's source code is organized as follows:</p>
 <ul>
@@ -2181,70 +2175,43 @@ MFLOAT_ABI=hard # Enable hardware floating point acceleration
 </ul>
 </li>
 </ul>
-<p>As a result, the table below is a useful reference for determining which driver files match the external part number for a specific microcontroller when inspecting the API's source code.</p>
-<h4 id="die-types-to-part-number">Die Types to Part Number</h4>
-<table>
-<thead>
-<tr>
-<th>Part Number</th>
-<th>Die Type</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>MAX32520</td>
-<td>ES17</td>
-</tr>
-<tr>
-<td>MAX32570</td>
-<td>ME13</td>
-</tr>
-<tr>
-<td>MAX32650</td>
-<td>ME10</td>
-</tr>
-<tr>
-<td>MAX32655</td>
-<td>ME17</td>
-</tr>
-<tr>
-<td>MAX32660</td>
-<td>ME11</td>
-</tr>
-<tr>
-<td>MAX32665-MAX32668</td>
-<td>ME14</td>
-</tr>
-<tr>
-<td>MAX32670</td>
-<td>ME15</td>
-</tr>
-<tr>
-<td>MAX32672</td>
-<td>ME21</td>
-</tr>
-<tr>
-<td>MAX32675</td>
-<td>ME16</td>
-</tr>
-<tr>
-<td>MAX32680</td>
-<td>ME20</td>
-</tr>
-<tr>
-<td>MAX32690</td>
-<td>ME18</td>
-</tr>
-<tr>
-<td>MAX78000</td>
-<td>AI85</td>
-</tr>
-<tr>
-<td>MAX78002</td>
-<td>AI87</td>
-</tr>
-</tbody>
-</table>
+<h3 id="api-references">API References</h3>
+<p>A full Peripheral Driver API reference manual is available for each microcontroller below.</p>
+<ul>
+<li>
+<p><a href="Libraries/PeriphDrivers/MAX32520/index.html">MAX32520 API</a></p>
+</li>
+<li>
+<p><a href="Libraries/PeriphDrivers/MAX32650/index.html">MAX32650 API</a></p>
+</li>
+<li>
+<p><a href="Libraries/PeriphDrivers/MAX32655/index.html">MAX32655 API</a></p>
+</li>
+<li>
+<p><a href="Libraries/PeriphDrivers/MAX32660/index.html">MAX32660 API</a></p>
+</li>
+<li>
+<p><a href="Libraries/PeriphDrivers/MAX32665/index.html">MAX32665-MAX32668 API</a></p>
+</li>
+<li>
+<p><a href="Libraries/PeriphDrivers/MAX32670/index.html">MAX32670 API</a></p>
+</li>
+<li>
+<p><a href="Libraries/PeriphDrivers/MAX32672/index.html">MAX32672 API</a></p>
+</li>
+<li>
+<p><a href="Libraries/PeriphDrivers/MAX32675/index.html">MAX32675 API</a></p>
+</li>
+<li>
+<p><a href="Libraries/PeriphDrivers/MAX32680/index.html">MAX32680 API</a></p>
+</li>
+<li>
+<p><a href="Libraries/PeriphDrivers/MAX78000/index.html">MAX78000 API</a></p>
+</li>
+<li>
+<p><a href="Libraries/PeriphDrivers/MAX78002/index.html">MAX78002 API</a></p>
+</li>
+</ul>
 <h2 id="libraries">Libraries</h2>
 <p>The MSDK contains a large number of <strong>libraries</strong>, both third-party and in-house.  These libraries are an extension to the "core" SDK resources and contain drivers for miscellaneous <em><strong>external</strong></em> components such as TFT displays, cameras, accelerometers, audio codecs, and other devices.  The MSDK also contains libraries for more advanced <em><strong>internal</strong></em> hardware peripherals that provide an <em>additional</em> higher-level abstraction layer above the <a href="#peripheral-driver-api">Peripheral Driver API</a> such as USB, the SDHC interface, and the Cordio BLE stack.</p>
 <p>These libraries may also offer their <em>own</em> Build Configuration Variables in addition to those already available in the <a href="#build-system">Build System</a>.  These additional build options are enabled alongside the library itself via a convenient <em>toggle switch</em> (See the <strong>"Libraries"</strong> section of the <em><a href="#build-configuration-variables-reference-table">Build Configuration Variables</a></em>).</p>
