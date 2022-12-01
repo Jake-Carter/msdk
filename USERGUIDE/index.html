@@ -679,7 +679,7 @@
 <p>For example, if the <a href="https://www.maximintegrated.com/en/products/microcontrollers/MAX78000EVKIT.html">MAX78000EVKIT</a> <em>or</em> <a href="https://www.maximintegrated.com/en/products/microcontrollers/MAX78000FTHR.html">MAX78000FTHR</a> is being used, the <em>Target Microcontroller</em> is the MAX78000.</p>
 </li>
 <li>
-<p><strong>Board Support Package (BSP)</strong>:  The MSDK supports evaluation platforms for target microcontrollers via <em>Board Support Packages</em>.  For microcontrollers with multiple evaluation platforms, multiple BSPs are available.  These can be found in the <a href="Libraries/Boards"><code>Libraries/Boards</code></a> folder of the MSDK installation.</p>
+<p><strong>Board Support Package (BSP)</strong>:  The MSDK supports evaluation platforms for target microcontrollers via <em>Board Support Packages</em>.  For microcontrollers with multiple evaluation platforms, multiple BSPs are available.  These can be found in the <code>Libraries/Boards</code> folder of the MSDK installation.</p>
 <p>By default, most projects in the MSDK come pre-configured for the "EVKIT"-type BSP, which is generally the largest "traditional" evaluation platform for that device.  It's important to note that the active BSP may need to be reconfigured for a project, and this is done slightly differently for each development environment.  This is covered in more detail below.</p>
 </li>
 <li>
@@ -908,7 +908,7 @@
 <p>For more detailed documentation, see the <a href="#command-line-development">Command-Line Development</a> section of this User Guide.</p>
 <h4 id="setup-command-line">Setup (Command-Line)</h4>
 <h5 id="windows">Windows</h5>
-<p>On Windows, the MinGW shortcut should be used to launch a MSYS2/MinGW terminal.  Alternatively, the <a href="Tools/MSYS2/msys.bat"><code>Tools/MSYS2/msys.bat</code></a> file can be launched directly.</p>
+<p>On Windows, the MinGW shortcut should be used to launch a MSYS2/MinGW terminal.  Alternatively, the <code>Tools/MSYS2/msys.bat</code> file can be launched directly.</p>
 <p><img alt="Figure 22" src="../res/Fig22.jpg" /></p>
 <h5 id="linuxmacos">Linux/MacOS</h5>
 <ol>
@@ -953,7 +953,7 @@ export MAXIM_PATH=$HOME/MaximSDK
 <p>First, copy an <a href="Examples">example project</a> to an accessible directory outside of the SDK. It is strongly recommended to keep the MSDK examples unmodified in case they need to be referenced again later.</p>
 </li>
 <li>
-<p>Launch your terminal.  On Windows, use the MinGW shortcut or <code>MaximSDK/Tools/MSYS2/msys.bat</code> file to launch the MSYS2 terminal.</p>
+<p>Launch your terminal.  On Windows, use the MinGW shortcut or <code>Tools/MSYS2/msys.bat</code> file to launch the MSYS2 terminal.</p>
 </li>
 <li>
 <p><code>cd</code> into the location of the copied example project.</p>
@@ -970,23 +970,23 @@ export MAXIM_PATH=$HOME/MaximSDK
 <p>Expected output:</p>
 <pre class="codehilite"><code class="language-bash">Loaded project.mk
 CC    main.c
-CC   /home/jakecarter/repos/fork/msdk/Libraries/Boards/MAX78002/EvKit_V1/Source/board.c
-CC    /home/jakecarter/repos/fork/msdk/Libraries/Boards/MAX78002/EvKit_V1/../../../MiscDrivers/stdio.c
-CC    /home/jakecarter/repos/fork/msdk/Libraries/Boards/MAX78002/EvKit_V1/../../../MiscDrivers/LED/led.c
-CC    /home/jakecarter/repos/fork/msdk/Libraries/Boards/MAX78002/EvKit_V1/../../../MiscDrivers/PushButton/pb.c
-CC    /home/jakecarter/repos/fork/msdk/Libraries/Boards/MAX78002/EvKit_V1/../../../MiscDrivers/Display/adafruit_3315_tft.c
-CC    /home/jakecarter/repos/fork/msdk/Libraries/Boards/MAX78002/EvKit_V1/../../../MiscDrivers/Touchscreen/adafruit_3315_touch.c
-CC    /home/jakecarter/repos/fork/msdk/Libraries/Boards/MAX78002/EvKit_V1/../../../MiscDrivers/Camera/camera.c
-CC    /home/jakecarter/repos/fork/msdk/Libraries/Boards/MAX78002/EvKit_V1/../../../MiscDrivers/Camera/mipi_camera.c
-CC    /home/jakecarter/repos/fork/msdk/Libraries/Boards/MAX78002/EvKit_V1/../../../MiscDrivers/Camera/ov7692.c
-CC    /home/jakecarter/repos/fork/msdk/Libraries/Boards/MAX78002/EvKit_V1/../../../MiscDrivers/Camera/sccb.c
-AS    /home/jakecarter/repos/fork/msdk/Libraries/CMSIS/Device/Maxim/MAX78002/Source/GCC/startup_max78002.S
-CC    /home/jakecarter/repos/fork/msdk/Libraries/CMSIS/Device/Maxim/MAX78002/Source/heap.c
-CC    /home/jakecarter/repos/fork/msdk/Libraries/CMSIS/Device/Maxim/MAX78002/Source/system_max78002.c
-LD    /home/jakecarter/repos/fork/msdk/Examples/MAX78002/Hello_World/build/max78002.elf
-arm-none-eabi-size --format=berkeley /home/jakecarter/repos/fork/msdk/Examples/MAX78002/Hello_World/build/max78002.elf
+CC   /home/msdk/Libraries/Boards/MAX78002/EvKit_V1/Source/board.c
+CC    /home/msdk/Libraries/Boards/MAX78002/EvKit_V1/../../../MiscDrivers/stdio.c
+CC    /home/msdk/Libraries/Boards/MAX78002/EvKit_V1/../../../MiscDrivers/LED/led.c
+CC    /home/msdk/Libraries/Boards/MAX78002/EvKit_V1/../../../MiscDrivers/PushButton/pb.c
+CC    /home/msdk/Libraries/Boards/MAX78002/EvKit_V1/../../../MiscDrivers/Display/adafruit_3315_tft.c
+CC    /home/msdk/Libraries/Boards/MAX78002/EvKit_V1/../../../MiscDrivers/Touchscreen/adafruit_3315_touch.c
+CC    /home/msdk/Libraries/Boards/MAX78002/EvKit_V1/../../../MiscDrivers/Camera/camera.c
+CC    /home/msdk/Libraries/Boards/MAX78002/EvKit_V1/../../../MiscDrivers/Camera/mipi_camera.c
+CC    /home/msdk/Libraries/Boards/MAX78002/EvKit_V1/../../../MiscDrivers/Camera/ov7692.c
+CC    /home/msdk/Libraries/Boards/MAX78002/EvKit_V1/../../../MiscDrivers/Camera/sccb.c
+AS    /home/msdk/Libraries/CMSIS/Device/Maxim/MAX78002/Source/GCC/startup_max78002.S
+CC    /home/msdk/Libraries/CMSIS/Device/Maxim/MAX78002/Source/heap.c
+CC    /home/msdk/Libraries/CMSIS/Device/Maxim/MAX78002/Source/system_max78002.c
+LD    /home/msdk/Examples/MAX78002/Hello_World/build/max78002.elf
+arm-none-eabi-size --format=berkeley /home/msdk/Examples/MAX78002/Hello_World/build/max78002.elf
 text    data     bss     dec     hex filename
-35708    2504    1156   39368    99c8 /home/jakecarter/repos/fork/msdk/Examples/MAX78002/Hello_World/build/max78002.elf
+35708    2504    1156   39368    99c8 /home/msdk/Examples/MAX78002/Hello_World/build/max78002.elf
 </code></pre>
 
 </li>
@@ -1032,7 +1032,7 @@ Info : Listening on port 4444 for telnet connections
 
 </li>
 <li>
-<p>Launch a <strong><em>new</em> separate terminal</strong>. On Windows, use the MinGW shortcut or <code>MaximSDK/Tools/MSYS2/msys.bat</code> file to launch the MSYS2 terminal.</p>
+<p>Launch a <strong><em>new</em> separate terminal</strong>. On Windows, use the MinGW shortcut or <code>Tools/MSYS2/msys.bat</code> file to launch the MSYS2 terminal.</p>
 </li>
 <li>
 <p><code>cd</code> into the location of the copied example project.</p>
@@ -1128,7 +1128,7 @@ Breakpoint 1, main () at main.c:62
 Inferior 1 [Remote target] will be detached.
 
 Quit anyway? (y or n) [answered Y; input not from terminal]
-Detaching from program: C:\Users\Jake.Carter\codespace\Hello_World\build\max78002.elf, Remote target
+Detaching from program: C:\Users\User\codespace\Hello_World\build\max78002.elf, Remote target
 [Inferior 1 (Remote target) detached]
 </code></pre>
 
@@ -1147,7 +1147,7 @@ Detaching from program: C:\Users\Jake.Carter\codespace\Hello_World\build\max7800
 <li>Searching the MSDK for relevant source code and function definitions to use for editor look-ups</li>
 </ul>
 <h3 id="board-support-packages">Board Support Packages</h3>
-<p>The role of a Board Support Package (BSP) is to provide a hardware abstraction layer for board-level initialization code such as initializing and assigning UART instances, pushbuttons, LEDs, external peripheral devices, TFT displays, and other board-specific hardware.  The MSDK's available Board Support Packages (BSPs) can be found in the <a href="Libraries/Boards"><code>Libraries/Boards</code></a> folder for each <em>Target Microcontroller</em>.</p>
+<p>The role of a Board Support Package (BSP) is to provide a hardware abstraction layer for board-level initialization code such as initializing and assigning UART instances, pushbuttons, LEDs, external peripheral devices, TFT displays, and other board-specific hardware.  The MSDK's available Board Support Packages (BSPs) can be found in the <code>Libraries/Boards</code> folder for each <em>Target Microcontroller</em>.</p>
 <p><img alt="Figure 34" src="../res/Fig34.jpg" /></p>
 <p>The name of the BSP is the name of the folder.  For example, the MAX78000 supports the <code>Aud01_RevA</code>, <code>EvKit_V1</code>, <code>FTHR_RevA</code>, and <code>MAXREFDES178</code> BSPs.  However, it is not always clear how these BSP names match the part numbers for different evaluation kits.  The table below can be used to match an external part number with an MSDK BSP.</p>
 <table>
@@ -1546,7 +1546,7 @@ Detaching from program: C:\Users\Jake.Carter\codespace\Hello_World\build\max7800
 <h3 id="command-line-development">Command-Line Development</h3>
 <h4 id="setup-command-line_1">Setup (Command-Line)</h4>
 <h5 id="windows_1">Windows</h5>
-<p>On Windows, the MinGW shortcut should be used to launch a MSYS2/MinGW terminal.  Alternatively, the <a href="Tools/MSYS2/msys.bat"><code>Tools/MSYS2/msys.bat</code></a> file can be launched directly.</p>
+<p>On Windows, the MinGW shortcut should be used to launch a MSYS2/MinGW terminal.  Alternatively, the <code>Tools/MSYS2/msys.bat</code> file can be launched directly.</p>
 <p><img alt="Figure 22" src="../res/Fig22.jpg" /></p>
 <h5 id="linuxmacos_1">Linux/MacOS</h5>
 <ol>
@@ -1741,7 +1741,7 @@ Info : Listening on port 4444 for telnet connections
 <p><a href="#flashing-on-the-command-line">Flash</a> the program using the <strong>Flash and Hold</strong> command.</p>
 </li>
 <li>
-<p>Launch an <strong><em>new</em> separate terminal</strong>. On Windows, use the MinGW shortcut or <code>MaximSDK/Tools/MSYS2/msys.bat</code> file to launch the MSYS2 terminal.</p>
+<p>Launch an <strong><em>new</em> separate terminal</strong>. On Windows, use the MinGW shortcut or <code>Tools/MSYS2/msys.bat</code> file to launch the MSYS2 terminal.</p>
 </li>
 <li>
 <p><code>cd</code> into the location of the copied example project.</p>
@@ -1803,30 +1803,28 @@ xPSR: 0x81000000 pc: 0x0000fff4 msp: 0x20003ff0
 <pre class="codehilite"><code>b main
 </code></pre>
 
-</li>
-</ol>
 <p>Expected output:</p>
-<pre class="codehilite"><code>    :::bash
-    Breakpoint 1 at 0x10000224: file main.c, line 62.
-    Note: automatically using hardware breakpoints for read-only addresses.
-</code></pre>
-
-<ol>
-<li>Continue the debugger.<pre class="codehilite"><code>continue
+<pre class="codehilite"><code class="language-bash">Breakpoint 1 at 0x10000224: file main.c, line 62.
+Note: automatically using hardware breakpoints for read-only addresses.
 </code></pre>
 
 </li>
-</ol>
-<p>Expected output (for the Hello World example):</p>
-<pre class="codehilite"><code>    :::bash
-    Continuing.
-
-    Breakpoint 1, main () at main.c:62
-    62     printf(&quot;Hello World!\n&quot;);
+<li>
+<p>Continue the debugger.</p>
+<pre class="codehilite"><code>continue
 </code></pre>
 
-<ol>
-<li>(Optional) Continue exercising the debugger. </li>
+<p>Expected output (for the Hello World example):</p>
+<pre class="codehilite"><code class="language-bash">Continuing.
+
+Breakpoint 1, main () at main.c:62
+62     printf(&quot;Hello World!\n&quot;);
+</code></pre>
+
+</li>
+<li>
+<p>(Optional) Continue exercising the debugger. </p>
+</li>
 </ol>
 <p>Run <code>help</code> for GDB help, or see <a href="#common-gdb-commands">Common GDB Commands</a>.</p>
 <ol>
@@ -1841,7 +1839,7 @@ xPSR: 0x81000000 pc: 0x0000fff4 msp: 0x20003ff0
 Inferior 1 [Remote target] will be detached.
 
 Quit anyway? (y or n) [answered Y; input not from terminal]
-Detaching from program: C:\Users\Jake.Carter\codespace\Hello_World\build\max78002.elf, Remote target
+Detaching from program: C:\Users\User\codespace\Hello_World\build\max78002.elf, Remote target
 [Inferior 1 (Remote target) detached]
 </code></pre>
 
