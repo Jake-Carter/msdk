@@ -67,13 +67,9 @@
     </li>
         </ul>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#examples">Examples</a>
-        <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#updating-and-adding-examples">Updating and Adding Examples</a>
+    <li class="toctree-l2"><a class="reference internal" href="#contributing-examples">Contributing Examples</a>
     </li>
-        </ul>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#libraries">Libraries</a>
+    <li class="toctree-l2"><a class="reference internal" href="#contributing-libraries">Contributing Libraries</a>
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#self-locating-makefile">Self-Locating Makefile</a>
     </li>
@@ -118,10 +114,7 @@
 <p>External contributions from outside the <a href="https://github.com/Analog-Devices-MSDK">Analog Devices organization</a> should be made via a Pull Request opened from a fork.  Internal contributions should also preferrably use a fork where possible.</p>
 <p>If a direct branch on the mainline MSDK repo is made, the following branch naming conventions should be used when possible:</p>
 <ul>
-<li>Bugfix/ticket: <code>fix/branchname</code><ul>
-<li>For Jira tickets, it's recommended to use <code>fix/ticketnumber</code> so that the branch gets automatically tracked.  Ex: <code>fix/MSDK-670</code></li>
-</ul>
-</li>
+<li>Bugfix/ticket: <code>fix/ticketnumber</code></li>
 <li>New feature: <code>feature/branchname</code></li>
 <li>Generic development branch: <code>dev/branchname</code></li>
 <li>New and/or modified example branch: <code>example/branchname</code></li>
@@ -144,20 +137,22 @@
 <li>
 <p>Run cpplint.</p>
 <p>To run cpplint on a <strong>file</strong>, use <code>cpplint &lt;filepath&gt;</code>.</p>
-<p><code>shell
-$ cpplint Examples/MAX78000/Hello_World/main.c
-Done processing Examples/MAX78000/Hello_World/main.c</code></p>
+<pre class="codehilite"><code>$ cpplint Examples/MAX78000/Hello_World/main.c
+Done processing Examples/MAX78000/Hello_World/main.c
+</code></pre>
+
 <p>To recursively run cpplint on an <strong>entire directory</strong>, use <code>cpplint --recursive &lt;filepath&gt;</code>.</p>
-<p>```shell
-$ cpplint --recursive Examples/MAX78000</p>
-<p>Examples/MAX78000/ADC/example_config.h:1:  #ifndef header guard has wrong style, please use: EXAMPLES_MAX78000_ADC_EXAMPLE_CONFIG_H_  [build/header_guard] [5]
-Examples/MAX78000/ADC/example_config.h:14:  #endif line should be "#endif  // EXAMPLES_MAX78000_ADC_EXAMPLE_CONFIG_H_"  [build/header_guard] [5]
+<pre class="codehilite"><code>$ cpplint --recursive Examples/MAX78000
+
+Examples/MAX78000/ADC/example_config.h:1:  #ifndef header guard has wrong style, please use: EXAMPLES_MAX78000_ADC_EXAMPLE_CONFIG_H_  [build/header_guard] [5]
+Examples/MAX78000/ADC/example_config.h:14:  #endif line should be &quot;#endif  // EXAMPLES_MAX78000_ADC_EXAMPLE_CONFIG_H_&quot;  [build/header_guard] [5]
 Done processing Examples/MAX78000/ADC/example_config.h
 Done processing Examples/MAX78000/ADC/main.c
 Done processing Examples/MAX78000/AES/main.c
 Done processing Examples/MAX78000/ARM-DSP/arm_bayes_example/arm_bayes_example_f32.c
 ...
-```</p>
+</code></pre>
+
 </li>
 <li>
 <p>Resolve any errors.</p>
@@ -175,61 +170,60 @@ Done processing Examples/MAX78000/ARM-DSP/arm_bayes_example/arm_bayes_example_f3
 </li>
 <li>
 <p>Run clang-format.</p>
-<p>The <code>--style=file --Werror --verbose</code> options are shared across all runs.</p>
-<p>To run a clang-format <em>check</em> on a file, use the <code>-n</code> "dry-run" flag.  </p>
+<p>To run a clang-format <strong><em>check</em></strong> on a file, use the <code>-n</code> "dry-run" flag.  </p>
 <p><code>clang-format-14 --style=file --Werror --verbose -n &lt;filename&gt;</code></p>
 <p>For example:</p>
-<p>```shell
-$ clang-format-14 --style=file --Werror --verbose -n Examples/MAX78000/CRC/main.c</p>
-<p>Formatting [1/1] Examples/MAX78000/CRC/main.c
+<pre class="codehilite"><code>$ clang-format-14 --style=file --Werror --verbose -n Examples/MAX78000/CRC/main.c
+
+Formatting [1/1] Examples/MAX78000/CRC/main.c
 Examples/MAX78000/CRC/main.c:86:40: error: code should be clang-formatted [-Wclang-format-violations]
     for (i = 0; i &lt; DATA_LENGTH; i++) { array[i] = i; }
-                                       ^
-```</p>
+                                    ^
+</code></pre>
+
 <p>To <em>apply</em> the formatter to automatically format a file, use the <code>-i</code> flag.</p>
 <p><code>clang-format-14 --style=file --Werror --verbose -i &lt;filename&gt;</code></p>
 <p>For example:</p>
-<p><code>shell
-clang-format-14 --style=file --verbose -i Examples/MAX78000/CRC/main.c
-Formatting [1/1] Examples/MAX78000/CRC/main.c</code></p>
+<pre class="codehilite"><code>$ clang-format-14 --style=file --verbose -i Examples/MAX78000/CRC/main.c
+Formatting [1/1] Examples/MAX78000/CRC/main.c
+</code></pre>
+
 <p>This will apply the formatter and overwrite the file.  Check the formatter's work using <code>git diff</code>.</p>
-<p>```diff
-diff --git a/Examples/MAX78000/CRC/main.c b/Examples/MAX78000/CRC/main.c
+<pre class="codehilite"><code class="language-diff">$ diff --git a/Examples/MAX78000/CRC/main.c b/Examples/MAX78000/CRC/main.c
 index 1dda1feed..c16ceb962 100644
 --- a/Examples/MAX78000/CRC/main.c
 +++ b/Examples/MAX78000/CRC/main.c
-@@ -83,7 +83,9 @@ void Test_CRC(int asynchronous)</p>
-<pre class="codehilite"><code>printf(asynchronous ? &quot;TEST CRC ASYNC\n&quot; : &quot;TEST CRC SYNC\n&quot;);
+@@ -83,7 +83,9 @@ void Test_CRC(int asynchronous)
+
+    printf(asynchronous ? &quot;TEST CRC ASYNC\n&quot; : &quot;TEST CRC SYNC\n&quot;);
+
+-    for (i = 0; i &lt; DATA_LENGTH; i++) { array[i] = i; }
++    for (i = 0; i &lt; DATA_LENGTH; i++) {
++        array[i] = i;
++    }
 </code></pre>
 
-<ul>
-<li>for (i = 0; i &lt; DATA_LENGTH; i++) { array[i] = i; }</li>
-<li>for (i = 0; i &lt; DATA_LENGTH; i++) {</li>
-<li>array[i] = i;</li>
-<li>}
-```</li>
-</ul>
 <p>To apply the formatter to multiple files, the <code>*</code> and <code>**</code> wildcard characters can be used.  <code>*</code> matches any file or folder, and <code>**</code> <em>recursively</em> matches any file or folder.</p>
 <p>To recursively run clang-format on all C files in an entire directory, use:</p>
 <p><code>clang-format-14 --style=file --verbose -n &lt;filepath&gt;/**/*.c</code>.</p>
 <p>For example:</p>
-<p>```shell
-$ clang-format-14 --style=file --verbose -i Examples/MAX78000/ARM-DSP/*<em>/</em>.c</p>
-<p>Formatting [1/24] Examples/MAX78000/ARM-DSP/arm_bayes_example/arm_bayes_example_f32.c
+<pre class="codehilite"><code>$ clang-format-14 --style=file --verbose -i Examples/MAX78000/ARM-DSP/**/*.c
+
+Formatting [1/24] Examples/MAX78000/ARM-DSP/arm_bayes_example/arm_bayes_example_f32.c
 Formatting [2/24] Examples/MAX78000/ARM-DSP/arm_class_marks_example/arm_class_marks_example_f32.c
 Formatting [3/24] Examples/MAX78000/ARM-DSP/arm_convolution_example/arm_convolution_example_f32.c
 Formatting [4/24] Examples/MAX78000/ARM-DSP/arm_convolution_example/math_helper.c
 Formatting [5/24] Examples/MAX78000/ARM-DSP/arm_dotproduct_example_f32/arm_dotproduct_example_f32.c
 ...
-```</p>
+</code></pre>
+
 <p>... which runs the formatter for all C files in the <code>Examples/MAX78000/ARM-DSP</code> directory <em>and all its subdirectories</em>.  It should be noted that <code>**</code> is not supported on native Windows, but <code>*</code> is.</p>
 </li>
 <li>
 <p><code>git add</code> and <code>git commit</code> any changes to your code.  Now, it's ready for a PR!  The same checks will be automatically run against any PRs that are opened in the MSDK, and they must pass before the code can be approved.</p>
 </li>
 </ol>
-<h2 id="examples">Examples</h2>
-<h3 id="updating-and-adding-examples">Updating and Adding Examples</h3>
+<h2 id="contributing-examples">Contributing Examples</h2>
 <ol>
 <li>
 <p>First, ensure that the example project has been linted and formatted to follow the <a href="#style-guide">Style Guide</a></p>
@@ -238,47 +232,30 @@ Formatting [5/24] Examples/MAX78000/ARM-DSP/arm_dotproduct_example_f32/arm_dotpr
 <p>Copy the example project into the <a href="https://github.com/Analog-Devices-MSDK/msdk/tree/main/Examples">Examples</a> folder of the SDK for the applicable target microcontrollers.</p>
 </li>
 <li>
-<p><code>git add</code> and <code>git commit</code> the Example project.  Use a commit message such as "Add xxx Example"</p>
+<p><code>git add</code> and <code>git commit</code> the Example project.  <strong>Commit your project files before running MSDKGen.</strong></p>
 </li>
 <li>
 <p>Run the <a href="https://github.com/Analog-Devices-MSDK/MSDKGen">MSDKGen</a> utility to ensure the example project's support files are updated to the latest version.</p>
-<p>If you are coming from the <strong><em>legacy</em> Makefile system</strong> (no project.mk) it's best to migrate the old Makefile in its own commit...</p>
-<ol>
-<li>
-<p>Generate the new Makefile first using the <code>--no-vscode</code>, <code>--no-eclipse</code>, and <code>--backup</code> options. Ex:</p>
-<p><code>shell
-python msdkgen.py update-all --projects yourprojectname --no-vscode --no-eclipse --overwrite --backup</code></p>
+<pre class="codehilite"><code>python msdkgen.py update-all --projects yourprojectname --overwrite
+</code></pre>
+
 </li>
 <li>
-<p>A project.mk file will be added, and the old Makefile will be replaced but <em>backed up</em> to a file called <code>Makefile-backup.mk</code>.</p>
-</li>
-<li>
-<p>Migrate any project-specific build settings to project.mk.  Documentation on the project.mk system can be found <a href="https://github.com/Analog-Devices-MSDK/VSCode-Maxim/tree/develop">here</a>.</p>
-</li>
-<li>
-<p><code>git add</code> and <code>git commit</code> the new Makefile and project.mk files.  Delete the backup file.</p>
-</li>
-<li>
-<p>Run a full <code>update-all</code>, which will then update the VSCode and Eclipse files as well.</p>
-</li>
-</ol>
-<p>Otherwise, if the project is already running a <a href="https://github.com/Analog-Devices-MSDK/VSCode-Maxim/tree/develop#build-configuration">project.mk</a> file then a full <code>update-all</code> command can be used.</p>
-<p>Ex:</p>
-<p><code>shell
-python msdkgen.py update-all --projects yourprojectname --overwrite</code></p>
+<p>Re-test the project if applicable.</p>
 </li>
 <li>
 <p>If the updated files break any projects they can be restored to the previously working version using the <code>git restore</code> command.</p>
 <p>For example, the command below will restore all files in your current working directory.</p>
-<p><code>shell
-git restore **</code></p>
+<pre class="codehilite"><code>git restore **
+</code></pre>
+
 <p>The <code>git diff</code> command can also be used to inspect local changes to help identify the root cause. Ex:</p>
-<p><code>shell
-git diff ./</code></p>
-<p>If MSDKGen breaks a previously working project <em>that has already been migrated to the project.mk build system</em> please report it to the <a href="https://github.com/Analog-Devices-MSDK/MSDKGen/issues">MSDKGen Issue Tracker</a></p>
+<pre class="codehilite"><code>git diff ./
+</code></pre>
+
 </li>
 </ol>
-<h2 id="libraries">Libraries</h2>
+<h2 id="contributing-libraries">Contributing Libraries</h2>
 <p>Libraries should be added to the <a href="Libraries">Libraries</a> sub-folder of the MSDK.</p>
 <ul>
 <li>
@@ -290,21 +267,23 @@ git diff ./</code></p>
 </ul>
 <h3 id="self-locating-makefile">Self-Locating Makefile</h3>
 <p>The first thing that the <code>libraryname.mk</code> file should do is locate its own directory and store it in a variable.  The code snippet can be used to achieve this.</p>
-<pre><code class="language-Makefile">ifeq &quot;$(LIBRARYNAME_DIR)&quot; &quot;&quot;
+<pre class="codehilite"><code class="language-makefile">ifeq &quot;$(LIBRARYNAME_DIR)&quot; &quot;&quot;
 # If LIBRARYNAME_DIR is not specified, this Makefile will locate itself.
 LIBRARYNAME_DIR := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
 endif
 </code></pre>
+
 <p>All filepaths for the library should then use this <code>$(LIBRARYNAME_DIR)</code>-type variable as their "root" for all filepaths.  This is a safe and reliable way to self-reference internal library files.</p>
 <p>For an example, see the <a href="Libraries/PeriphDrivers/periphdriver.mk">periphdriver.mk</a> file.</p>
 <h3 id="simple-libraries">Simple Libraries</h3>
 <p>For simple libraries, it may be sufficient to just add the library's source files to the build using <code>VPATH</code> and <code>IPATH</code>.</p>
 <p>For example:</p>
-<pre><code class="language-Makefile">IPATH += $(LIBRARY_NAME_DIR)/include
+<pre class="codehilite"><code class="language-makefile">IPATH += $(LIBRARY_NAME_DIR)/include
 VPATH += $(LIBRARY_NAME_DIR)/src
 SRCS += libfile1.c
 SRCS += libfile2.c
 </code></pre>
+
 <p>An example of this is <a href="Libraries/MiscDrivers/">MiscDrivers</a>, which is a simple source-file-only library.  It gets its source code selectively added to the build via <a href="Libraries/Boards/MAX78000/EvKit_V1/board.mk">board.mk</a> files.</p>
 <h3 id="advanced-libraries">Advanced Libraries</h3>
 <p>More advanced libraries (including those with a large number of source files) should include a rule to build as a static library file with a <a href="https://www.gnu.org/software/make/manual/make.html#Recursion">recursive Make call</a>.  </p>
