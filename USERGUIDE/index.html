@@ -117,7 +117,7 @@
     </li>
         </ul>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a>
+    <li class="toctree-l2"><a class="reference internal" href="#project-management">Project Management</a>
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#board-support-packages">Board Support Packages</a>
     </li>
@@ -313,7 +313,7 @@
 </li>
 </ul>
 </li>
-<li><a href="#usage">Usage</a><ul>
+<li><a href="#project-management">Project Management</a><ul>
 <li><a href="#board-support-packages">Board Support Packages</a></li>
 <li><a href="#visual-studio-code">Visual Studio Code</a><ul>
 <li><a href="#setup-vs-code_1">Setup (VS Code)</a></li>
@@ -589,9 +589,9 @@
 <li>
 <p>You should now see the contents of the installation directory populated with the MSDK.<br />
 <strong>Note:</strong> On MacOS, some <a href="#completing-the-installation-on-macos">additional steps</a> are required.</p>
+<p><img alt="Figure 10" src="../res/Fig10.jpg" /></p>
 </li>
 </ol>
-<p><img alt="Figure 10" src="../res/Fig10.jpg" /></p>
 <h4 id="completing-the-installation-on-macos">Completing the Installation on MacOS</h4>
 <p>On MacOS, some additional missing packages must be manually installed via <a href="https://brew.sh/">Homebrew</a>.</p>
 <p><strong>For non-M1 platforms:</strong></p>
@@ -689,9 +689,9 @@
 <p><strong>System Path</strong>:  Your system's <em>Path</em> is a special environment variable that tells it where to search for program binaries.   It's also expected that the user has some familiarity with this concept, and how to modify the system Path if necessary.</p>
 </li>
 <li>
-<p><strong>Build Configuration vs Project Configuration</strong>: An MSDK project is primarily made up of two distinct systems:  The <em>Build System</em> and the <em>Project Configuration System</em>.  </p>
-<p>It's important to note that the <strong>Build System</strong> manages the compilation of source code into program binaries and offers a <strong>Command-Line Interface (CLI)</strong> for setting <strong>Build Configuration Variables</strong>.</p>
-<p>Additionally, note the <strong>Project Configuration System</strong> offers a higher level user interface (typically with a GUI) that manages the tools for <strong>editing</strong> source code, <strong>flashing</strong> program binaries, and <strong>debugging</strong> them.  Additionally, the Project Configuration System sits <em>on top</em> of the build system's <em>CLI</em>, allowing it to manage fundamental aspects of the build such as:</p>
+<p><strong>Build Configuration vs Project Configuration</strong>: An MSDK project is primarily made up of two complementary systems:  The <em>Build System</em> and the <em>Project Management System</em>.  These systems each offer their own configuration interfaces, and it's important to note what each is used for.</p>
+<p>The <strong>Build System</strong> manages the compilation of source code into program binaries and offers a <strong>Command-Line Interface (CLI)</strong> for setting <strong>Build Configuration Variables</strong>.</p>
+<p>The <strong>Project Management System</strong> offers a higher level user interface (typically with a GUI) to manage the tools for <strong>editing</strong> source code, <strong>flashing</strong> program binaries, and <strong>debugging</strong> them on hardware.  The Project Management System sits <em>on top</em> of the build system's <em>CLI</em> and uses it to manage fundamental aspects of the build such as:</p>
 <ul>
 <li>Setting the <em>Target Microcontroller</em></li>
 <li>Setting the <em>Board Support Package</em></li>
@@ -699,7 +699,7 @@
 </ul>
 </li>
 <li>
-<p><strong>Integrated Development Environment (IDE)</strong>:  An IDE combines the <em>Build Configuration</em> and <em>Project Configuration</em> systems and typically features a Graphical User Interface (GUI) and other development features.  The abbreviation is used frequently in the document.</p>
+<p><strong>Integrated Development Environment (IDE)</strong>:  An IDE combines the <em>Build System</em> and <em>Project Management</em> systems and typically features a Graphical User Interface (GUI) and other development features.  The abbreviation is used frequently in the document.</p>
 </li>
 </ul>
 <h3 id="getting-started-with-visual-studio-code">Getting Started with Visual Studio Code</h3>
@@ -1137,9 +1137,9 @@ Detaching from program: C:\Users\User\codespace\Hello_World\build\max78002.elf, 
 <p>In the terminal window running the OpenOCD <em>server</em>, press <code>CTRL + C</code> to issue the shutdown command and quit.</p>
 </li>
 </ol>
-<h2 id="usage">Usage</h2>
-<p>As discussed in <a href="#key-concepts">Key Concepts</a>, an MSDK project is primarily made up of two distinct systems:  The <strong><em>Build System</em></strong> and the <em><strong>Project Configuration System</strong></em>.  <a href="#getting-started">Getting Started</a> demonstrates the basic usage and configuration of these systems, while this section offers a more detailed reference.</p>
-<p>The Project Configuration System offers a higher level user interface (typically with a GUI) that manages the tools for <strong>editing</strong> source code, <strong>flashing</strong> program binaries, and <strong>debugging</strong> them in the MSDK's <a href="#supported-development-environments">supported IDEs</a>.  Additionally, the Project Configuration System sits <em>on top</em> of the <a href="#build-system">build system</a>'s <em>CLI</em>, allowing it to manage fundamental aspects of development such as:</p>
+<h2 id="project-management">Project Management</h2>
+<p>As discussed in <a href="#key-concepts">Key Concepts</a>, an MSDK project is primarily made up of two distinct systems:  The <strong><em>Build System</em></strong> and the <em><strong>Project Management System</strong></em>.  <a href="#getting-started">Getting Started</a> demonstrates the basic usage and configuration of these systems, while this section offers a more detailed reference.</p>
+<p>The Project Management System offers a higher level user interface (typically with a GUI) that manages the tools for <strong>editing</strong> source code, <strong>flashing</strong> program binaries, and <strong>debugging</strong> them in the MSDK's <a href="#supported-development-environments">supported IDEs</a>.  Additionally, the Project Management System sits <em>on top</em> of the <a href="#build-system">build system</a>'s <em>CLI</em>, allowing it to manage fundamental aspects of development such as:</p>
 <ul>
 <li>Setting the <em>Target Microcontroller</em>  (<code>TARGET</code> <em><a href="#build-configuration-variables-reference-table">Build Configuration Variable</a></em>)</li>
 <li>Setting the <em>Board Support Package</em> (<code>BOARD</code> <em><a href="#build-configuration-variables-reference-table">Build Configuration Variable</a></em>)</li>
@@ -1941,7 +1941,7 @@ Detaching from program: C:\Users\User\codespace\Hello_World\build\max78002.elf, 
 </tbody>
 </table>
 <h2 id="build-system">Build System</h2>
-<p>As discussed in <a href="#key-concepts">Key Concepts</a>, an MSDK project is primarily made up of two distinct systems:  The <strong><em>Build System</em></strong> and the <em><strong>Project Configuration System</strong></em>.  <a href="#getting-started">Getting Started</a> demonstrates the basic usage and configuration of these systems, while this section offers a detailed reference into the build system's <strong>CLI</strong> and  additional documentation on advanced project configuration options and use-cases.</p>
+<p>As discussed in <a href="#key-concepts">Key Concepts</a>, an MSDK project is primarily made up of two distinct systems:  The <strong><em>Build System</em></strong> and the <em><strong>Project Management System</strong></em>.  <a href="#getting-started">Getting Started</a> demonstrates the basic usage and configuration of these systems, while this section offers a detailed reference into the build system's <strong>CLI</strong> and  additional documentation on advanced options and use-cases.</p>
 <h3 id="build-system-overview">Build System Overview</h3>
 <p>The <strong>Build System</strong> manages the compilation of source code into program binaries and offers a <strong>Command-Line Interface (CLI)</strong> for setting <strong>Build Configuration Variables</strong>.</p>
 <p>The Build System is managed by two files found in a project's root directory, one called <strong>Makefile</strong> and one called <strong>project.mk</strong>.  These files are used alongside the <a href="https://www.gnu.org/software/make/">GNU Make</a> program (which is a part of the MSDK toolchain) to locate and build a project's source code.</p>
@@ -2284,7 +2284,7 @@ MFLOAT_ABI=hard # Enable hardware floating point acceleration
 <h2 id="libraries">Libraries</h2>
 <p>The MSDK contains a large number of <strong>libraries</strong>, both third-party and in-house.  These libraries are an extension to the "core" SDK resources and contain drivers for miscellaneous <em><strong>external</strong></em> components such as TFT displays, cameras, accelerometers, audio codecs, and other devices.  The MSDK also contains libraries for more advanced <em><strong>internal</strong></em> hardware peripherals that provide an <em>additional</em> higher-level abstraction layer above the <a href="#peripheral-driver-api">Peripheral Driver API</a> such as USB, the SDHC interface, and the Cordio BLE stack.</p>
 <p>These libraries may also offer their <em>own</em> Build Configuration Variables in addition to those already available in the <a href="#build-system">Build System</a>.  These additional build options are enabled alongside the library itself via a convenient <em>toggle switch</em> (See the <strong>"Libraries"</strong> section of the <em><a href="#build-configuration-variables-reference-table">Build Configuration Variables</a></em>).</p>
-<p>Source code is located in the <a href="Libraries">Libraries</a> folder of the SDK and managed with the <a href="Libraries/libs.mk"><code>Libraries/libs.mk</code></a> file, which comes pre-included in each example project.</p>
+<p>Source code is located in the <a href="Libraries">Libraries</a> folder of the SDK and managed with the <code>Libraries/libs.mk</code> file, which comes pre-included in each example project.</p>
 <h3 id="cmsis-dsp">CMSIS-DSP</h3>
 <p>The CMSIS-DSP library provides a suite of common <strong>Digital Signal Processing <em>(DSP)</em></strong> functions that take advantage of hardware accelerated <em>Floating Point Unit (FPU)</em> available on microcontrollers with Arm Cortex-M cores.  This library is distributed in the MSDK as a pre-compiled static library file and the MSDK maintains a port of the official code examples in the <strong>ARM-DSP</strong> <a href="Examples">Examples</a> folder for each microcontroller.</p>
 <p>Please refer to the <a href="https://www.keil.com/pack/doc/CMSIS/DSP/html/index.html">CMSIS-DSP official documentation</a> for more detailed documentation on the library functions and usage.</p>
