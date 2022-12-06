@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Analog Devices" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
     <title>Contributing - Analog Devices MSDK Documentation</title>
     <link rel="stylesheet" href="../css/theme.css" />
@@ -79,6 +79,22 @@
     </li>
         </ul>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#contributing-documentation">Contributing Documentation</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#code-maintainers">Code Maintainers</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#user-guide">User Guide</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#building-the-documentation">Building the Documentation</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#local-builds">Local Builds</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#auto-builds-and-deployment">Auto Builds and Deployment</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
     </ul>
                 </li>
               </ul>
@@ -98,6 +114,7 @@
     <li><a href=".." class="icon icon-home" alt="Docs"></a> &raquo;</li>
       <li>Contributing</li>
     <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/Analog-Devices-MSDK/msdk/edit/master/docs/CONTRIBUTING.md" class="icon icon-github"> Edit on GitHub</a>
     </li>
   </ul>
   <hr/>
@@ -288,6 +305,37 @@ SRCS += libfile2.c
 <h3 id="advanced-libraries">Advanced Libraries</h3>
 <p>More advanced libraries (including those with a large number of source files) should include a rule to build as a static library file with a <a href="https://www.gnu.org/software/make/manual/make.html#Recursion">recursive Make call</a>.  </p>
 <p>This type of library should also set up the appropriate <a href="https://github.com/Analog-Devices-MSDK/VSCode-Maxim/tree/develop#build-configuration">configuration variables</a> to include that static library to the build.</p>
+<h2 id="contributing-documentation">Contributing Documentation</h2>
+<h3 id="code-maintainers">Code Maintainers</h3>
+<p>MSDK code should be documented using Doxygen syntax on all public functions, data structures, and variables.  See the <a href="https://www.doxygen.nl/manual/docblocks.html"><strong>DoxyGen Manual</strong></a> for more details on syntax for C-like languages.</p>
+<p>DoxyGen is automatically run across the MSDK code as part of the User Guide's build process.  A Peripheral API reference is generated for each target microcontroller using the Doxygen files located in <code>Libraries/PeriphDrivers/Documentation</code>, and the output is packaged as a sub-component of the User Guide when it's built.  For code maintainers no action is needed other than maintaining up to date Doxygen documentation for all source code.</p>
+<h3 id="user-guide">User Guide</h3>
+<p>An MSDK User Guide is maintained in the <a href="../USERGUIDE/">USERUIDE.md</a> file.  This document contains higher-level usage info for the MSDK.  If a part, IDE, or library is supported by the MSDK then there should be some relevant info in the User Guide covering its setup, configuration, and usage.</p>
+<p>When writing markdown links, relative paths should always be used.  Additionally, links to local files on the user's filesystem <strong>cannot</strong> be used, since the online copy of the docs will throw a 404 on them.  See <a href="https://www.mkdocs.org/user-guide/writing-your-docs/">Writing Your Docs</a> for more details.</p>
+<p>Static resources such as images should be placed in the <code>res</code> folder.</p>
+<h3 id="building-the-documentation">Building the Documentation</h3>
+<h4 id="local-builds">Local Builds</h4>
+<p>The <code>Documentation/build.py</code> script can be used to build the MSDK User Guide and supporting documentation locally.  This script:</p>
+<ul>
+<li>Builds all the Peripheral API references using Doxygen and copies them into <code>Documentation</code></li>
+<li>Copies any markdown files in the root of the repo into the <code>Documentation</code> folder.</li>
+<li>Copies the <code>res</code> (resources) folder into <code>Documentation</code></li>
+<li>Builds the MSDK User Guide using <a href="https://www.mkdocs.org/">Mkdocs</a>, which packages everything in <code>Documentation</code> into a static HTML/CSS/JavaScript site.</li>
+</ul>
+<p>To <strong>build</strong> the docs:</p>
+<ol>
+<li>Install Python 3</li>
+<li><code>pip install -r Documentation/requirements.txt</code></li>
+<li><code>python Documentation/build.py</code></li>
+<li>The site will be built in the <code>docs</code> folder of the repo.</li>
+</ol>
+<p>To <strong>preview</strong> the generated site:</p>
+<p><code>mkdocs serve</code></p>
+<p>This will open a localhost test server with live re-loading.</p>
+<p>To <strong>configure</strong> the generated site, use <code>mkdocs.yml</code>.  See <a href="https://www.mkdocs.org/user-guide/configuration/">Mkdocs Configuration</a> for more details.</p>
+<h4 id="auto-builds-and-deployment">Auto Builds and Deployment</h4>
+<p>The <strong>"Build &amp; Deploy Docs"</strong> Github Action will perform all the local steps above.  Additionally, it will deploy the static site to the <code>gh-pages</code> branch of the repository for use with <a href="https://pages.github.com/">Github Pages</a>.  When the <code>gh-pages</code> branch is updated, Pages will refresh the online copy of the documentation within ~5-10 mins.</p>
+<p>This auto-deploy procedure is triggered on every push to the <code>release</code> branch.</p>
               
             </div>
           </div><footer>
@@ -299,6 +347,7 @@ SRCS += libfile2.c
 
   <div role="contentinfo">
     <!-- Copyright etc -->
+      <p>Copyright (C) Maxim Integrated Products, Inc., All rights Reserved.</p>
   </div>
 
   Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -313,6 +362,10 @@ SRCS += libfile2.c
 
   <div class="rst-versions" role="note" aria-label="Versions">
   <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/Analog-Devices-MSDK/msdk" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
     
     
       <span><a href="../USERGUIDE/" style="color: #fcfcfc">&laquo; Previous</a></span>

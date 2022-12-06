@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Analog Devices" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
     <title>User Guide - Analog Devices MSDK Documentation</title>
     <link rel="stylesheet" href="../css/theme.css" />
@@ -254,6 +254,7 @@
     <li><a href=".." class="icon icon-home" alt="Docs"></a> &raquo;</li>
       <li>User Guide</li>
     <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/Analog-Devices-MSDK/msdk/edit/master/docs/USERGUIDE.md" class="icon icon-github"> Edit on GitHub</a>
     </li>
   </ul>
   <hr/>
@@ -398,7 +399,7 @@
 </ul>
 </div>
 <h2 id="overview">Overview</h2>
-<p>The Maxim Microcontrollers SDK (MSDK), now a part of <a href="https://www.analog.com/en/index.html">Analog Devices</a>, contains the necessary software and tools to develop firmware for the <a href="https://www.maximintegrated.com/en/products/microcontrollers.html">MAX-series Microcontrollers</a>.  That includes register files and system startup files to enable low-level development for its <a href="#supported-parts">supported parts</a>.  It also provides higher level peripheral driver APIs (written in C) alongside various utilities, third-party libraries, Board Support Packages (BSPs) and a set of example programs for each microcontroller.</p>
+<p>The Maxim Microcontrollers SDK (MSDK), now a part of <a href="https://www.analog.com/en/index.html">Analog Devices</a>, contains the necessary software and tools to develop firmware for the <a href="https://www.maximintegrated.com/en/products/microcontrollers.html">MAX32xxx and MAX78xxx Microcontrollers</a>.  That includes register files and system startup files to enable low-level development for its <a href="#supported-parts">supported parts</a>.  It also provides higher level peripheral driver APIs (written in C) alongside various utilities, third-party libraries, Board Support Packages (BSPs) and a set of example programs for each microcontroller.</p>
 <p>Additionally, a GCC-based toolchain is included and builds are managed by a system of Makefiles (See <a href="https://www.gnu.org/software/make/manual/">GNU Make</a>).  Flashing and debugging are enabled by a <a href="https://github.com/Analog-Devices-MSDK/openocd">custom fork of OpenOCD</a>.  The MSDK's toolchain and build system offers a Command Line Interface (CLI), and project files for <a href="#supported-development-environments">supported development environments</a> are maintained that build on top of that CLI.</p>
 <p>This document describes the MSDK's installation, setup, and usage.</p>
 <h3 id="supported-operating-systems">Supported Operating Systems</h3>
@@ -419,90 +420,155 @@
 <li>
 <p><a href="https://www.maximintegrated.com/en/products/microcontrollers/MAX32520.html"><strong>MAX32520</strong></a>: ChipDNA Secure Microcontroller with Secure Boot for IoT Applications</p>
 <ul>
-<li><a href="https://www.maximintegrated.com/en/products/microcontrollers/MAX32520-KIT.html">MAX32520-KIT</a></li>
-<li><a href="https://www.maximintegrated.com/en/products/microcontrollers/MAX32520FTHR.html">MAX32520FTHR</a></li>
+<li>
+<p><a href="https://www.maximintegrated.com/en/products/microcontrollers/MAX32520-KIT.html">MAX32520-KIT</a></p>
+</li>
+<li>
+<p><a href="https://www.maximintegrated.com/en/products/microcontrollers/MAX32520FTHR.html">MAX32520FTHR</a></p>
+</li>
 </ul>
 </li>
-<li>
-<p><a href="https://www.maximintegrated.com/en/products/microcontrollers/MAX32570.html"><strong>MAX32570</strong></a> <strong>(Available by NDA only</strong>): Low-Power Arm Cortex-M4 Microcontroller with Contactless Radio for Secure Applications</p>
-</li>
-<li>
-<p><a href="https://www.maximintegrated.com/en/products/microcontrollers/MAX32650.html"><strong>MAX32650</strong></a>: Ultra-Low-Power Arm Cortex-M4 with FPU-Based Microcontroller (MCU) with 3MB Flash and 1MB SRAM</p>
+</ul>
+<hr />
 <ul>
-<li><a href="https://www.maximintegrated.com/en/products/microcontrollers/MAX32650-EVKIT.html">MAX32650-EVKIT</a></li>
-<li><a href="https://www.maximintegrated.com/en/products/microcontrollers/MAX32650FTHR.html">MAX32650FTHR</a></li>
+<li>
+<p><a href="https://www.maximintegrated.com/en/products/microcontrollers/MAX32570.html"><strong>MAX32570</strong></a>:  Low-Power Arm Cortex-M4 Microcontroller with Contactless Radio for Secure Applications <strong>(Available by NDA only</strong>)</p>
+<ul>
+<li>
+<p><a href="https://www.maximintegrated.com/en/products/microcontrollers/MAX32570-QNKIT.html">MAX32570-QNKIT</a></p>
+</li>
+<li>
+<p><a href="https://www.maximintegrated.com/en/products/microcontrollers/MAX32570-MNKIT.html">MAX32570-MNKIT</a></p>
+</li>
 </ul>
 </li>
+</ul>
+<hr />
+<ul>
+<li>
+<p><a href="https://www.maximintegrated.com/en/products/microcontrollers/MAX32650.html"><strong>MAX32650</strong></a>:  Ultra-Low-Power Arm Cortex-M4 with FPU-Based Microcontroller (MCU) with 3MB Flash and 1MB SRAM</p>
+<ul>
+<li>
+<p><a href="https://www.maximintegrated.com/en/products/microcontrollers/MAX32650-EVKIT.html">MAX32650-EVKIT</a></p>
+</li>
+<li>
+<p><a href="https://www.maximintegrated.com/en/products/microcontrollers/MAX32650FTHR.html">MAX32650FTHR</a></p>
+</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
 <li>
 <p><a href="https://www.maximintegrated.com/en/products/microcontrollers/MAX32655.html"><strong>MAX32655</strong></a>: Low-Power, Arm Cortex-M4 Processor with FPU-Based Microcontroller and Bluetooth 5.2</p>
 <ul>
-<li><a href="https://www.maximintegrated.com/en/products/microcontrollers/MAX32655EVKIT.html">MAX32655EVKIT</a></li>
-<li><a href="https://www.maximintegrated.com/en/products/microcontrollers/MAX32655FTHR.html">MAX32655FTHR</a></li>
-</ul>
+<li>
+<p><a href="https://www.maximintegrated.com/en/products/microcontrollers/MAX32655EVKIT.html">MAX32655EVKIT</a></p>
 </li>
 <li>
-<p><a href="https://www.maximintegrated.com/en/products/microcontrollers/MAX32660.html"><strong>MAX32660</strong></a>: Tiny, Ultra-Low-Power Arm Cortex-M4 Processor with FPU-Based Microcontroller (MCU) with 256KB Flash and 96KB SRAM</p>
+<p><a href="https://www.maximintegrated.com/en/products/microcontrollers/MAX32655FTHR.html">MAX32655FTHR</a></p>
+</li>
+</ul>
+</li>
+</ul>
+<hr />
 <ul>
+<li><a href="https://www.maximintegrated.com/en/products/microcontrollers/MAX32660.html"><strong>MAX32660</strong></a>:  Tiny, Ultra-Low-Power Arm Cortex-M4 Processor with FPU-Based Microcontroller (MCU) with 256KB Flash and 96KB SRAM<ul>
 <li><a href="https://www.maximintegrated.com/en/products/microcontrollers/MAX32660-EVSYS.html">MAX32660-EVSYS</a></li>
 </ul>
 </li>
-<li>
-<p><strong>MAX32662</strong> (Not Yet Publicly Available)</p>
+</ul>
+<hr />
 <ul>
-<li>MAX32662EVKIT (Not Yet Publicly Available)</li>
+<li><strong>MAX32662</strong> <strong>(Not Yet Publicly Available)</strong><ul>
+<li>MAX32662EVKIT <strong>(Not Yet Publicly Available)</strong></li>
 </ul>
 </li>
-<li>
-<p><a href="https://www.maximintegrated.com/en/products/microcontrollers/MAX32665.html"><strong>MAX32665-MAX32668 Family</strong></a>: Low-Power ARM Cortex-M4 with FPU-Based Microcontroller with Bluetooth 5 for Wearables</p>
-<ul>
-<li><a href="https://www.maximintegrated.com/en/products/microcontrollers/MAX32666EVKIT.html">MAX32666EVKIT</a></li>
-<li><a href="https://www.maximintegrated.com/en/products/microcontrollers/MAX32666FTHR.html">MAX32666FTHR</a></li>
-<li>MAX32666FTHR2 (Product Page Not Yet Available)</li>
 </ul>
+<hr />
+<ul>
+<li>
+<p><a href="https://www.maximintegrated.com/en/products/microcontrollers/MAX32665.html"><strong>MAX32665-MAX32668 Family</strong></a>:  Low-Power ARM Cortex-M4 with FPU-Based Microcontroller with Bluetooth 5 for Wearables</p>
+<ul>
+<li>
+<p><a href="https://www.maximintegrated.com/en/products/microcontrollers/MAX32666EVKIT.html">MAX32666EVKIT</a></p>
 </li>
 <li>
-<p><a href="https://www.maximintegrated.com/en/products/microcontrollers/MAX32670.html"><strong>MAX32670</strong></a>: High-Reliability, Ultra-Low-Power Microcontroller Powered by Arm Cortex-M4 Processor with FPU for Industrial and IoT</p>
+<p><a href="https://www.maximintegrated.com/en/products/microcontrollers/MAX32666FTHR.html">MAX32666FTHR</a></p>
+</li>
+<li>
+<p>MAX32666FTHR2 (Product Page Not Yet Available)</p>
+</li>
+</ul>
+</li>
+</ul>
+<hr />
 <ul>
+<li><a href="https://www.maximintegrated.com/en/products/microcontrollers/MAX32670.html"><strong>MAX32670</strong></a>:  High-Reliability, Ultra-Low-Power Microcontroller Powered by Arm Cortex-M4 Processor with FPU for Industrial and IoT<ul>
 <li><a href="https://www.maximintegrated.com/en/products/microcontrollers/MAX32670EVKIT.html">MAX32670EVKIT</a></li>
 </ul>
 </li>
-<li>
-<p><a href="https://www.maximintegrated.com/en/products/microcontrollers/MAX32672.html"><strong>MAX32672</strong></a>: High-Reliability, Tiny, Ultra-Low-Power Arm Cortex-M4F Microcontroller with 12-Bit 1MSPS ADC</p>
+</ul>
+<hr />
 <ul>
+<li><a href="https://www.maximintegrated.com/en/products/microcontrollers/MAX32672.html"><strong>MAX32672</strong></a>: High-Reliability, Tiny, Ultra-Low-Power Arm Cortex-M4F Microcontroller with 12-Bit 1MSPS ADC<ul>
 <li><a href="https://www.maximintegrated.com/en/products/microcontrollers/MAX32672EVKIT.html">MAX32672EVKIT</a></li>
 </ul>
 </li>
-<li>
-<p><a href="https://www.maximintegrated.com/en/products/microcontrollers/MAX32675.html"><strong>MAX32675</strong></a>: Ultra-Low-Power Arm Cortex-M4F with Precision Analog Front-End for Industrial and Medical Sensors</p>
-<ul>
-<li><a href="https://www.maximintegrated.com/en/products/microcontrollers/MAX32675EVKIT.html">MAX32675EVKIT</a></li>
-<li>MAX32675FTHR (Product Page Not Yet Available)</li>
 </ul>
+<hr />
+<ul>
+<li>
+<p><a href="https://www.maximintegrated.com/en/products/microcontrollers/MAX32675.html"><strong>MAX32675</strong></a>:  Ultra-Low-Power Arm Cortex-M4F with Precision Analog Front-End for Industrial and Medical Sensors</p>
+<ul>
+<li>
+<p><a href="https://www.maximintegrated.com/en/products/microcontrollers/MAX32675EVKIT.html">MAX32675EVKIT</a></p>
 </li>
 <li>
-<p><a href="https://www.maximintegrated.com/en/products/microcontrollers/MAX32680.html"><strong>MAX32680</strong></a>: Ultra-Low-Power Arm Cortex-M4F with Precision Analog Front-End and Bluetooth LE 5.2</p>
+<p>MAX32675FTHR (Product Page Not Yet Available)</p>
+</li>
+</ul>
+</li>
+</ul>
+<hr />
 <ul>
+<li><a href="https://www.maximintegrated.com/en/products/microcontrollers/MAX32680.html"><strong>MAX32680</strong></a>:  Ultra-Low-Power Arm Cortex-M4F with Precision Analog Front-End and Bluetooth LE 5.2<ul>
 <li><a href="https://www.maximintegrated.com/en/products/microcontrollers/MAX32680EVKIT.html">MAX32680EVKIT</a></li>
 </ul>
 </li>
-<li>
-<p><strong>MAX32690</strong>: (Not Yet Publicly Available)</p>
-</li>
-<li>
-<p><a href="https://www.maximintegrated.com/en/products/microcontrollers/MAX78000.html"><strong>MAX78000</strong></a>: Artificial Intelligence Microcontroller with Ultra-Low-Power Convolutional Neural Network Accelerator</p>
+</ul>
+<hr />
 <ul>
-<li><a href="https://www.maximintegrated.com/en/products/microcontrollers/MAX78000EVKIT.html">MAX78000EVKIT</a></li>
-<li><a href="https://www.maximintegrated.com/en/products/microcontrollers/MAX78000FTHR.html">MAX78000FTHR</a></li>
-<li><a href="https://www.maximintegrated.com/en/design/reference-design-center/system-board/7375.html">MAXREFDES178</a></li>
+<li>MAX32690 <strong>(Not Yet Publicly Available)</strong><ul>
+<li>MAX32690EVKIT <strong>(Not Yet Publicly Available)</strong></li>
 </ul>
 </li>
-<li>
-<p><a href="https://www.maximintegrated.com/en/products/microcontrollers/MAX78002.html"><strong>MAX78002</strong></a>: Artificial Intelligence Microcontroller with Low-Power Convolutional Neural Network Accelerator</p>
+</ul>
+<hr />
 <ul>
+<li>
+<p><a href="https://www.maximintegrated.com/en/products/microcontrollers/MAX78000.html"><strong>MAX78000</strong></a>:  Artificial Intelligence Microcontroller with Ultra-Low-Power Convolutional Neural Network Accelerator</p>
+<ul>
+<li>
+<p><a href="https://www.maximintegrated.com/en/products/microcontrollers/MAX78000EVKIT.html">MAX78000EVKIT</a></p>
+</li>
+<li>
+<p><a href="https://www.maximintegrated.com/en/products/microcontrollers/MAX78000FTHR.html">MAX78000FTHR</a></p>
+</li>
+<li>
+<p><a href="https://www.maximintegrated.com/en/design/reference-design-center/system-board/7375.html">MAXREFDES178</a></p>
+</li>
+</ul>
+</li>
+</ul>
+<hr />
+<ul>
+<li><a href="https://www.maximintegrated.com/en/products/microcontrollers/MAX78002.html"><strong>MAX78002</strong></a>:  Artificial Intelligence Microcontroller with Low-Power Convolutional Neural Network Accelerator<ul>
 <li><a href="https://www.maximintegrated.com/en/products/microcontrollers/MAX78002EVKIT.html">MAX78002EVKIT</a></li>
 </ul>
 </li>
 </ul>
+<hr />
 <h3 id="supported-development-environments">Supported Development Environments</h3>
 <ul>
 <li>Visual Studio Code</li>
@@ -2339,6 +2405,7 @@ MFLOAT_ABI=hard # Enable hardware floating point acceleration
 
   <div role="contentinfo">
     <!-- Copyright etc -->
+      <p>Copyright (C) Maxim Integrated Products, Inc., All rights Reserved.</p>
   </div>
 
   Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
@@ -2353,6 +2420,10 @@ MFLOAT_ABI=hard # Enable hardware floating point acceleration
 
   <div class="rst-versions" role="note" aria-label="Versions">
   <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/Analog-Devices-MSDK/msdk" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
     
     
       <span><a href=".." style="color: #fcfcfc">&laquo; Previous</a></span>
