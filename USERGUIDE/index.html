@@ -399,7 +399,7 @@
 </ul>
 </div>
 <h2 id="overview">Overview</h2>
-<p>The Maxim Microcontrollers SDK (MSDK), now a part of <a href="https://www.analog.com/en/index.html">Analog Devices</a>, contains the necessary software and tools to develop firmware for the <a href="https://www.maximintegrated.com/en/products/microcontrollers.html">MAX32xxx and MAX78xxx Microcontrollers</a>.  That includes register files and system startup files to enable low-level development for its <a href="#supported-parts">supported parts</a>.  It also provides higher level peripheral driver APIs (written in C) alongside various utilities, third-party libraries, Board Support Packages (BSPs) and a set of example programs for each microcontroller.</p>
+<p>The Maxim Microcontrollers SDK (MSDK), now a part of <a href="https://www.analog.com/en/index.html">Analog Devices</a>, contains the necessary software and tools to develop firmware for the <a href="https://www.analog.com/en/parametricsearch/10984">MAX32xxx and MAX78xxx Microcontrollers</a>.  That includes register files and system startup files to enable low-level development for its <a href="#supported-parts">supported parts</a>.  It also provides higher level peripheral driver APIs (written in C) alongside various utilities, third-party libraries, Board Support Packages (BSPs) and a set of example programs for each microcontroller.</p>
 <p>Additionally, a GCC-based toolchain is included and builds are managed by a system of Makefiles (See <a href="https://www.gnu.org/software/make/manual/">GNU Make</a>).  Flashing and debugging are enabled by a <a href="https://github.com/Analog-Devices-MSDK/openocd">custom fork of OpenOCD</a>.  The MSDK's toolchain and build system offers a Command Line Interface (CLI), and project files for <a href="#supported-development-environments">supported development environments</a> are maintained that build on top of that CLI.</p>
 <p>This document describes the MSDK's installation, setup, and usage.</p>
 <h3 id="supported-operating-systems">Supported Operating Systems</h3>
@@ -418,13 +418,13 @@
 <p>The following microcontrollers and evaluation platforms are officially supported by the MSDK.</p>
 <ul>
 <li>
-<p><a href="https://www.maximintegrated.com/en/products/microcontrollers/MAX32520.html"><strong>MAX32520</strong></a>: ChipDNA Secure Microcontroller with Secure Boot for IoT Applications</p>
+<p><a href="https://www.analog.com/en/products/max32520.html"><strong>MAX32520</strong></a>: ChipDNA Secure Microcontroller with Secure Boot for IoT Applications</p>
 <ul>
 <li>
-<p><a href="https://www.maximintegrated.com/en/products/microcontrollers/MAX32520-KIT.html">MAX32520-KIT</a></p>
+<p><a href="https://www.analog.com/en/design-center/evaluation-hardware-and-software/evaluation-boards-kits/max32520-kit.html">MAX32520-KIT</a></p>
 </li>
 <li>
-<p><a href="https://www.maximintegrated.com/en/products/microcontrollers/MAX32520FTHR.html">MAX32520FTHR</a></p>
+<p><a href="https://www.analog.com/en/design-center/evaluation-hardware-and-software/evaluation-boards-kits/max32520fthr.html">MAX32520FTHR</a></p>
 </li>
 </ul>
 </li>
@@ -432,13 +432,13 @@
 <hr />
 <ul>
 <li>
-<p><a href="https://www.maximintegrated.com/en/products/microcontrollers/MAX32570.html"><strong>MAX32570</strong></a>:  Low-Power Arm Cortex-M4 Microcontroller with Contactless Radio for Secure Applications <strong>(Available by NDA only</strong>)</p>
+<p><a href="https://www.analog.com/en/products/max32570.html"><strong>MAX32570</strong></a>:  Low-Power Arm Cortex-M4 Microcontroller with Contactless Radio for Secure Applications <strong>(Available by NDA only</strong>)</p>
 <ul>
 <li>
-<p><a href="https://www.maximintegrated.com/en/products/microcontrollers/MAX32570-QNKIT.html">MAX32570-QNKIT</a></p>
+<p><a href="https://www.analog.com/en/design-center/evaluation-hardware-and-software/evaluation-boards-kits/max32570-qnkit.html">MAX32570-QNKIT</a></p>
 </li>
 <li>
-<p><a href="https://www.maximintegrated.com/en/products/microcontrollers/MAX32570-MNKIT.html">MAX32570-MNKIT</a></p>
+<p><a href="https://www.analog.com/en/design-center/evaluation-hardware-and-software/evaluation-boards-kits/max32570-mnkit.html">MAX32570-MNKIT</a></p>
 </li>
 </ul>
 </li>
@@ -446,13 +446,13 @@
 <hr />
 <ul>
 <li>
-<p><a href="https://www.maximintegrated.com/en/products/microcontrollers/MAX32650.html"><strong>MAX32650</strong></a>:  Ultra-Low-Power Arm Cortex-M4 with FPU-Based Microcontroller (MCU) with 3MB Flash and 1MB SRAM</p>
+<p><a href="https://www.analog.com/en/products/max32650.html"><strong>MAX32650</strong></a>:  Ultra-Low-Power Arm Cortex-M4 with FPU-Based Microcontroller (MCU) with 3MB Flash and 1MB SRAM</p>
 <ul>
 <li>
-<p><a href="https://www.maximintegrated.com/en/products/microcontrollers/MAX32650-EVKIT.html">MAX32650-EVKIT</a></p>
+<p><a href="https://www.analog.com/en/design-center/evaluation-hardware-and-software/evaluation-boards-kits/max32650-evkit.html">MAX32650-EVKIT</a></p>
 </li>
 <li>
-<p><a href="https://www.maximintegrated.com/en/products/microcontrollers/MAX32650FTHR.html">MAX32650FTHR</a></p>
+<p><a href="https://www.analog.com/en/design-center/evaluation-hardware-and-software/evaluation-boards-kits/max32650fthr.html">MAX32650FTHR</a></p>
 </li>
 </ul>
 </li>
@@ -460,21 +460,23 @@
 <hr />
 <ul>
 <li>
-<p><a href="https://www.maximintegrated.com/en/products/microcontrollers/MAX32655.html"><strong>MAX32655</strong></a>: Low-Power, Arm Cortex-M4 Processor with FPU-Based Microcontroller and Bluetooth 5.2</p>
+<p><a href="https://www.analog.com/en/products/max32655.html"><strong>MAX32655</strong></a>: Low-Power, Arm Cortex-M4 Processor with FPU-Based Microcontroller and Bluetooth 5.2</p>
 <ul>
 <li>
-<p><a href="https://www.maximintegrated.com/en/products/microcontrollers/MAX32655EVKIT.html">MAX32655EVKIT</a></p>
+<p><a href="https://www.analog.com/en/design-center/evaluation-hardware-and-software/evaluation-boards-kits/max32655evkit.html">MAX32655EVKIT</a></p>
 </li>
 <li>
-<p><a href="https://www.maximintegrated.com/en/products/microcontrollers/MAX32655FTHR.html">MAX32655FTHR</a></p>
+<p><a href="https://www.analog.com/en/design-center/evaluation-hardware-and-software/evaluation-boards-kits/max32655fthr.html">MAX32655FTHR</a></p>
 </li>
 </ul>
 </li>
 </ul>
 <hr />
 <ul>
-<li><a href="https://www.maximintegrated.com/en/products/microcontrollers/MAX32660.html"><strong>MAX32660</strong></a>:  Tiny, Ultra-Low-Power Arm Cortex-M4 Processor with FPU-Based Microcontroller (MCU) with 256KB Flash and 96KB SRAM<ul>
-<li><a href="https://www.maximintegrated.com/en/products/microcontrollers/MAX32660-EVSYS.html">MAX32660-EVSYS</a></li>
+<li>
+<p><a href="https://www.analog.com/en/products/max32660.html"><strong>MAX32660</strong></a>:  Tiny, Ultra-Low-Power Arm Cortex-M4 Processor with FPU-Based Microcontroller (MCU) with 256KB Flash and 96KB SRAM</p>
+<ul>
+<li><a href="https://www.analog.com/en/design-center/evaluation-hardware-and-software/evaluation-boards-kits/max32660-evsys.html">MAX32660-EVSYS</a></li>
 </ul>
 </li>
 </ul>
@@ -488,13 +490,13 @@
 <hr />
 <ul>
 <li>
-<p><a href="https://www.maximintegrated.com/en/products/microcontrollers/MAX32665.html"><strong>MAX32665-MAX32668 Family</strong></a>:  Low-Power ARM Cortex-M4 with FPU-Based Microcontroller with Bluetooth 5 for Wearables</p>
+<p><a href="https://www.analog.com/en/products/max32665.html"><strong>MAX32665-MAX32668 Family</strong></a>:  Low-Power ARM Cortex-M4 with FPU-Based Microcontroller with Bluetooth 5 for Wearables</p>
 <ul>
 <li>
-<p><a href="https://www.maximintegrated.com/en/products/microcontrollers/MAX32666EVKIT.html">MAX32666EVKIT</a></p>
+<p><a href="https://www.analog.com/en/design-center/evaluation-hardware-and-software/evaluation-boards-kits/max32666evkit.html">MAX32666EVKIT</a></p>
 </li>
 <li>
-<p><a href="https://www.maximintegrated.com/en/products/microcontrollers/MAX32666FTHR.html">MAX32666FTHR</a></p>
+<p><a href="https://www.analog.com/en/design-center/evaluation-hardware-and-software/evaluation-boards-kits/max32666fthr.html">MAX32666FTHR</a></p>
 </li>
 <li>
 <p>MAX32666FTHR2 (Product Page Not Yet Available)</p>
@@ -504,25 +506,29 @@
 </ul>
 <hr />
 <ul>
-<li><a href="https://www.maximintegrated.com/en/products/microcontrollers/MAX32670.html"><strong>MAX32670</strong></a>:  High-Reliability, Ultra-Low-Power Microcontroller Powered by Arm Cortex-M4 Processor with FPU for Industrial and IoT<ul>
-<li><a href="https://www.maximintegrated.com/en/products/microcontrollers/MAX32670EVKIT.html">MAX32670EVKIT</a></li>
-</ul>
-</li>
-</ul>
-<hr />
+<li>
+<p><a href="https://www.analog.com/en/products/max32670.html"><strong>MAX32670</strong></a>:  High-Reliability, Ultra-Low-Power Microcontroller Powered by Arm Cortex-M4 Processor with FPU for Industrial and IoT</p>
 <ul>
-<li><a href="https://www.maximintegrated.com/en/products/microcontrollers/MAX32672.html"><strong>MAX32672</strong></a>: High-Reliability, Tiny, Ultra-Low-Power Arm Cortex-M4F Microcontroller with 12-Bit 1MSPS ADC<ul>
-<li><a href="https://www.maximintegrated.com/en/products/microcontrollers/MAX32672EVKIT.html">MAX32672EVKIT</a></li>
+<li><a href="https://www.analog.com/en/design-center/evaluation-hardware-and-software/evaluation-boards-kits/max32670evkit.html">MAX32670EVKIT</a></li>
 </ul>
 </li>
 </ul>
 <hr />
 <ul>
 <li>
-<p><a href="https://www.maximintegrated.com/en/products/microcontrollers/MAX32675.html"><strong>MAX32675</strong></a>:  Ultra-Low-Power Arm Cortex-M4F with Precision Analog Front-End for Industrial and Medical Sensors</p>
+<p><a href="https://www.analog.com/en/products/max32672.html"><strong>MAX32672</strong></a>: High-Reliability, Tiny, Ultra-Low-Power Arm Cortex-M4F Microcontroller with 12-Bit 1MSPS ADC</p>
+<ul>
+<li><a href="https://www.analog.com/en/design-center/evaluation-hardware-and-software/evaluation-boards-kits/max32672evkit.html">MAX32672EVKIT</a></li>
+</ul>
+</li>
+</ul>
+<hr />
 <ul>
 <li>
-<p><a href="https://www.maximintegrated.com/en/products/microcontrollers/MAX32675EVKIT.html">MAX32675EVKIT</a></p>
+<p><a href="https://www.analog.com/en/products/max32675.html"><strong>MAX32675</strong></a>:  Ultra-Low-Power Arm Cortex-M4F with Precision Analog Front-End for Industrial and Medical Sensors</p>
+<ul>
+<li>
+<p><a href="https://www.analog.com/en/design-center/evaluation-hardware-and-software/evaluation-boards-kits/max32675evkit.html">MAX32675EVKIT</a></p>
 </li>
 <li>
 <p>MAX32675FTHR (Product Page Not Yet Available)</p>
@@ -532,8 +538,10 @@
 </ul>
 <hr />
 <ul>
-<li><a href="https://www.maximintegrated.com/en/products/microcontrollers/MAX32680.html"><strong>MAX32680</strong></a>:  Ultra-Low-Power Arm Cortex-M4F with Precision Analog Front-End and Bluetooth LE 5.2<ul>
-<li><a href="https://www.maximintegrated.com/en/products/microcontrollers/MAX32680EVKIT.html">MAX32680EVKIT</a></li>
+<li>
+<p><a href="https://www.analog.com/en/products/max32680.html"><strong>MAX32680</strong></a>:  Ultra-Low-Power Arm Cortex-M4F with Precision Analog Front-End and Bluetooth LE 5.2</p>
+<ul>
+<li><a href="https://www.analog.com/en/design-center/evaluation-hardware-and-software/evaluation-boards-kits/max32680evkit.html">MAX32680EVKIT</a></li>
 </ul>
 </li>
 </ul>
@@ -547,24 +555,26 @@
 <hr />
 <ul>
 <li>
-<p><a href="https://www.maximintegrated.com/en/products/microcontrollers/MAX78000.html"><strong>MAX78000</strong></a>:  Artificial Intelligence Microcontroller with Ultra-Low-Power Convolutional Neural Network Accelerator</p>
+<p><a href="https://www.analog.com/en/products/max78000.html"><strong>MAX78000</strong></a>:  Artificial Intelligence Microcontroller with Ultra-Low-Power Convolutional Neural Network Accelerator</p>
 <ul>
 <li>
-<p><a href="https://www.maximintegrated.com/en/products/microcontrollers/MAX78000EVKIT.html">MAX78000EVKIT</a></p>
+<p><a href="https://www.analog.com/en/design-center/evaluation-hardware-and-software/evaluation-boards-kits/max78000evkit.html">MAX78000EVKIT</a></p>
 </li>
 <li>
-<p><a href="https://www.maximintegrated.com/en/products/microcontrollers/MAX78000FTHR.html">MAX78000FTHR</a></p>
+<p><a href="https://www.analog.com/en/design-center/evaluation-hardware-and-software/evaluation-boards-kits/max78000fthr.html">MAX78000FTHR</a></p>
 </li>
 <li>
-<p><a href="https://www.maximintegrated.com/en/design/reference-design-center/system-board/7375.html">MAXREFDES178</a></p>
+<p><a href="https://www.analog.com/en/design-center/reference-designs/maxrefdes178.html">MAXREFDES178</a></p>
 </li>
 </ul>
 </li>
 </ul>
 <hr />
 <ul>
-<li><a href="https://www.maximintegrated.com/en/products/microcontrollers/MAX78002.html"><strong>MAX78002</strong></a>:  Artificial Intelligence Microcontroller with Low-Power Convolutional Neural Network Accelerator<ul>
-<li><a href="https://www.maximintegrated.com/en/products/microcontrollers/MAX78002EVKIT.html">MAX78002EVKIT</a></li>
+<li>
+<p><a href="https://www.analog.com/en/products/max78002.html"><strong>MAX78002</strong></a>:  Artificial Intelligence Microcontroller with Low-Power Convolutional Neural Network Accelerator</p>
+<ul>
+<li><a href="https://www.analog.com/en/design-center/evaluation-hardware-and-software/evaluation-boards-kits/max78002evkit.html">MAX78002EVKIT</a></li>
 </ul>
 </li>
 </ul>
@@ -609,10 +619,10 @@
 <p>The MSDK installer is available for supported Operating Systems via the links below.</p>
 <ul>
 <li>
-<p><a href="https://www.maximintegrated.com/en/design/software-description.html/swpart=SFW0010820A">Windows 10</a></p>
+<p><a href="https://www.analog.com/en/design-center/evaluation-hardware-and-software/software/software-download.html?swpart=sfw0010820a">Windows 10</a></p>
 </li>
 <li>
-<p><a href="https://www.maximintegrated.com/en/design/software-description.html/swpart=SFW0018720A">Linux (Ubuntu)</a></p>
+<p><a href="https://www.analog.com/en/design-center/evaluation-hardware-and-software/software/software-download.html?swpart=sfw0018720a">Linux (Ubuntu)</a></p>
 <ul>
 <li>
 <p>This file must be made executable before it can be run (<code>chmod +x MaximMicrosSDK_linux.run</code>). Alternatively, set `Allow executing as program” in the Ubuntu GUI.  </p>
@@ -621,7 +631,7 @@
 </ul>
 </li>
 <li>
-<p><a href="https://www.maximintegrated.com/en/design/software-description.html/swpart=SFW0018610A">MacOS</a></p>
+<p><a href="https://www.analog.com/en/design-center/evaluation-hardware-and-software/software/software-download.html?swpart=sfw0018610a">MacOS</a></p>
 <ul>
 <li>On MacOS the installer is distributed inside of a .dmg disk image file. Double click the downloaded file to mount it. Afterwards, the installer executable will be made available inside the mounted drive.</li>
 </ul>
@@ -742,7 +752,7 @@
 <ul>
 <li>
 <p><strong>Target Microcontroller</strong>:  The <em>target microcontroller</em> refers to the base part number of the microcontroller being used for development.  The MSDK contains register-level support and startup files for each of its <a href="#supported-parts">supported parts</a>, and it's important to note that support files for a target microcontroller and its <em>Board Support Packages</em> are distinct from each other.</p>
-<p>For example, if the <a href="https://www.maximintegrated.com/en/products/microcontrollers/MAX78000EVKIT.html">MAX78000EVKIT</a> <em>or</em> <a href="https://www.maximintegrated.com/en/products/microcontrollers/MAX78000FTHR.html">MAX78000FTHR</a> is being used, the <em>Target Microcontroller</em> is the MAX78000.</p>
+<p>For example, if the <a href="https://www.analog.com/en/design-center/evaluation-hardware-and-software/evaluation-boards-kits/max78000evkit.html">MAX78000EVKIT</a> <em>or</em> <a href="https://www.analog.com/en/design-center/evaluation-hardware-and-software/evaluation-boards-kits/max78000fthr.html">MAX78000FTHR</a> is being used, the <em>Target Microcontroller</em> is the MAX78000.</p>
 </li>
 <li>
 <p><strong>Board Support Package (BSP)</strong>:  The MSDK supports evaluation platforms for target microcontrollers via <em>Board Support Packages</em>.  For microcontrollers with multiple evaluation platforms, multiple BSPs are available.  These can be found in the <code>Libraries/Boards</code> folder of the MSDK installation.</p>
@@ -770,7 +780,7 @@
 </ul>
 <h3 id="getting-started-with-visual-studio-code">Getting Started with Visual Studio Code</h3>
 <p>The MSDK includes Visual Studio Code (“VS Code”) support via the <a href="https://github.com/MaximIntegratedTechSupport/VSCode-Maxim">VSCode-Maxim</a> project.</p>
-<p>This section walks through setup, opening, and running an example project with VS Code.  This material is also available in video form targeting the MAX78000 in <a href="https://www.maximintegrated.com/en/products/microcontrollers/artificial-intelligence.html/tab4/vd_1_2eaktism#.YyDxHaE8U_Y.mailto">"Understanding Artificial Intelligence Episode 8.5 - Visual Studio Code"</a>.  For full documentation, see the <a href="#visual-studio-code">Visual Studio Code</a> section of this User Guide.  </p>
+<p>This section walks through setup, opening, and running an example project with VS Code.  This material is also available in video form targeting the MAX78000 in <a href="https://www.analog.com/en/education/education-library/videos/6313212752112.html">"Understanding Artificial Intelligence Episode 8.5 - Visual Studio Code"</a>.  For full documentation, see the <a href="#visual-studio-code">Visual Studio Code</a> section of this User Guide.</p>
 <h4 id="setup-vs-code">Setup (VS Code)</h4>
 <p>The setup below only needs to be done once per MSDK <a href="#installation">installation</a>.</p>
 <ol>
@@ -970,7 +980,7 @@
 </ol>
 <hr />
 <h3 id="getting-started-with-command-line-development">Getting Started with Command-Line Development</h3>
-<p>This section demonstrates how to build MSDK example projects for on the command line. It also demonstrates how to flash and debug over the command-line.  The <a href="https://www.maximintegrated.com/en/products/microcontrollers/MAX78002EVKIT.html">MAX78002EVKIT</a> will be used as an example.</p>
+<p>This section demonstrates how to build MSDK example projects for on the command line. It also demonstrates how to flash and debug over the command-line.  The <a href="https://www.analog.com/en/design-center/evaluation-hardware-and-software/evaluation-boards-kits/max78002evkit.html">MAX78002EVKIT</a> will be used as an example, but the same concepts apply to all parts.</p>
 <p>For more detailed documentation, see the <a href="#command-line-development">Command-Line Development</a> section of this User Guide.</p>
 <h4 id="setup-command-line">Setup (Command-Line)</h4>
 <h5 id="windows">Windows</h5>
@@ -1225,31 +1235,31 @@ Detaching from program: C:\Users\User\codespace\Hello_World\build\max78002.elf, 
 </thead>
 <tbody>
 <tr>
-<td><a href="https://www.maximintegrated.com/en/products/microcontrollers/MAX32520-KIT.html">MAX32520-KIT</a></td>
+<td><a href="https://www.analog.com/en/design-center/evaluation-hardware-and-software/evaluation-boards-kits/max32520-kit.html">MAX32520-KIT</a></td>
 <td><code>EvKit_V1</code></td>
 </tr>
 <tr>
-<td><a href="https://www.maximintegrated.com/en/products/microcontrollers/MAX32520FTHR.html">MAX32520FTHR</a></td>
+<td><a href="https://www.analog.com/en/design-center/evaluation-hardware-and-software/evaluation-boards-kits/max32520fthr.html">MAX32520FTHR</a></td>
 <td><code>MAX32520FTHR</code></td>
 </tr>
 <tr>
-<td><a href="https://www.maximintegrated.com/en/products/microcontrollers/MAX32650-EVKIT.html">MAX32650-EVKIT</a></td>
+<td><a href="https://www.analog.com/en/design-center/evaluation-hardware-and-software/evaluation-boards-kits/max32650-evkit.html">MAX32650-EVKIT</a></td>
 <td><code>EvKit_V1</code></td>
 </tr>
 <tr>
-<td><a href="https://www.maximintegrated.com/en/products/microcontrollers/MAX32650FTHR.html">MAX32650FTHR</a></td>
+<td><a href="https://www.analog.com/en/design-center/evaluation-hardware-and-software/evaluation-boards-kits/max32650fthr.html">MAX32650FTHR</a></td>
 <td><code>FTHR_APPS_A</code></td>
 </tr>
 <tr>
-<td><a href="https://www.maximintegrated.com/en/products/microcontrollers/MAX32655EVKIT.html">MAX32655EVKIT</a></td>
+<td><a href="https://www.analog.com/en/design-center/evaluation-hardware-and-software/evaluation-boards-kits/max32655evkit.html">MAX32655EVKIT</a></td>
 <td><code>EvKit_V1</code></td>
 </tr>
 <tr>
-<td><a href="https://www.maximintegrated.com/en/products/microcontrollers/MAX32655FTHR.html">MAX32655FTHR</a></td>
+<td><a href="https://www.analog.com/en/design-center/evaluation-hardware-and-software/evaluation-boards-kits/max32655fthr.html">MAX32655FTHR</a></td>
 <td><code>FTHR_Apps_P1</code></td>
 </tr>
 <tr>
-<td><a href="https://www.maximintegrated.com/en/products/microcontrollers/MAX32660-EVSYS.html">MAX32660-EVSYS</a></td>
+<td><a href="https://www.analog.com/en/design-center/evaluation-hardware-and-software/evaluation-boards-kits/max32660-evsys.html">MAX32660-EVSYS</a></td>
 <td><code>EvKit_V1</code></td>
 </tr>
 <tr>
@@ -1257,11 +1267,11 @@ Detaching from program: C:\Users\User\codespace\Hello_World\build\max78002.elf, 
 <td><code>EvKit_V1</code></td>
 </tr>
 <tr>
-<td><a href="https://www.maximintegrated.com/en/products/microcontrollers/MAX32666EVKIT.html">MAX32666EVKIT</a></td>
+<td><a href="https://www.analog.com/en/design-center/evaluation-hardware-and-software/evaluation-boards-kits/max32666evkit.html">MAX32666EVKIT</a></td>
 <td><code>EvKit_V1</code></td>
 </tr>
 <tr>
-<td><a href="https://www.maximintegrated.com/en/products/microcontrollers/MAX32666FTHR.html">MAX32666FTHR</a></td>
+<td><a href="https://www.analog.com/en/design-center/evaluation-hardware-and-software/evaluation-boards-kits/max32666fthr.html">MAX32666FTHR</a></td>
 <td><code>FTHR</code></td>
 </tr>
 <tr>
@@ -1269,19 +1279,23 @@ Detaching from program: C:\Users\User\codespace\Hello_World\build\max78002.elf, 
 <td><code>FTHR2</code></td>
 </tr>
 <tr>
-<td><a href="https://www.maximintegrated.com/en/products/microcontrollers/MAX32670EVKIT.html">MAX32670EVKIT</a></td>
+<td><a href="https://www.analog.com/en/design-center/evaluation-hardware-and-software/evaluation-boards-kits/max32670evkit.html">MAX32670EVKIT</a></td>
 <td><code>EvKit_V1</code></td>
 </tr>
 <tr>
-<td><a href="https://www.maximintegrated.com/en/products/microcontrollers/MAX32672EVKIT.html">MAX32672EVKIT</a></td>
+<td>[MAX32672EVKIT](</td>
+<td><a href="https://www.analog.com/en/design-center/evaluation-hardware-and-software/evaluation-boards-kits/max32672evkit.html">MAX32672EVKIT</a></td>
+</tr>
+<tr>
+<td>)</td>
 <td><code>EvKit_V1</code></td>
 </tr>
 <tr>
-<td><a href="https://www.maximintegrated.com/en/products/microcontrollers/MAX32672FTHR.html">MAX32672FTHR</a></td>
+<td><a href="https://www.analog.com/en/design-center/evaluation-hardware-and-software/evaluation-boards-kits/max32672fthr.html">MAX32672FTHR</a></td>
 <td><code>FTHR</code></td>
 </tr>
 <tr>
-<td><a href="https://www.maximintegrated.com/en/products/microcontrollers/MAX32675EVKIT.html">MAX32675EVKIT</a></td>
+<td><a href="https://www.analog.com/en/design-center/evaluation-hardware-and-software/evaluation-boards-kits/max32675evkit.html">MAX32675EVKIT</a></td>
 <td><code>EvKit_V1</code></td>
 </tr>
 <tr>
@@ -1289,7 +1303,7 @@ Detaching from program: C:\Users\User\codespace\Hello_World\build\max78002.elf, 
 <td><code>FTHR_Apps_B</code></td>
 </tr>
 <tr>
-<td><a href="https://www.maximintegrated.com/en/products/microcontrollers/MAX32680EVKIT.html">MAX32680EVKIT</a></td>
+<td><a href="https://www.analog.com/en/design-center/evaluation-hardware-and-software/evaluation-boards-kits/max32680evkit.html">MAX32680EVKIT</a></td>
 <td><code>EvKit_V1</code></td>
 </tr>
 <tr>
@@ -1297,19 +1311,23 @@ Detaching from program: C:\Users\User\codespace\Hello_World\build\max78002.elf, 
 <td><code>EvKit_V1</code></td>
 </tr>
 <tr>
-<td><a href="https://www.maximintegrated.com/en/products/microcontrollers/MAX78000EVKIT.html">MAX78000EVKIT</a></td>
+<td>[MAX78000EVKIT](</td>
+<td><a href="https://www.analog.com/en/design-center/evaluation-hardware-and-software/evaluation-boards-kits/max78000evkit.html">MAX78000EVKIT</a></td>
+</tr>
+<tr>
+<td>)</td>
 <td><code>EvKit_V1</code></td>
 </tr>
 <tr>
-<td><a href="https://www.maximintegrated.com/en/products/microcontrollers/MAX78000FTHR.html">MAX78000FTHR</a></td>
+<td><a href="https://www.analog.com/en/design-center/evaluation-hardware-and-software/evaluation-boards-kits/max78000fthr.html">MAX78000FTHR</a></td>
 <td><code>FTHR_RevA</code></td>
 </tr>
 <tr>
-<td><a href="https://www.maximintegrated.com/en/design/reference-design-center/system-board/7375.html">MAXREFDES178</a></td>
+<td><a href="https://www.analog.com/en/design-center/reference-designs/maxrefdes178.html">MAXREFDES178</a></td>
 <td><code>MAXREFDES178</code></td>
 </tr>
 <tr>
-<td><a href="https://www.maximintegrated.com/en/products/microcontrollers/MAX78002EVKIT.html">MAX78002EVKIT</a></td>
+<td><a href="https://www.analog.com/en/design-center/evaluation-hardware-and-software/evaluation-boards-kits/max78002evkit.html">MAX78002EVKIT</a></td>
 <td><code>EvKit_V1</code></td>
 </tr>
 </tbody>
@@ -2258,12 +2276,12 @@ MFLOAT_ABI=hard # Enable hardware floating point acceleration
 <tr>
 <td><code>SBT</code></td>
 <td>Toggle SBT integration</td>
-<td>Toggles integration with the <a href="https://www.maximintegrated.com/en/design/technical-documents/userguides-and-manuals/7/7637.html">Secure Boot Tools (SBTs)</a>.  These are a suite of applications designed for use with microcontrollers that have secure bootloaders.  When this is enabled, some additional rules become available such as <code>make sla</code> and <code>make scpa</code>.  Set to <code>0</code> to disable or <code>1</code> to enable.</td>
+<td>Toggles integration with the <a href="https://www.analog.com/en/design-center/evaluation-hardware-and-software/software/software-download.html?swpart=SFW0015360C">Secure Boot Tools (SBTs)</a>.  These are a suite of applications designed for use with microcontrollers that have secure bootloaders.  When this is enabled, some additional rules become available such as <code>make sla</code> and <code>make scpa</code>.  Set to <code>0</code> to disable or <code>1</code> to enable.</td>
 </tr>
 <tr>
 <td><code>MAXIM_SBT_DIR</code></td>
 <td>Where to find the SBTs</td>
-<td>This option can be used to manually specify the location of the SBTs.  Usually, this is not necessary.  By default, the <code>Tools/SBT</code> directory of the MaximSDK will be searched.  If the <a href="https://www.maximintegrated.com/en/design/software-description.html/swpart=SFW0015360C">SBT installer</a> is used, it will set the <code>MAXIM_SBT_DIR</code> environment variable to point to itself automatically.</td>
+<td>This option can be used to manually specify the location of the SBTs.  Usually, this is not necessary.  By default, the <code>Tools/SBT</code> directory of the MaximSDK will be searched.  If the <a href="https://www.analog.com/en/design-center/evaluation-hardware-and-software/software/software-download.html?swpart=SFW0015360C">SBT installer</a> is used, it will set the <code>MAXIM_SBT_DIR</code> environment variable to point to itself automatically.</td>
 </tr>
 <tr>
 <td><code>TARGET_SEC</code></td>
