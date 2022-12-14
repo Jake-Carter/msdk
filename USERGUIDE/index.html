@@ -117,7 +117,7 @@
     </li>
         </ul>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#project-management">Project Management</a>
+    <li class="toctree-l2"><a class="reference internal" href="#development-guide">Development Guide</a>
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#board-support-packages">Board Support Packages</a>
     </li>
@@ -314,7 +314,7 @@
 </li>
 </ul>
 </li>
-<li><a href="#project-management">Project Management</a><ul>
+<li><a href="#development-guide">Development Guide</a><ul>
 <li><a href="#board-support-packages">Board Support Packages</a></li>
 <li><a href="#visual-studio-code">Visual Studio Code</a><ul>
 <li><a href="#setup-vs-code_1">Setup (VS Code)</a></li>
@@ -1213,14 +1213,13 @@ Detaching from program: C:\Users\User\codespace\Hello_World\build\max78002.elf, 
 <p>In the terminal window running the OpenOCD <em>server</em>, press <code>CTRL + C</code> to issue the shutdown command and quit.</p>
 </li>
 </ol>
-<h2 id="project-management">Project Management</h2>
+<h2 id="development-guide">Development Guide</h2>
 <p>As discussed in <a href="#key-concepts">Key Concepts</a>, an MSDK project is primarily made up of two distinct systems:  The <strong><em>Build System</em></strong> and the <em><strong>Project Management System</strong></em>.  <a href="#getting-started">Getting Started</a> demonstrates the basic usage and configuration of these systems, while this section offers a more detailed reference.</p>
-<p>The Project Management System offers a higher level user interface (typically with a GUI) that manages the tools for <strong>editing</strong> source code, <strong>flashing</strong> program binaries, and <strong>debugging</strong> them in the MSDK's <a href="#supported-development-environments">supported IDEs</a>.  Additionally, the Project Management System sits <em>on top</em> of the <a href="#build-system">build system</a>'s <em>CLI</em>, allowing it to manage fundamental aspects of development such as:</p>
+<p>MSDK development primarily involves using the Project Management System, which offers a higher level user interface (typically with a GUI) that manages the tools for <strong>editing</strong> source code, <strong>flashing</strong> program binaries, and <strong>debugging</strong> for the MSDK's <a href="#supported-development-environments">supported IDEs</a>.  Additionally, the Project Management System sits <em>on top</em> of the <a href="#build-system">Build System</a>'s <em>CLI</em>, allowing it to manage fundamental build variables aspects of development such as:</p>
 <ul>
 <li>Setting the <em>Target Microcontroller</em>  (<code>TARGET</code> <em><a href="#build-configuration-variables-reference-table">Build Configuration Variable</a></em>)</li>
 <li>Setting the <em>Board Support Package</em> (<code>BOARD</code> <em><a href="#build-configuration-variables-reference-table">Build Configuration Variable</a></em>)</li>
 <li>Configuring the <em>Environment</em> and <em>System Path</em> for use with the MSDK toolchain (<code>MAXIM_PATH</code> <em><a href="#build-configuration-variables-reference-table">Build Configuration Variable</a></em>)</li>
-<li>Searching the MSDK for relevant source code and function definitions to use for editor look-ups</li>
 </ul>
 <h3 id="board-support-packages">Board Support Packages</h3>
 <p>The role of a Board Support Package (BSP) is to provide a hardware abstraction layer for board-level initialization code such as initializing and assigning UART instances, pushbuttons, LEDs, external peripheral devices, TFT displays, and other board-specific hardware.  The MSDK's available Board Support Packages (BSPs) can be found in the <code>Libraries/Boards</code> folder for each <em>Target Microcontroller</em>.</p>
