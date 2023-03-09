@@ -94,23 +94,6 @@ connection requests.</p>
 <p>Red LED Characteristic   : 0x85FC567F31D9418587C6339924D1C5BE<br />
 Green LED Characteristic : 0x85FC568031D9418587C6339924D1C5BE<br />
 Blue LED Characteristic  : 0x85FC568131D9418587C6339924D1C5BE  </p>
-<h2 id="setup">Setup</h2>
-<h3 id="board-selection">Board Selection</h3>
-<p>Before building firmware you must select the correct value for BOARD in project.mk, e.g. "EvKit_V1".</p>
-<h3 id="required-connections">Required Connections</h3>
-<ul>
-<li>Connect a USB cable between the PC and the (USB/PWR - UART) connector.</li>
-</ul>
-<h2 id="trace-serial-port">Trace Serial Port</h2>
-<p>When TRACE is enabled in the project.mk, the on-board USB-to-UART adapter can
-be used to view the trace messages and interact with the application. Open a serial port terminal with
-the following settings.</p>
-<p>Baud            : 115200<br />
-Char size       : 8<br />
-Parity          : None<br />
-Stop bits       : 1<br />
-HW Flow Control : No<br />
-SW Flow Control : No  </p>
 <h3 id="expected-output">Expected Output</h3>
 <p>On startup:</p>
 <pre><code>terminal: init
@@ -224,7 +207,7 @@ mcsAppBtnCback; 10
 &gt; hciCoreTxAclStart len=8
 McsApp got evt 18
 </code></pre>
-<h3 id="commands">Commands</h3>
+<h2 id="commands">Commands</h2>
 <p>Type the desired command and parameter (if applicable) and press enter to execute the command.  </p>
 <p><strong>help</strong>  Displays the available commands.<br />
 <strong>echo (on|off)</strong>  Enables or disables the input echo. On by default.<br />

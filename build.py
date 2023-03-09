@@ -4,9 +4,10 @@ from subprocess import run
 from mkdocs.commands.build import build
 from mkdocs.config import load_config
 from os import listdir
+import os
 
 # Locate some directories relative to this file
-here = Path(__file__).parent
+here = Path(__file__).parent.absolute()
 repo = here.parent
 periph_docs_dir = repo / "Libraries" / "PeriphDrivers" / "Documentation"
 
@@ -26,10 +27,17 @@ print("Copying res folder")
 shutil.copytree(repo / "res", repo / "Documentation" / "res", dirs_exist_ok=True)
 
 # Pre-populate markdown files
-print("Copying root markdown files")
+print("Copying markdown files")
 for f in repo.glob("*.md"):
     print(f.name)
     shutil.copy(f, here)
+
+for f in (repo / "Tools" / "Bluetooth").glob("*.md"):
+    print(f.name)
+    dest = here / "Tools" / "Bluetooth"
+    if not dest.exists():
+        dest.mkdir(parents=True, exist_ok=True)
+    shutil.copy(f, dest)
 
 ############################## UPDATE USER GUIDE FOR CORDIO ###################
 # TEMPLATE = "- [%s](%s/%s)\n"

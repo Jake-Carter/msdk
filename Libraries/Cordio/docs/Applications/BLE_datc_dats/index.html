@@ -88,10 +88,7 @@
 <p>BLE Data Client and Data Server. These examples demonstrate a simple data client and server. The intent here is to show simple unformatted data exchange between two devices.</p>
 <p>The Bluetooth specification does not define a simple data exchange protocol, similar to UART. We use a proprietary GATT service to offer this feature.</p>
 <p>The data server will advertise with a devices name of "DATS". The data client will scan for this device and create a connection. Once the conneciton has been created and the client completes the discovery, it will enable notificaitons and indiciations on the proprietary data serivce. This will allow the server to transmit data to the client with notifications to the proprietary data characteristic. The client can transmit data to the server by writing to the proprietary data characteristic.</p>
-<p align="center">
-  <img width="300" src="../pics/ADI_Attach_DATS.jpg">
-</p>
-
+<p><img alt="ADI Attach connected to DATS" src="../res/ADI_Attach_DATS.jpg" /></p>
 <p align = "center">
 ADI Attach connected to DATS
 </p>
@@ -102,40 +99,10 @@ ADI Attach connected to DATS
 <h2 id="secure-data-service">Secure data service</h2>
 <p><strong>UUID:</strong> 42FC367E-32D9-4285-87C6-339924D135BE</p>
 <p>This is another proprietary service used for secure data exchange that requires elevated levels of encryption and authentication. Devices must be paired with LE Secure Connections to enable data transfer with this service.</p>
-<h2 id="passkey-input">Passkey input</h2>
-<p>Upon server discovery the user will be prompted to enter a passkey.
-An arbitrary pin can be entered in the following format </p>
-<pre><code>pin (connId) passkey
-Eg: 
-pin 1 123456
-
-</code></pre>
-<p>Next the server is expected to enter the same connId and passkey
-to establish a secure connection and share bonding information
-which for demonstration purposes,is echoed via the trace mechanism</p>
-<p>Note that either the client or server can enter the passkey first.
-The peer device must then match.</p>
 <h2 id="leds">LEDs</h2>
 <p>The red LED will indicate that an error assertion has occurred.  </p>
 <p>The green LED indicates CPU activity. When the LED is on, the CPU is active, when the LED
 is off, the CPU is in sleep mode.</p>
-<h2 id="board-setup">Board Setup</h2>
-<h3 id="board-selection">Board Selection</h3>
-<p>Before building firmware you must select the correct value for BOARD in project.mk, e.g. "EvKit_V1".</p>
-<h3 id="required-connections">Required Connections</h3>
-<ul>
-<li>Connect a USB cable between the PC and the (USB/PWR - UART) connector.</li>
-</ul>
-<h3 id="trace-serial-port">Trace Serial Port</h3>
-<p>When TRACE is enabled in the project.mk, the on-board USB-to-UART adapter can
-be used to view the trace messages and interact with the application. Open a serial port terminal with
-the following settings.</p>
-<p>Baud            : 115200<br />
-Char size       : 8<br />
-Parity          : None<br />
-Stop bits       : 1<br />
-HW Flow Control : No<br />
-SW Flow Control : No  </p>
 <h1 id="ble_dats">BLE_Dats</h1>
 <p>Bluetooth data server that advertises as "DATS" and accepts connection requests. This exmaples contains two proprietary services that are used to show simple message passing to and from the data client. </p>
 <h3 id="expected-output">Expected Output</h3>

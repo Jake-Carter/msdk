@@ -99,22 +99,6 @@ is off, the CPU is in sleep mode.</p>
 image. Change FW_UPDATE_DIR to modify which application is used for the update. Whichever
 application is selected must be setup to run from the appropriate memory section, as defined
 by the Bootloader.</p>
-<h4 id="board-selection">Board Selection</h4>
-<p>Before building firmware you must select the correct value for BOARD in <code>project.mk</code>, e.g. "EvKit_V1".</p>
-<h4 id="required-connections">Required Connections</h4>
-<ul>
-<li>Connect a USB cable between the PC and the (USB/PWR - UART) connector.</li>
-</ul>
-<h2 id="trace-serial-port">Trace Serial Port</h2>
-<p>When TRACE is enabled in the <code>project.mk</code>, the on-board USB-to-UART adapter can
-be used to view the trace messages and interact with the application. Open a serial port terminal with
-the following settings.</p>
-<p>Baud            : 115200<br />
-Char size       : 8<br />
-Parity          : None<br />
-Stop bits       : 1<br />
-HW Flow Control : No<br />
-SW Flow Control : No  </p>
 <h3 id="expected-output">Expected Output</h3>
 <p>On startup:</p>
 <pre><code>terminal: init
@@ -280,22 +264,6 @@ Default configuration is to use external flash to store the transferd file befor
 writing it to internal flash space during the update.
 Alternatively by changing <code>USE_INTERNAL_FLASH ?=0</code> to <code>USE_INTERNAL_FLASH ?=1</code> the transfered file
 is stored in the update space. </p>
-<h4 id="board-selection_1">Board Selection</h4>
-<p>Before building firmware you must select the correct value for BOARD in <code>project.mk</code>, e.g. <code>EvKit_V1</code>.</p>
-<h4 id="required-connections_1">Required Connections</h4>
-<ul>
-<li>Connect a USB cable between the PC and the (USB/PWR - UART) connector.</li>
-</ul>
-<h2 id="trace-serial-port_1">Trace Serial Port</h2>
-<p>When TRACE is enabled in the <code>project.mk</code>, the on-board USB-to-UART adapter can
-be used to view the trace messages and interact with the application. Open a serial port terminal with
-the following settings.</p>
-<p>Baud            : 115200<br />
-Char size       : 8<br />
-Parity          : None<br />
-Stop bits       : 1<br />
-HW Flow Control : No<br />
-SW Flow Control : No  </p>
 <h3 id="expected-output_1">Expected Output</h3>
 <p>On startup:</p>
 <pre><code>terminal: init
