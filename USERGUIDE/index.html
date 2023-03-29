@@ -245,6 +245,14 @@
     </li>
         </ul>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#freertos">FreeRTOS</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#freertos-supported-parts">FreeRTOS Supported Parts</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#freertos-plus">FreeRTOS-Plus</a>
+    </li>
+        </ul>
+    </li>
         </ul>
     </li>
     </ul>
@@ -413,6 +421,11 @@
 <li><a href="#miscellaneous-drivers">Miscellaneous Drivers</a></li>
 <li><a href="#sdhc">SDHC</a><ul>
 <li><a href="#sdhc-supported-parts">SDHC Supported Parts</a></li>
+</ul>
+</li>
+<li><a href="#freertos">FreeRTOS</a><ul>
+<li><a href="#freertos-supported-parts">FreeRTOS Supported Parts</a></li>
+<li><a href="#freertos-plus">FreeRTOS-Plus</a></li>
 </ul>
 </li>
 </ul>
@@ -2565,6 +2578,17 @@ MFLOAT_ABI=hard # Enable hardware floating point acceleration
 <li>MAX32570</li>
 <li>MAX32665-MAX32666</li>
 <li>MAX78002</li>
+</ul>
+<hr />
+<h3 id="freertos">FreeRTOS</h3>
+<p><a href="https://www.freertos.org/index.html">FreeRTOS</a> is a Real-Time Operating System (RTOS), which offers basic abstractions for multi-tasking and an OS layer specifically targeted at embedded systems with real-time requirements.  The MSDK maintains an official support layer for the FreeRTOS kernel.  Official documentation can be found on the <a href="https://www.freertos.org/index.html">FreeRTOS website</a>.</p>
+<h4 id="freertos-supported-parts">FreeRTOS Supported Parts</h4>
+<p>FreeRTOS is supported by all parts in the MSDK.  See the <code>FreeRTOSDemo</code> example application.</p>
+<h4 id="freertos-plus">FreeRTOS-Plus</h4>
+<p><a href="https://www.freertos.org/FreeRTOS-Plus/index.html">FreeRTOS-Plus</a> is an additional library that implements addon functionality for the FreeRTOS kernel.  The MSDK maintains support for some, but not all, available addons.</p>
+<ul>
+<li><a href="https://www.freertos.org/FreeRTOS-Plus/index.html">FreeRTOS-Plus-CLI</a>: <strong>Supported</strong></li>
+<li><a href="https://www.freertos.org/FreeRTOS-Plus/FreeRTOS_Plus_TCP/index.html">FreeRTOS-Plus-TCP</a>: <strong>Not supported</strong> (Contributions welcome!)</li>
 </ul>
               
             </div>
