@@ -700,7 +700,7 @@
 <p>Click <strong>Next</strong> to proceed from the Welcome screen.</p>
 </li>
 <li>
-<p>Choose the installation location. By default, the MSDK will install to the <code>MaximSDK</code> folder off your filesystem's root.</p>
+<p>Choose the installation location.</p>
 <p><img alt="Figure 2" src="../res/Fig2.jpg" /></p>
 </li>
 <li>
@@ -782,16 +782,19 @@ build-error: 0 (30 days)
 <p>Close the terminal.</p>
 </li>
 <li>
-<p>Run a new terminal in Rosetta:</p>
+<p>Create a new Rosetta terminal:</p>
 <ol>
 <li>
-<p>Go to Finder &gt; Applications and find your Terminal</p>
+<p>Launch Finder.</p>
 </li>
 <li>
-<p>Right-Click Terminal and Duplicate it. Rename it to "Terminal i386".</p>
+<p>Navigate to Applications and find the "Terminal" application.</p>
 </li>
 <li>
-<p>Rich-Click "Terminal i386" &gt; Get Info &gt; Enable "Open using Rosetta"</p>
+<p>Right-Click Terminal and Duplicate it. Rename it to "Terminal i386".  This will be a new application shortcut to the Rosetta terminal.</p>
+</li>
+<li>
+<p>Right-Click "Terminal i386" &gt; Get Info &gt; Enable "Open using Rosetta"</p>
 </li>
 <li>
 <p>Launch the new "Terminal i386" and type <code>arch</code> to verify that it says <code>i386</code> now.</p>
@@ -918,16 +921,17 @@ build-error: 0 (30 days)
 <p><img alt="Open Settings JSON Command" src="../res/Fig42.jpg" /></p>
 </li>
 <li>
-<p>Add the entries below to your user settings.json file.</p>
+<p>Add the entries below to your user settings.json file.  <strong>Change the <code>MAXIM_PATH</code> option to point to the MSDK installation</strong>.</p>
 <pre class="codehilite"><code class="language-json">// There may be other settings up here...
 
-&quot;MAXIM_PATH&quot;: &quot;C:/MaximSDK&quot;, // Set this to the installed location of the MaximSDK.  Only use forward slashes '/' when setting this path!
+&quot;MAXIM_PATH&quot;: &quot;Change me!  Only use forward slashes (/) for this path&quot;,
 &quot;update.mode&quot;: &quot;manual&quot;,
 &quot;extensions.autoUpdate&quot;: false,
 
 // There may be other settings down here...
 </code></pre>
 
+<p>For example, you might set <code>"MAXIM_PATH":"C:/MaximSDK"</code> on Windows, <code>"MAXIM_PATH":"/home/username/MaximSDK"</code> on Linux/MacOS, etc.</p>
 </li>
 <li>
 <p>Save your changes to the file with <strong><code>CTRL + S</code></strong> and restart VS Code.</p>
@@ -976,7 +980,7 @@ build-error: 0 (30 days)
 <p><img alt="Figure 18" src="../res/Fig18.jpg" /></p>
 </li>
 <li>
-<p>Connect a debug adapter between the host PC and the evaluation platform. Detailed instructions on this hardware setup can be found in the evaluation platform's Datasheet and Quick-Start Guide, which are available on its <a href="analog.com">analog.com</a> product page.</p>
+<p>Connect a debug adapter between the host PC and the evaluation platform. Detailed instructions on this hardware setup can be found in the evaluation platform's Datasheet and Quick-Start Guide, which are available on its <a href="https://analog.com">analog.com</a> product page.</p>
 </li>
 <li>
 <p>Run the <strong><code>flash</code></strong>  build task.  Running this task will automatically build the project if needed, flash the program binary, and halt the program execution to await a debugger connection.</p>
@@ -1502,7 +1506,7 @@ Detaching from program: C:\Users\User\codespace\Hello_World\build\max78002.elf, 
 <h3 id="how-to-set-the-bsp-eclipse">How to Set the BSP (Eclipse)</h3>
 <p><a href="#importing-examples">Imported</a> Eclipse projects files are configured for the <strong>EVKIT</strong>-type <em>BSP</em> by default. To set the BSP:</p>
 <ol>
-<li>Open (right click) the <strong>project properties</strong> and navigate to <strong>C/C++ Build -&gt; Environment</strong>.  </li>
+<li>Right click the project name and select <em>Properties</em>.  Navigate to <strong>C/C++ Build -&gt; Environment</strong>.</li>
 <li>
 <p>Set the <strong><code>BOARD</code></strong> <em><a href="#build-configuration-variables-reference-table">Build Configuration Variable</a></em> to match the target evaluation platform.</p>
 <p>See <a href="#board-support-packages">Board Support Packages</a> for a table of possible values.</p>
