@@ -74,11 +74,11 @@ var NAVTREEINDEX =
 "group___w_d_t___c_t_r_l.html#ga03ff41991890f638db7d071ccd2e60ca",
 "group__dma.html#gafe7fe8d66927bef5f74347087dcd59bd",
 "group__gpio__registers.html#aad301f9ef76445dec5ca71d750d0c0bf",
-"group__mxc__sys.html#gga6b3ca6c369c2018baa508a4f52526095a9ebc7ba5e0ccde5af6d987c54a693162",
-"group__rtc.html#gaa0c3ee434b206af0469de43ba32133f1",
-"group__spimss.html#ga1dee28040de0569a5a6db6494b4bf531",
-"group__spixr.html#gad1723e3d76fea9935bf3c9dfb7343259",
-"group__uart.html#ggab136978025cdaf5f7f65c0e9ecc0950ca8f0dfb5e2a08764b3e13e2c39e051deb"
+"group__mxc__sys.html#gga6b3ca6c369c2018baa508a4f52526095a85830ea3efce77a7d8efc3dd7a914c6a",
+"group__rtc.html#ga475023ca67fba1e35dc3b9ff47220bfa",
+"group__spimss.html#af0e31a86cdacabf7e823c4476c67a6a1",
+"group__spixr.html#gac24f84f1393b233d47b3ffbfc5876817",
+"group__uart.html#gga9ef512c6d921959fa4aa91c24bf60edba6b7f5177a03a1dd02990e0cfa04c94f1"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
