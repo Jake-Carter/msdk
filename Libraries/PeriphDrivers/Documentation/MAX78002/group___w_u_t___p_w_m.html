@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.4"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>MAX32655 Peripheral Driver API: FCR_ERFO_INTFL</title>
+<title>MAX78002 Peripheral Driver API: WUT_PWM</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -26,9 +26,9 @@
  <tr id="projectrow">
   <td id="projectlogo"><img alt="Logo" src="MI_Logo_Small_Pos_RGB_150dpi.png"/></td>
   <td id="projectalign">
-   <div id="projectname">MAX32655 Peripheral Driver API
+   <div id="projectname">MAX78002 Peripheral Driver API
    </div>
-   <div id="projectbrief">Peripheral Driver API for the MAX32655</div>
+   <div id="projectbrief">Peripheral Driver API for the MAX78002</div>
   </td>
  </tr>
  </tbody>
@@ -65,7 +65,7 @@ $(function() {
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(document).ready(function(){initNavTree('group___f_c_r___e_r_f_o___i_n_t_f_l.html',''); initResizable(); });
+$(document).ready(function(){initNavTree('group___w_u_t___p_w_m.html',''); initResizable(); });
 /* @license-end */
 </script>
 <div id="doc-content">
@@ -86,47 +86,47 @@ $(document).ready(function(){initNavTree('group___f_c_r___e_r_f_o___i_n_t_f_l.ht
 <div class="header">
   <div class="summary">
 <a href="#define-members">Macros</a>  </div>
-  <div class="headertitle"><div class="title">FCR_ERFO_INTFL<div class="ingroups"><a class="el" href="group__fcr__registers.html">FCR_Registers</a></div></div></div>
+  <div class="headertitle"><div class="title">WUT_PWM<div class="ingroups"><a class="el" href="group__wut.html">Wakeup Timer (WUT)</a> &raquo; <a class="el" href="group__wut__registers.html">WUT_Registers</a></div></div></div>
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:ga9325a20e346e95998e1c15258f26ce91"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___f_c_r___e_r_f_o___i_n_t_f_l.html#ga9325a20e346e95998e1c15258f26ce91">MXC_F_FCR_ERFO_INTFL_RDY_POS</a>&#160;&#160;&#160;0</td></tr>
-<tr class="separator:ga9325a20e346e95998e1c15258f26ce91"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga8b9cd6f54361d429cbe02fc05cde3835"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___f_c_r___e_r_f_o___i_n_t_f_l.html#ga8b9cd6f54361d429cbe02fc05cde3835">MXC_F_FCR_ERFO_INTFL_RDY</a>&#160;&#160;&#160;((uint32_t)(0x1UL &lt;&lt; <a class="el" href="group___f_c_r___e_r_f_o___i_n_t_f_l.html#ga9325a20e346e95998e1c15258f26ce91">MXC_F_FCR_ERFO_INTFL_RDY_POS</a>))</td></tr>
-<tr class="separator:ga8b9cd6f54361d429cbe02fc05cde3835"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga458a64cfffc04ad7110349f428acb6c3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___w_u_t___p_w_m.html#ga458a64cfffc04ad7110349f428acb6c3">MXC_F_WUT_PWM_PWM_POS</a>&#160;&#160;&#160;0</td></tr>
+<tr class="separator:ga458a64cfffc04ad7110349f428acb6c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9a08339974c97254ebfe849f0c89f0ee"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___w_u_t___p_w_m.html#ga9a08339974c97254ebfe849f0c89f0ee">MXC_F_WUT_PWM_PWM</a>&#160;&#160;&#160;((uint32_t)(0xFFFFFFFFUL &lt;&lt; <a class="el" href="group___w_u_t___p_w_m.html#ga458a64cfffc04ad7110349f428acb6c3">MXC_F_WUT_PWM_PWM_POS</a>))</td></tr>
+<tr class="separator:ga9a08339974c97254ebfe849f0c89f0ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p >ERFO Ready Interrupt Flag register. </p>
+<p >Wakeup Timer PWM Register. </p>
 <h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="ga8b9cd6f54361d429cbe02fc05cde3835" name="ga8b9cd6f54361d429cbe02fc05cde3835"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga8b9cd6f54361d429cbe02fc05cde3835">&#9670;&nbsp;</a></span>MXC_F_FCR_ERFO_INTFL_RDY</h2>
+<a id="ga9a08339974c97254ebfe849f0c89f0ee" name="ga9a08339974c97254ebfe849f0c89f0ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga9a08339974c97254ebfe849f0c89f0ee">&#9670;&nbsp;</a></span>MXC_F_WUT_PWM_PWM</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define MXC_F_FCR_ERFO_INTFL_RDY&#160;&#160;&#160;((uint32_t)(0x1UL &lt;&lt; <a class="el" href="group___f_c_r___e_r_f_o___i_n_t_f_l.html#ga9325a20e346e95998e1c15258f26ce91">MXC_F_FCR_ERFO_INTFL_RDY_POS</a>))</td>
+          <td class="memname">#define MXC_F_WUT_PWM_PWM&#160;&#160;&#160;((uint32_t)(0xFFFFFFFFUL &lt;&lt; <a class="el" href="group___w_u_t___p_w_m.html#ga458a64cfffc04ad7110349f428acb6c3">MXC_F_WUT_PWM_PWM_POS</a>))</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >ERFO_INTFL_RDY Mask </p>
+<p >PWM_PWM Mask </p>
 
 </div>
 </div>
-<a id="ga9325a20e346e95998e1c15258f26ce91" name="ga9325a20e346e95998e1c15258f26ce91"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga9325a20e346e95998e1c15258f26ce91">&#9670;&nbsp;</a></span>MXC_F_FCR_ERFO_INTFL_RDY_POS</h2>
+<a id="ga458a64cfffc04ad7110349f428acb6c3" name="ga458a64cfffc04ad7110349f428acb6c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga458a64cfffc04ad7110349f428acb6c3">&#9670;&nbsp;</a></span>MXC_F_WUT_PWM_PWM_POS</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define MXC_F_FCR_ERFO_INTFL_RDY_POS&#160;&#160;&#160;0</td>
+          <td class="memname">#define MXC_F_WUT_PWM_PWM_POS&#160;&#160;&#160;0</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >ERFO_INTFL_RDY Position </p>
+<p >PWM_PWM Position </p>
 
 </div>
 </div>
@@ -135,7 +135,7 @@ Macros</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Thu Apr 6 2023 21:55:59 for MAX32655 Peripheral Driver API by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4 </li>
+    <li class="footer">Generated on Tue Jun 27 2023 19:19:13 for MAX78002 Peripheral Driver API by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4 </li>
   </ul>
 </div>
 </body>
