@@ -34,41 +34,49 @@ var NAVTREE =
         [ "All", "functions.html", "functions_dup" ],
         [ "Variables", "functions_vars.html", "functions_vars" ]
       ] ]
+    ] ],
+    [ "Globals", "globals.html", [
+      [ "All", "globals.html", "globals_dup" ],
+      [ "Functions", "globals_func.html", null ],
+      [ "Enumerations", "globals_enum.html", null ],
+      [ "Enumerator", "globals_eval.html", null ],
+      [ "Macros", "globals_defs.html", "globals_defs" ]
     ] ]
   ] ]
 ];
 
 var NAVTREEINDEX =
 [
-"annotated.html",
-"group___a_d_c___i_n_t_f_l.html#gaa99a6c3ed94c8b31fe7562952e54c6f6",
-"group___c_r_c___v_a_l.html#gadc1eb80c3b53d3ab9048d13985253d93",
-"group___c_s_i2___r_x___e_i_n_t___c_t_r_l___i_e.html#ga6000abc16d88a4496e729616bc4da9fd",
-"group___c_s_i2___register___offsets.html#ga9fc487d393ac5f50f8a8255bd40ccd3e",
-"group___d_m_a___c_t_r_l.html#ga0a471e38c08d410cf2232e23a47ab32d",
-"group___d_v_s___register___offsets.html#gaa54713c607b7591ad5cb0028958bdd6b",
-"group___f_l_c___register___offsets.html#ga4c0a38df14a439a01772116edf6be7b9",
-"group___g_c_r___p_c_l_k_d_i_s1.html#ga7a3bf3c4004270f7f70ea2c1fcda5b6c",
-"group___g_p_i_o___e_n2.html#gaa28d84b44f47df032f4a9160b03e8b8d",
-"group___i2_c___i_n_t_e_n0.html#gab4da184543014fdcaab7b7ebcd618945",
-"group___i2_s___register___offsets.html#ga74a6f876ab6cc5bed822d70be4ca86c8",
-"group___o_w_m___d_a_t_a.html",
-"group___p_w_r_s_e_q___l_p_p_w_e_n.html#gaff778787ef7c5f8010cb90a0e448bb45",
-"group___s_d_h_c___e_r___i_n_t___e_n.html#gaad158a331cc0a0dc4e36ec2c6d82dfa8",
-"group___s_d_h_c___p_r_e_s_e_t__3.html#ga434887916dade3bac333a198cb9d0e79",
-"group___s_i_m_o___v_r_e_g_o___d.html",
-"group___t_m_r___c_m_p.html#gaa1c42902c7eddaf6de3dc903065abfc4",
-"group___t_r_i_m_s_i_r___i_p_o_l_o.html",
-"group___u_s_b_h_s___f_i_f_o12.html",
-"group___u_s_b_h_s___o_u_t_c_s_r_l.html#ga0509ee9606db7906f41411c720042f46",
-"group___w_d_t___c_t_r_l.html#ga762a6e767fa676b0232a35f1e4c039c9",
-"group__adc.html#gga835531087194a290825c7f7d0dcc3ce3a00b1b6b11fd8558b94daa1bf466ec437",
-"group__csi2.html#gaa1ef9a3aedb3a267f70ea3b4f1fe4d0c",
-"group__dma.html#ggab010374c529e9da4bf17c357dfa637eba80d70301bac34677bdc45221ed7f8549",
-"group__gpio__registers.html#a78c56a3c94d09696880d5d3b28328a20",
-"group__owm__registers.html#a3bb3ae3f634e0aaa7f9292a06a4b241a",
-"group__simo__registers.html#a6f74277ccb5588c853ad72aa19e9d735",
-"group__uart.html#gab4fd61ab1f4adc924521ecce8d8f9630"
+"adc__regs_8h.html",
+"group___a_d_c___i_n_t_e_n.html#gaa260da76451a7fd8605ed59a4f7e09e3",
+"group___c_r_c___d_a_t_a_i_n16.html#gadb8bacc0130a77b7bf0a849681fd803c",
+"group___c_s_i2___r_e_s_e_t___d_e_s_k_e_w.html#ga4ea904449ae61bcfd42626e290dd2ff2",
+"group___c_s_i2___register___offsets.html#ga6caa663fbd0eb1f42d9fd8583ea3b6c0",
+"group___c_s_i2___v_f_i_f_o___s_t_s.html#gaf240c15d64f6107758bffd08e2f85068",
+"group___d_v_s___c_t_l.html#gae571db13b9826aac84ccdaeb8bb45329",
+"group___f_l_c___i_n_t_r.html#gaca151c44b60a4fac9528bcf79f69fc67",
+"group___g_c_r___p_c_l_k_d_i_s0.html#gabac8eff3152d2a3cbc75922fcb3eb244",
+"group___g_p_i_o___e_n0___s_e_t.html",
+"group___i2_c___i_n_t_e_n0.html#ga28134b3fad32bb112643321cd778e63d",
+"group___i2_s___i_n_t_e_n.html#gad1edacb591f7cf5637065b3a3c8fc83b",
+"group___o_w_m___c_f_g.html#gad15646450201faaba2706d148e0765bc",
+"group___p_w_r_s_e_q___l_p_p_w_e_n.html#ga83cff04b24a59771e482da35cc138dfb",
+"group___s_d_h_c___c_m_d.html#ga073e46e41e843ca33584c67e37a4b2c7",
+"group___s_d_h_c___p_r_e_s_e_n_t.html#gac965b93793b94f9035e764e2b915432b",
+"group___s_i_m_o___register___offsets.html#ga61b4771153b17baf90f2c54443add008",
+"group___s_p_i___s_s_t_i_m_e.html#gaadcdd463d1632844439d5274b191005a",
+"group___t_r_i_m_s_i_r___c_t_r_l.html#ga054afcde5ec7d17b5e67b4fbac4ba711",
+"group___u_s_b_h_s___c_t_h_s_r_t_n.html#ga05229e3b77aad4879fcb76cb51cab8ab",
+"group___u_s_b_h_s___i_n_t_r_u_s_b_e_n.html#gafd8c0bb6f031d848051cd512c09b646d",
+"group___w_d_t___c_t_r_l.html#ga63129d5705467a19da69bf54be9b2928",
+"group__adc.html#gaf70d7d33806dbd71f148a0f2f786e7fc",
+"group__csi2.html#ga30b6bf12fa00990919ea0854bf14624a",
+"group__dma.html#ga5eaf7d9ab53aea7b09238773b0139180",
+"group__gpio__pin.html#gad57cb8a1040272fd060026c74fa012e9",
+"group__mxc__sys.html#gga6b3ca6c369c2018baa508a4f52526095a01a967d6dfabed9d1037e08f94d8fda9",
+"group__pulsetrain.html#af939ef7d7f2ae14cf8e665bcd7fd2087",
+"group__spi.html#ga168bef8ae6817c9494bdc15a93cd7a44",
+"group__uart.html#gga7bea3ce501d2c4b9841ee2292f4cb350a211ac1113db46d38acf6b4533014fcfd"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

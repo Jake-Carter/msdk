@@ -1,6 +1,9 @@
 var annotated_dup =
 [
+    [ "mxc_adc_conversion_req_t", "group__adc.html#structmxc__adc__conversion__req__t", "group__adc_structmxc__adc__conversion__req__t" ],
     [ "mxc_adc_regs_t", "group__adc__registers.html#structmxc__adc__regs__t", "group__adc__registers_structmxc__adc__regs__t" ],
+    [ "mxc_adc_req_t", "group__adc.html#structmxc__adc__req__t", "group__adc_structmxc__adc__req__t" ],
+    [ "mxc_adc_slot_req_t", "group__adc.html#structmxc__adc__slot__req__t", "group__adc_structmxc__adc__slot__req__t" ],
     [ "mxc_aes_key_regs_t", "group__aes__key__registers.html#structmxc__aes__key__regs__t", "group__aes__key__registers_structmxc__aes__key__regs__t" ],
     [ "mxc_aes_regs_t", "group__aes__registers.html#structmxc__aes__regs__t", "group__aes__registers_structmxc__aes__regs__t" ],
     [ "mxc_aes_req_t", "group__aes.html#structmxc__aes__req__t", "group__aes_structmxc__aes__req__t" ],
@@ -45,9 +48,8 @@ var annotated_dup =
     [ "mxc_sema_regs_t", "group__sema__registers.html#structmxc__sema__regs__t", "group__sema__registers_structmxc__sema__regs__t" ],
     [ "mxc_simo_regs_t", "group__simo__registers.html#structmxc__simo__regs__t", "group__simo__registers_structmxc__simo__regs__t" ],
     [ "mxc_sir_regs_t", "group__sir__registers.html#structmxc__sir__regs__t", "group__sir__registers_structmxc__sir__regs__t" ],
-    [ "mxc_spi_pins_t", "group__spi.html#struct__mxc__spi__pins__t", "group__spi_struct__mxc__spi__pins__t" ],
     [ "mxc_spi_regs_t", "group__spi__registers.html#structmxc__spi__regs__t", "group__spi__registers_structmxc__spi__regs__t" ],
-    [ "mxc_spi_req_t", "group__spi.html#struct__mxc__spi__req__t", "group__spi_struct__mxc__spi__req__t" ],
+    [ "mxc_spi_target_t", "group__spi.html#structmxc__spi__target__t", null ],
     [ "mxc_tmr_cfg_t", "group__tmr.html#structmxc__tmr__cfg__t", "group__tmr_structmxc__tmr__cfg__t" ],
     [ "mxc_tmr_regs_t", "group__tmr__registers.html#structmxc__tmr__regs__t", "group__tmr__registers_structmxc__tmr__regs__t" ],
     [ "mxc_trimsir_regs_t", "group__trimsir__registers.html#structmxc__trimsir__regs__t", "group__trimsir__registers_structmxc__trimsir__regs__t" ],

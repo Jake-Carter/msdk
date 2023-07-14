@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../../../../../css/theme.css" />
     <link rel="stylesheet" href="../../../../../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+        <link href="../../../../../css/extra.css" rel="stylesheet" />
     
       <script>
         // Current page data
@@ -214,6 +215,41 @@ void HciSetMaxRxAclLen(uint16_t len);
     /* notify app about MTU misconfiguration */
     attExecCallback(0, DM_ERROR_IND, 0, DM_ERR_ATT_RX_PDU_LEN_EXCEEDED, 0);
   }
+</code></pre>
+<p>The maximum MTU size is defined by the constant ATT_MAX_MTU, which has a value of 517. If you set the MTU to ATT_MAX_MTU or a value larger than any of the memory pools configured in <code>main.c</code> , you must create a new pool with a size of at least (new MTU size + 20) to allow for packet headers. </p>
+<p>For exmaple to set MTU to ATT_MAX_MUT the relavent changes must look like this:
+- periph_main.c</p>
+<pre><code class="language-c">/*! ATT configurable parameters (increase MTU) */
+static const attCfg_t periphAttCfg = {
+    15, /* ATT server service discovery connection idle timeout in seconds */
+    ATT_MAX_MTU, /* desired ATT MTU */
+    ATT_MAX_TRANS_TIMEOUT, /* transcation timeout in seconds */
+    4 /* number of queued prepare writes supported by server */
+};
+</code></pre>
+<ul>
+<li>stack_periph.c</li>
+</ul>
+<pre><code class="language-c">void StackInitPeriph(void)
+{
+    ..
+
+    handlerId = WsfOsSetNextHandler(SmpHandler);
+    SmpHandlerInit(handlerId);
+    SmprInit();
+    SmprScInit();
+    HciSetMaxRxAclLen(ATT_MAX_MTU + L2C_HDR_LEN);
+
+    ...
+
+}
+</code></pre>
+<ul>
+<li>main.c</li>
+</ul>
+<pre><code class="language-c">/*! \brief  Pool runtime configuration. */
+static wsfBufPoolDesc_t mainPoolDesc[] = 
+{ { 16, 8 }, { 32, 4 }, { 192, 8 }, { 256, 8 } , {ATT_MAX_MTU + 20} };
 </code></pre>
 <h2 id="callbacks">Callbacks</h2>
 <h2 id="adding-wsf-events-and-handlers">Adding WSF events and handlers</h2>
