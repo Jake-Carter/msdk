@@ -58,6 +58,7 @@ typedef struct {
     bool txrx_req;
     uint8_t req_done;
     uint8_t async;
+    bool hw_ss_control;
 } spi_req_reva_state_t;
 
 static spi_req_reva_state_t states[MXC_SPI_INSTANCES];
@@ -84,6 +85,7 @@ int MXC_SPI_RevA1_Init(mxc_spi_reva_regs_t *spi, int masterMode, int quadModeUse
     states[spi_num].mtFirstTrans = 0;
     states[spi_num].channelTx = E_NO_DEVICE;
     states[spi_num].channelRx = E_NO_DEVICE;
+    states[spi_num].hw_ss_control = true;
 
     spi->ctrl0 = (MXC_F_SPI_REVA_CTRL0_EN);
     spi->sstime =
@@ -109,22 +111,24 @@ int MXC_SPI_RevA1_Init(mxc_spi_reva_regs_t *spi, int masterMode, int quadModeUse
     // Clear the interrupts
     spi->intfl = spi->intfl;
 
-    if (numSlaves == 1) {
-        spi->ctrl0 |= MXC_S_SPI_REVA_CTRL0_SS_ACTIVE_SS0;
-    }
+    if (states[spi_num].hw_ss_control) {
+        if (numSlaves == 1) {
+            spi->ctrl0 |= MXC_S_SPI_REVA_CTRL0_SS_ACTIVE_SS0;
+        }
 
-    if (numSlaves == 2) {
-        spi->ctrl0 |= (MXC_S_SPI_REVA_CTRL0_SS_ACTIVE_SS0 | MXC_S_SPI_REVA_CTRL0_SS_ACTIVE_SS1);
-    }
+        if (numSlaves == 2) {
+            spi->ctrl0 |= (MXC_S_SPI_REVA_CTRL0_SS_ACTIVE_SS0 | MXC_S_SPI_REVA_CTRL0_SS_ACTIVE_SS1);
+        }
 
-    if (numSlaves == 3) {
-        spi->ctrl0 |= (MXC_S_SPI_REVA_CTRL0_SS_ACTIVE_SS0 | MXC_S_SPI_REVA_CTRL0_SS_ACTIVE_SS1 |
-                       MXC_S_SPI_REVA_CTRL0_SS_ACTIVE_SS2);
-    }
+        if (numSlaves == 3) {
+            spi->ctrl0 |= (MXC_S_SPI_REVA_CTRL0_SS_ACTIVE_SS0 | MXC_S_SPI_REVA_CTRL0_SS_ACTIVE_SS1 |
+                           MXC_S_SPI_REVA_CTRL0_SS_ACTIVE_SS2);
+        }
 
-    if (numSlaves == 4) {
-        spi->ctrl0 |= (MXC_S_SPI_REVA_CTRL0_SS_ACTIVE_SS0 | MXC_S_SPI_REVA_CTRL0_SS_ACTIVE_SS1 |
-                       MXC_S_SPI_REVA_CTRL0_SS_ACTIVE_SS2 | MXC_S_SPI_REVA_CTRL0_SS_ACTIVE_SS3);
+        if (numSlaves == 4) {
+            spi->ctrl0 |= (MXC_S_SPI_REVA_CTRL0_SS_ACTIVE_SS0 | MXC_S_SPI_REVA_CTRL0_SS_ACTIVE_SS1 |
+                           MXC_S_SPI_REVA_CTRL0_SS_ACTIVE_SS2 | MXC_S_SPI_REVA_CTRL0_SS_ACTIVE_SS3);
+        }
     }
 
     //set quad mode
@@ -362,14 +366,15 @@ int MXC_SPI_RevA1_SetSlave(mxc_spi_reva_regs_t *spi, int ssIdx)
 
     spi_num = MXC_SPI_GET_IDX((mxc_spi_regs_t *)spi);
     MXC_ASSERT(spi_num >= 0);
-    (void)spi_num;
 
-    // Setup the slave select
-    // Activate chosen SS pin
-    spi->ctrl0 |= (1 << ssIdx) << MXC_F_SPI_REVA_CTRL0_SS_ACTIVE_POS;
-    // Deactivate all unchosen pins
-    spi->ctrl0 &= ~MXC_F_SPI_REVA_CTRL0_SS_ACTIVE |
-                  ((1 << ssIdx) << MXC_F_SPI_REVA_CTRL0_SS_ACTIVE_POS);
+    if (states[spi_num].hw_ss_control) {
+        // Setup the slave select
+        // Activate chosen SS pin
+        spi->ctrl0 |= (1 << ssIdx) << MXC_F_SPI_REVA_CTRL0_SS_ACTIVE_POS;
+        // Deactivate all unchosen pins
+        spi->ctrl0 &= ~MXC_F_SPI_REVA_CTRL0_SS_ACTIVE |
+                      ((1 << ssIdx) << MXC_F_SPI_REVA_CTRL0_SS_ACTIVE_POS);
+    }
     return E_NO_ERROR;
 }
 
@@ -824,7 +829,7 @@ uint32_t MXC_SPI_RevA1_MasterTransHandler(mxc_spi_reva_regs_t *spi, mxc_spi_reva
     spi_num = MXC_SPI_GET_IDX((mxc_spi_regs_t *)spi);
 
     // Leave slave select asserted at the end of the transaction
-    if (!req->ssDeassert) {
+    if (states[spi_num].hw_ss_control && !req->ssDeassert) {
         spi->ctrl0 |= MXC_F_SPI_REVA_CTRL0_SS_CTRL;
     }
 
@@ -836,7 +841,7 @@ uint32_t MXC_SPI_RevA1_MasterTransHandler(mxc_spi_reva_regs_t *spi, mxc_spi_reva
     }
 
     // Deassert slave select at the end of the transaction
-    if (req->ssDeassert) {
+    if (states[spi_num].hw_ss_control && req->ssDeassert) {
         spi->ctrl0 &= ~MXC_F_SPI_REVA_CTRL0_SS_CTRL;
     }
 
@@ -1389,4 +1394,16 @@ void MXC_SPI_RevA1_SwapByte(uint8_t *arr, size_t length)
         arr[i] = arr[i + 1];
         arr[i + 1] = tmp;
     }
+}
+
+void MXC_SPI_RevA1_HWSSControl(mxc_spi_reva_regs_t *spi, int state)
+{
+    int spi_num;
+
+    spi_num = MXC_SPI_GET_IDX((mxc_spi_regs_t *)spi);
+    MXC_ASSERT(spi_num >= 0);
+
+    states[spi_num].hw_ss_control = state? true: false;
+
+    return;
 }
