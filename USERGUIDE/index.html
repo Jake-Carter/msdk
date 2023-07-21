@@ -132,9 +132,21 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#how-to-set-the-bsp-vs-code">How to Set the BSP (VS Code)</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#building-a-project">Building a Project</a>
+    <li class="toctree-l3"><a class="reference internal" href="#build-tasks">Build Tasks</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#build">Build</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#cleaning-a-project">Cleaning a Project</a>
+    <li class="toctree-l4"><a class="reference internal" href="#clean">Clean</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#clean-periph">Clean-Periph</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#flash">Flash</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#flash-run">Flash &amp; Run</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#erase-flash">Erase Flash</a>
+    </li>
+        </ul>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#flashing-and-debugging">Flashing and Debugging</a>
         <ul>
@@ -150,6 +162,60 @@
     </li>
         </ul>
     </li>
+    <li class="toctree-l3"><a class="reference internal" href="#project-settings">Project Settings</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#maxim_path">"MAXIM_PATH"</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#target">"target"</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#board">"board"</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#terminalintegratedenvplatformpath">"terminal.integrated.env.[platform]:Path"</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#project_name">"project_name"</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#program_file">"program_file"</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#symbol_file">"symbol_file"</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#m4_ocd_interface_file">"M4_OCD_interface_file"</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#m4_ocd_target_file">"M4_OCD_target_file"</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#rv_ocd_interface_file">"RV_OCD_interface_file"</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#rv_ocd_target_file">"RV_OCD_target_file"</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#v_arm_gcc">"v_Arm_GCC"</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#v_xpack_gcc">"v_xPack_GCC"</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#ocd_path">"OCD_path"</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#arm_gcc_path">"ARM_GCC_path"</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#xpack_gcc_path">"xPack_GCC_path"</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#make_path">"Make_path"</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#c_cppdefaultincludepath">"C_Cpp.default.includePath"</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#c_cppdefaultbrowsepath">"C_Cpp.default.browse.path"</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#c_cppdefaultdefines">"C_Cpp.default.defines"</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#setting-search-paths-for-intellisense">Setting Search Paths for Intellisense</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#project-creation">Project Creation</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#option-1-copying-a-pre-made-project">Option 1.  Copying a Pre-Made Project</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#option-2-injecting">Option 2 - Injecting</a>
+    </li>
+        </ul>
+    </li>
         </ul>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#eclipse">Eclipse</a>
@@ -162,7 +228,7 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#how-to-set-the-bsp-eclipse">How to Set the BSP (Eclipse)</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#building-a-project_1">Building a Project</a>
+    <li class="toctree-l3"><a class="reference internal" href="#building-a-project">Building a Project</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#flashing-and-debugging_1">Flashing and Debugging</a>
         <ul>
@@ -853,7 +919,7 @@ drwxr-xr-x 112 username     username        12288 Jul 13 20:41 installerResource
 <p>On MacOS, some additional missing packages must be manually installed with <a href="https://brew.sh/">Homebrew</a>.  There are also some manual setup steps required to retrieve <code>make</code> version 4.  The instructions in this section are critical.</p>
 </details>
 <details class="note">
-<summary><strong>Completing Installation on M1 platforms</strong></summary>
+<summary>ℹ️ <strong>Instructions for M1 platforms</strong></summary>
 <p>The MSDK's OpenOCD binaries ship pre-compiled for Intel Silicon (i386). As a result, you should use a <a href="https://developer.apple.com/documentation/apple-silicon/about-the-rosetta-translation-environment">Rosetta</a> terminal on M1 platforms to install the <em>i386 version</em> of Homebrew and retrieve OpenOCD's dependencies with it. Installing from Rosetta ensures OpenOCD gets the packages with the architecture it needs. From there, Rosetta will handle the rest and allow running the binaries on the M1 platform's arm64 architecture.</p>
 <p>Additionally, the MSDK toolchain requires Make 4.x+, which must also be retrieved via Homebrew.</p>
 <p>The i386 version of Homebrew can be installed in parallel with the arm64 version and typically installs into a separate filesystem.</p>
@@ -938,7 +1004,7 @@ build-error: 0 (30 days)
 </ol>
 </details>
 <details class="note">
-<summary><strong>Completing Installation on non-M1 platforms</strong></summary>
+<summary>ℹ️ <strong>Instructions for non-M1 platforms</strong></summary>
 <ol>
 <li>
 <p>Follow the instructions on the <a href="https://brew.sh/">Homebrew home page</a> to install Homebrew on your system.</p>
@@ -1453,23 +1519,51 @@ shutdown command invoked
 <p><img alt="Reload window" src="https://raw.githubusercontent.com/MaximIntegratedTechSupport/VSCode-Maxim/main/img/reload_window.JPG" /></p>
 </li>
 </ol>
-<h3 id="building-a-project">Building a Project</h3>
-<p>An open project will present four available <a href="https://github.com/Analog-Devices-MSDK/VSCode-Maxim#build-tasks">build tasks</a> from <strong>Terminal &gt; Run Build task...</strong> or the shortcut <strong><code>Ctrl+Shift+B</code></strong>.</p>
-<p><img alt="Build Tasks Image" src="https://raw.githubusercontent.com/MaximIntegratedTechSupport/VSCode-Maxim/main/img/buildtasks.JPG" /></p>
-<p>Run the <strong>"build"</strong> task to compile the project for the configured <em>Target Microcontroller</em> and <em>BSP</em>. Notice the <strong><code>TARGET</code></strong>, <strong><code>BOARD</code></strong> , and <strong><code>PROJECT</code></strong> Build Configuration Variables being set on the command line, and the program binary successfully compiled into the <code>.elf</code> program binary in the <strong>build</strong> sub-folder of the project.</p>
+<h3 id="build-tasks">Build Tasks</h3>
+<p>Once a project is opened 4 available build tasks will become available via <code>Terminal &gt; Run Build task...</code> or the shortcut <code>Ctrl+Shift+B</code>.  These tasks are configured by the <code>.vscode/task.json</code> file.</p>
+<p><img alt="Build Tasks Image" src="https://raw.githubusercontent.com/Analog-Devices-MSDK/VSCode-Maxim/main/img/buildtasks.JPG" /></p>
+<h4 id="build">Build</h4>
+<ul>
+<li>Compiles the code with a <code>make all</code> command.</li>
+<li>Additional options are passed into Make on the command-line based on the project's settings.json file.</li>
+<li>The <code>./build</code> directory will be created and will contain the output binary, as well as all intermediary object files.</li>
+<li>
+<p>Notice the <strong><code>TARGET</code></strong>, <strong><code>BOARD</code></strong> , and <strong><code>PROJECT</code></strong> Build Configuration Variables being set on the command line, and the program binary successfully compiled into the <code>.elf</code> program binary in the <strong>build</strong> sub-folder of the project.</p>
 <p><img alt="Figure 18" src="../res/Fig18.jpg" /></p>
-<h3 id="cleaning-a-project">Cleaning a Project</h3>
-<p>To <strong>clean</strong> a project, run the <em>clean</em> <a href="https://github.com/Analog-Devices-MSDK/VSCode-Maxim#build-tasks">build task</a>.  This will delete the build folder and its contents. The next time the project is built, it will be rebuilt from scratch.</p>
-<details class="note" open="open">
-<summary>ℹ️ <strong>Note: Cleaning Peripheral Drivers</strong></summary>
-<p>It should be noted that <em>clean</em> will only remove the <em>project's</em> build output. The <strong>clean-periph</strong> task can be used to clean the project <em>and</em> the peripheral driver libraries.</p>
-</details>
+</li>
+</ul>
+<h4 id="clean">Clean</h4>
+<ul>
+<li>Cleans the build output, removing the <code>./build</code> directory and all of its contents.</li>
+</ul>
+<h4 id="clean-periph">Clean-Periph</h4>
+<ul>
+<li>This task is the same as 'clean', but it also removes the build output for the MSDK's peripheral drivers.</li>
+<li>Use this if you would like to recompile the peripheral drivers from source on the next build.</li>
+</ul>
+<h4 id="flash">Flash</h4>
+<ul>
+<li>Launching this task automatically runs the <code>Build</code> task first.  Then, it flashes the output binary to the microcontroller.</li>
+<li>It uses the GDB <code>load</code> and <code>compare-sections</code> commands, and handles launching an OpenOCD internally via a pipe connection.</li>
+<li>The flashed program will be halted until the microcontroller is reset, power cycled, or a debugger is connected.</li>
+<li>A debugger must be connected correctly to use this task.  Refer to the datasheet of your microcontroller's evaluation board for instructions.</li>
+</ul>
+<h4 id="flash-run">Flash &amp; Run</h4>
+<ul>
+<li>This is the same as the <code>Flash</code> task, but it also will launch execution of the program once flashing is complete.</li>
+</ul>
+<h4 id="erase-flash">Erase Flash</h4>
+<ul>
+<li>Completely erases all of the application code in the flash memory bank.</li>
+<li>Once complete, the target microcontroller will be effectively "blank".</li>
+<li>This can be useful for recovering from Low-Power (LP) lockouts, bad firmware, etc.</li>
+</ul>
 <h3 id="flashing-and-debugging">Flashing and Debugging</h3>
 <p>This section assumes a debugger is connected between the host PC and the evaluation platform. For more detailed instructions on this hardware setup, refer to the evaluation platform's Datasheet and Quick-Start Guide, which are available on its <a href="https://analog.com">analog.com</a> product page.</p>
 <h4 id="arm-core-debugging">Arm Core Debugging</h4>
 <ol>
 <li>
-<p>Run the <strong><code>flash</code></strong>  <a href="https://github.com/Analog-Devices-MSDK/VSCode-Maxim#build-tasks">build task</a>.  Running this task will automatically build the project if needed, flash the program binary, and halt the program execution to await a debugger connection.  </p>
+<p>Run the <strong><code>flash</code></strong>  <a href="#build-tasks">build task</a>.  Running this task will automatically build the project if needed, flash the program binary, and halt the program execution to await a debugger connection.  </p>
 <p><strong>Flashing does not happen automatically when launching the debugger</strong>. This is an intentional design choice for VS Code to allow the debugger to quickly restart the program under debug without a lengthy re-flash procedure.</p>
 <p><img alt="Figure 19" src="../res/Fig19.jpg" /></p>
 </li>
@@ -1579,6 +1673,201 @@ shutdown command invoked
 <p><img alt="image" src="https://user-images.githubusercontent.com/38844790/168399419-d0488a0e-2068-4cc7-9108-0a296fdc04b4.png" /></p>
 </li>
 </ol>
+<h3 id="project-settings">Project Settings</h3>
+<p><code>.vscode/settings.json</code> is the main project configuration file.  Values set here are parsed into the other .json config files.  </p>
+<p><strong>When a change is made to this file, VS Code should be reloaded with CTRL+SHIFT+P -&gt; Reload Window (or alternatively restarted completely) to force a re-parse.</strong></p>
+<p><img alt="Reload Window" src="https://raw.githubusercontent.com/Analog-Devices-MSDK/VSCode-Maxim/main/img/reload_window.JPG" /></p>
+<p>The default project configuration should work for most use cases as long as <a href="#target"><code>"target"</code></a> and <a href="#board"><code>"board"</code></a> are set correctly.</p>
+<details class="note" open="open">
+<summary>ℹ️ <strong>Note</strong></summary>
+<p>Any field from <code>settings.json</code> can be referenced from any other VS Code config file (including itself) with <code>"${config:[fieldname]}"</code></p>
+</details>
+<p>The following configuration options are available:</p>
+<h4 id="maxim_path"><code>"MAXIM_PATH"</code></h4>
+<ul>
+<li>This option must point to the root installation directory of the MSDK.  </li>
+<li>It should be placed in the <em>global</em> user settings.json file during first-time VSCode-Maxim setup.  See <a href="#getting-started-with-visual-studio-code">Getting Started with Visual Studio Code</a>.</li>
+</ul>
+<h4 id="target"><code>"target"</code></h4>
+<ul>
+<li>This sets the target microcontroller for the project.</li>
+<li>It sets the <code>TARGET</code> <a href="#build-configuration-variables">Build Configuration</a> variable.</li>
+</ul>
+<h4 id="board"><code>"board"</code></h4>
+<ul>
+<li>This sets the target board for the project (ie. Evaluation Kit, Feather board, etc.)</li>
+<li>See <a href="#how-to-set-the-bsp-vs-code">How to Set the BSP (VS Code)</a></li>
+</ul>
+<h4 id="terminalintegratedenvplatformpath"><code>"terminal.integrated.env.[platform]:Path"</code></h4>
+<ul>
+<li>This prepends the location of the MSDK toolchain binaries to the system <code>Path</code> used by VSCode's integrated terminal.</li>
+<li>The Path is not sanitized by default, which means that the terminal inherits the system path.</li>
+</ul>
+<h4 id="project_name"><code>"project_name"</code></h4>
+<ul>
+<li>Sets the name of project.  This is used in other config options such as <code>program_file</code>.</li>
+<li>Default value: <code>"${workspaceFolderBasename}"</code></li>
+</ul>
+<h4 id="program_file"><code>"program_file"</code></h4>
+<ul>
+<li>Sets the name of the file to flash and debug.  This is provided in case it's needed, but for most use cases should be left at its default.  </li>
+<li>File extension must be included.</li>
+<li>Default value: <code>"${config:project_name}.elf"</code></li>
+</ul>
+<h4 id="symbol_file"><code>"symbol_file"</code></h4>
+<ul>
+<li>Sets the name of the file that GDB will load debug symbols from.</li>
+<li>File extension must be included.</li>
+<li>Default value: <code>"${config:program_file}"</code></li>
+</ul>
+<h4 id="m4_ocd_interface_file"><code>"M4_OCD_interface_file"</code></h4>
+<ul>
+<li>Sets the OpenOCD interface file to use to connect to the Arm M4 core.  This should match the debugger being used for the M4 core.</li>
+<li>The <code>MaximSDK/Tools/OpenOCD/scripts/interface</code> folder is searched for the file specified by this setting.</li>
+<li><code>.cfg</code> file extension must be included.</li>
+<li>Default value: <code>"cmsis-dap.cfg"</code></li>
+</ul>
+<h4 id="m4_ocd_target_file"><code>"M4_OCD_target_file"</code></h4>
+<ul>
+<li>Sets the OpenOCD target file to use for the Arm M4 core.  This should match the target microcontroller.</li>
+<li><code>.cfg</code> file extension must be included.</li>
+<li>The <code>MaximSDK/Tools/OpenOCD/scripts/target</code> folder is searched for the file specified by this setting.</li>
+<li>Default value: <code>"${config:target}.cfg"</code></li>
+</ul>
+<h4 id="rv_ocd_interface_file"><code>"RV_OCD_interface_file"</code></h4>
+<ul>
+<li>Sets the OpenOCD interface file to use to connect to the RISC-V core.  This should match the debugger being used for the RISC-V core.</li>
+<li>The <code>MaximSDK/Tools/OpenOCD/scripts/interface</code> folder is searched for the file specified by this setting.</li>
+<li><code>.cfg</code> file extension must be included.</li>
+<li>Default value: <code>"ftdi/olimex-arm-usb-ocd-h.cfg"</code></li>
+</ul>
+<h4 id="rv_ocd_target_file"><code>"RV_OCD_target_file"</code></h4>
+<ul>
+<li>Sets the OpenOCD target file to use for the RISC-V core.</li>
+<li>The <code>MaximSDK/Tools/OpenOCD/scripts/target</code> folder is searched for the file specified by this setting.</li>
+<li><code>.cfg</code> file extension must be included.</li>
+<li>Default value: <code>"${config:target}_riscv.cfg"</code></li>
+</ul>
+<h4 id="v_arm_gcc"><code>"v_Arm_GCC"</code></h4>
+<ul>
+<li>Sets the version of the Arm Embedded GCC to use, including toolchain binaries and the standard library version.</li>
+<li>This gets parsed into <code>ARM_GCC_path</code>.</li>
+<li>Default value:  <code>"10.3"</code></li>
+</ul>
+<h4 id="v_xpack_gcc"><code>"v_xPack_GCC"</code></h4>
+<ul>
+<li>Sets the version of the xPack RISC-V GCC to use.</li>
+<li>This gets parsed into <code>xPack_GCC_path</code>.</li>
+<li>Default value: <code>"12.2.0-3.1"</code></li>
+</ul>
+<h4 id="ocd_path"><code>"OCD_path"</code></h4>
+<ul>
+<li>Where to find the OpenOCD.</li>
+<li>Default value: <code>"${config:MAXIM_PATH}/Tools/OpenOCD"</code></li>
+</ul>
+<h4 id="arm_gcc_path"><code>"ARM_GCC_path"</code></h4>
+<ul>
+<li>Where to find the Arm Embedded GCC Toolchain.</li>
+<li>Default value: <code>"${config:MAXIM_PATH}/Tools/GNUTools/${config:v_Arm_GCC}"</code></li>
+</ul>
+<h4 id="xpack_gcc_path"><code>"xPack_GCC_path"</code></h4>
+<ul>
+<li>Where to find the RISC-V GCC Toolchain.</li>
+<li>Default value: <code>"${config:MAXIM_PATH}/Tools/xPack/riscv-none-elf-gcc/${config:v_xPack_GCC}"</code></li>
+</ul>
+<h4 id="make_path"><code>"Make_path"</code></h4>
+<ul>
+<li>Where to find Make binaries (only used on Windows)</li>
+<li>Default value: <code>"${config:MAXIM_PATH}/Tools/MSYS2/usr/bin"</code></li>
+</ul>
+<h4 id="c_cppdefaultincludepath"><code>"C_Cpp.default.includePath"</code></h4>
+<ul>
+<li>Which paths to search to find header (.h) files.</li>
+<li>Does not recursively search by default.  To recursively search, use <code>/**</code>.</li>
+</ul>
+<h4 id="c_cppdefaultbrowsepath"><code>"C_Cpp.default.browse.path"</code></h4>
+<ul>
+<li>Which paths to search to find source (.c) files.</li>
+<li>Does not recursively search by default.  To recursively search, use <code>/**</code>.</li>
+</ul>
+<h4 id="c_cppdefaultdefines"><code>"C_Cpp.default.defines"</code></h4>
+<ul>
+<li>Sets the compiler definitions to use for the intellisense engine.</li>
+<li>Most definitions should be defined in header files, but if a definition is missing it can be entered here to get the intellisense engine to recognize it.</li>
+</ul>
+<h3 id="setting-search-paths-for-intellisense">Setting Search Paths for Intellisense</h3>
+<p>VS Code's intellisense engine must be told where to find the header files for your source code.  By default, the MSDK's peripheral drivers, the C standard libraries, and all of the sub-directories of the workspace will be searched for header files to use with Intellisense.  If VS Code throws an error on an <code>#include</code> statement (and the file exists), then a search path is most likely missing.</p>
+<p>To add additional search paths :</p>
+<ol>
+<li>
+<p>Open the <code>.vscode/settings.json</code> file.  </p>
+</li>
+<li>
+<p>Add the include path(s) to the <code>C_Cpp.default.includePath</code> list.  The paths set here should contain header files, and will be searched by the Intellisense engine and when using "Go to Declaration" in the editor.</p>
+</li>
+<li>
+<p>Add the path(s) to any relevant implementation files to the <code>C_Cpp.default.browse.path</code> list.  This list contains the paths that will be searched when using "Go to Definition".</p>
+</li>
+</ol>
+<h3 id="project-creation">Project Creation</h3>
+<h4 id="option-1-copying-a-pre-made-project">Option 1.  Copying a Pre-Made Project</h4>
+<p>Copying a pre-made example project is a great way to get rolling quickly, and is currently the recommended method for creating new projects.  </p>
+<p>The release package for this project (Located at <code>Tools/VSCode-Maxim</code> in the MSDK) contains a <code>New_Project</code> folder designed for such purposes. Additionally, any of the VS Code-enabled Example projects can be copied from the MSDK.</p>
+<ol>
+<li>
+<p>Copy the existing project folder to an accessible location.  This will be the location of your new project.</p>
+<details class="warning" open="open">
+<summary><strong>⚠️ Warning</strong></summary>
+<p>The full path to the project must <em>not</em> have any spaces in it.</p>
+</details>
+</li>
+<li>
+<p>(Optional) Rename the folder.  For example, I might rename the folder to <code>MyProject</code>.</p>
+</li>
+<li>
+<p>Open the project in VS Code (<code>File -&gt; Open Folder...</code>)</p>
+</li>
+<li>
+<p>Set your <a href="#target">target</a> microcontroller and <a href="#board">board</a> correctly.</p>
+</li>
+<li>
+<p><code>CTRL+SHIFT+P -&gt; Reload Window</code> to re-parse the project settings.</p>
+</li>
+<li>
+<p>That's it!  The existing project is ready to build, debug, and modify.</p>
+</li>
+</ol>
+<h4 id="option-2-injecting">Option 2 - Injecting</h4>
+<p>VSCode-Maxim releases provide the <code>Inject</code> folder for "injecting" into an existing folder.  If you want to start from scratch or use the project files with existing source code, take this option.</p>
+<ol>
+<li>
+<p>Create your project folder if necessary.  For example, I might create a new project in a workspace folder with the path: <code>C:/Users/Jake.Carter/workspace/MyNewProject</code>.</p>
+</li>
+<li>
+<p>Copy the <strong>contents</strong> of the <code>Inject</code> folder into the project folder from step 1.  The contents to copy include a <code>.vscode</code> folder, a <code>Makefile</code>, and a <code>project.mk</code> file.  For this example, the contents of the 'MyProject' folder would be the following:</p>
+<pre class="codehilite"><code class="language-shell">C:/Users/Jake.Carter/workspace/MyNewProject
+|- .vscode
+|- Makefile
+|- project.mk
+</code></pre>
+
+</li>
+<li>
+<p>Open the project in VS Code (<code>File -&gt; Open Folder...</code>)</p>
+</li>
+<li>
+<p>Set your <a href="#target">target</a> microcontroller and <a href="#board">board</a> correctly.</p>
+</li>
+<li>
+<p><code>CTRL+SHIFT+P -&gt; Reload Window</code> to re-parse the project settings.</p>
+</li>
+<li>
+<p>Configure the <a href="#build-system">build system</a> for use with any pre-existing source code.</p>
+</li>
+<li>
+<p>That's it!  Your new project can now be opened with <code>File &gt; Open Folder</code> from within VS Code.</p>
+</li>
+</ol>
 <h2 id="eclipse">Eclipse</h2>
 <p>For setup/quick-start instructions, see <a href="#getting-started-with-eclipse">"Getting Started with Eclipse"</a> first.  This section offers detailed usage info focusing on the typical development cycle.</p>
 <h3 id="running-eclipse">Running Eclipse</h3>
@@ -1656,7 +1945,7 @@ shutdown command invoked
 <p><strong>clean</strong> and rebuild the project.</p>
 </li>
 </ol>
-<h3 id="building-a-project_1">Building a Project</h3>
+<h3 id="building-a-project">Building a Project</h3>
 <ol>
 <li>
 <p>Ensure that the Eclipse is set to the <strong>C/C++ perspective</strong> (top right).  </p>
@@ -6337,7 +6626,7 @@ These limitations may make the device difficult (or impossible) for the debugger
 <p>The <a href="#debug-limitations">debug limitations</a> of the MSDK's supported parts may make some devices difficult to connect to if bad firmware has been flashed.  In such cases, the device can attempt to be recovered from the “locked out” firmware by mass erasing the application code from the flash memory bank.  Note that this does not always work.  Success will depend on a small window being available for the debugger to connect immediately after reset. </p>
 <p>Before following the procedure below, ensure that you have updated the PICO debugger firmware to the latest version. See <a href="#updating-the-max32625pico-pico-debug-adapter-firmware">Updating the MAX32625PICO (PICO) Debug Adapter Firmware</a></p>
 <h5 id="unlock-with-vs-code">Unlock with VS Code</h5>
-<p>For VS Code users, the `"erase flash"``<a href="#building-a-project">build task</a> can be used to attempt a mass erase.  If this task fails to recover the part, attempt the procedure below.</p>
+<p>For VS Code users, the `"erase flash"``<a href="#build-tasks">build task</a> can be used to attempt a mass erase.  If this task fails to recover the part, attempt the procedure below.</p>
 <h5 id="unlock-with-eraseact">Unlock with <code>erase.act</code></h5>
 <ol>
 <li>
