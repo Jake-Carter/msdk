@@ -75,7 +75,6 @@ int MXC_SPI_RevA1_Init(mxc_spi_reva_regs_t *spi, int masterMode, int quadModeUse
     int spi_num;
 
     spi_num = MXC_SPI_GET_IDX((mxc_spi_regs_t *)spi);
-    
 
     states[spi_num].req = NULL;
     states[spi_num].last_size = 0;
@@ -144,7 +143,6 @@ int MXC_SPI_RevA1_Shutdown(mxc_spi_reva_regs_t *spi)
     int spi_num;
     mxc_spi_reva_req_t *temp_req;
     spi_num = MXC_SPI_GET_IDX((mxc_spi_regs_t *)spi);
-    
 
     //disable and clear interrupts
     spi->inten = 0;
@@ -307,7 +305,6 @@ int MXC_SPI_RevA1_SetMTMode(mxc_spi_reva_regs_t *spi, int mtMode)
     int spi_num;
 
     spi_num = MXC_SPI_GET_IDX((mxc_spi_regs_t *)spi);
-    
 
     if ((mtMode != 0) && (mtMode != 1)) {
         return E_BAD_PARAM;
@@ -340,7 +337,6 @@ int MXC_SPI_RevA1_GetMTMode(mxc_spi_reva_regs_t *spi)
     int spi_num;
 
     spi_num = MXC_SPI_GET_IDX((mxc_spi_regs_t *)spi);
-    
 
     return states[spi_num].mtMode;
 }
@@ -360,7 +356,6 @@ int MXC_SPI_RevA1_SetSlave(mxc_spi_reva_regs_t *spi, int ssIdx)
     }
 
     spi_num = MXC_SPI_GET_IDX((mxc_spi_regs_t *)spi);
-    
 
     if (states[spi_num].hw_ss_control) {
         // Setup the slave select
@@ -492,7 +487,6 @@ int MXC_SPI_RevA1_AbortTransmission(mxc_spi_reva_regs_t *spi)
 {
     int spi_num;
     spi_num = MXC_SPI_GET_IDX((mxc_spi_regs_t *)spi);
-    
 
     // Disable interrupts, clear the flags
     spi->inten = 0;
@@ -717,7 +711,7 @@ int MXC_SPI_RevA1_TransSetup(mxc_spi_reva_req_t *req)
     uint8_t bits;
 
     spi_num = MXC_SPI_GET_IDX((mxc_spi_regs_t *)(req->spi));
-    
+
     MXC_ASSERT(req->ssIdx < MXC_SPI_SS_INSTANCES);
 
     if ((!req) || ((req->txData == NULL) && (req->rxData == NULL))) {
@@ -964,7 +958,6 @@ int MXC_SPI_RevA1_MasterTransactionDMA(mxc_spi_reva_req_t *req, int reqselTx, in
     mxc_dma_adv_config_t advConfig = { 0, 0, 0, 0, 0, 0 };
 
     spi_num = MXC_SPI_GET_IDX((mxc_spi_regs_t *)(req->spi));
-    
 
     if (req->txData == NULL && req->rxData == NULL) {
         return E_BAD_PARAM;
@@ -1144,7 +1137,6 @@ int MXC_SPI_RevA1_SlaveTransactionDMA(mxc_spi_reva_req_t *req, int reqselTx, int
     mxc_dma_adv_config_t advConfig = { 0, 0, 0, 0, 0, 0 };
 
     spi_num = MXC_SPI_GET_IDX((mxc_spi_regs_t *)(req->spi));
-    
 
     if (req->txData == NULL && req->rxData == NULL) {
         return E_BAD_PARAM;
@@ -1318,7 +1310,7 @@ void MXC_SPI_RevA1_DMACallback(int ch, int error)
 int MXC_SPI_RevA1_SetDefaultTXData(mxc_spi_reva_regs_t *spi, unsigned int defaultTXData)
 {
     int spi_num = MXC_SPI_GET_IDX((mxc_spi_regs_t *)spi);
-    
+
     states[spi_num].defaultTXData = defaultTXData;
     return E_NO_ERROR;
 }
@@ -1375,7 +1367,6 @@ void MXC_SPI_RevA1_HWSSControl(mxc_spi_reva_regs_t *spi, int state)
     int spi_num;
 
     spi_num = MXC_SPI_GET_IDX((mxc_spi_regs_t *)spi);
-    
 
     states[spi_num].hw_ss_control = state ? true : false;
 
