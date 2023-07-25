@@ -72,9 +72,14 @@ static int MXC_SPI_RevA1_TransSetup(mxc_spi_reva_req_t *req);
 int MXC_SPI_RevA1_Init(mxc_spi_reva_regs_t *spi, int masterMode, int quadModeUsed, int numSlaves,
                        unsigned ssPolarity, unsigned int hz)
 {
-    int spi_num;
-
-    spi_num = MXC_SPI_GET_IDX((mxc_spi_regs_t *)spi);
+    int spi_num = MXC_SPI_GET_IDX((mxc_spi_regs_t *)spi);
+    /*  Validate that the specified SPI instance exists.
+        Note:  The Init function is the only one that performs this check.
+        It catches the rare edge case where a user has casted
+        a custom SPI regs struct with an incorrect base address.
+     */
+    if (spi_num < 0)
+        return E_BAD_PARAM;
 
     states[spi_num].req = NULL;
     states[spi_num].last_size = 0;
@@ -140,9 +145,8 @@ int MXC_SPI_RevA1_Init(mxc_spi_reva_regs_t *spi, int masterMode, int quadModeUse
 
 int MXC_SPI_RevA1_Shutdown(mxc_spi_reva_regs_t *spi)
 {
-    int spi_num;
     mxc_spi_reva_req_t *temp_req;
-    spi_num = MXC_SPI_GET_IDX((mxc_spi_regs_t *)spi);
+    int spi_num = MXC_SPI_GET_IDX((mxc_spi_regs_t *)spi);
 
     //disable and clear interrupts
     spi->inten = 0;
@@ -151,9 +155,6 @@ int MXC_SPI_RevA1_Shutdown(mxc_spi_reva_regs_t *spi)
     // Disable SPI and FIFOS
     spi->ctrl0 &= ~(MXC_F_SPI_REVA_CTRL0_EN);
     spi->dma &= ~(MXC_F_SPI_REVA_DMA_TX_FIFO_EN | MXC_F_SPI_REVA_DMA_RX_FIFO_EN);
-
-    //call all of the pending callbacks for this spi
-    spi_num = MXC_SPI_GET_IDX((mxc_spi_regs_t *)spi);
 
     if (states[spi_num].req != NULL) {
         //save the request
@@ -257,15 +258,12 @@ unsigned int MXC_SPI_RevA1_GetFrequency(mxc_spi_reva_regs_t *spi)
 
 int MXC_SPI_RevA1_SetDataSize(mxc_spi_reva_regs_t *spi, int dataSize)
 {
-    int spi_num;
-
     // HW has problem with these two character sizes
     if (dataSize == 1 || dataSize > 16) {
         return E_BAD_PARAM;
     }
 
-    spi_num = MXC_SPI_GET_IDX((mxc_spi_regs_t *)spi);
-    MXC_ASSERT(spi_num >= 0);
+    int spi_num = MXC_SPI_GET_IDX((mxc_spi_regs_t *)spi);
 
     // Setup the character size
     if (!(spi->stat & MXC_F_SPI_REVA_STAT_BUSY) && states[spi_num].ssDeassert == 1) {
@@ -302,9 +300,7 @@ int MXC_SPI_RevA1_GetDataSize(mxc_spi_reva_regs_t *spi)
 
 int MXC_SPI_RevA1_SetMTMode(mxc_spi_reva_regs_t *spi, int mtMode)
 {
-    int spi_num;
-
-    spi_num = MXC_SPI_GET_IDX((mxc_spi_regs_t *)spi);
+    int spi_num = MXC_SPI_GET_IDX((mxc_spi_regs_t *)spi);
 
     if ((mtMode != 0) && (mtMode != 1)) {
         return E_BAD_PARAM;
@@ -343,7 +339,7 @@ int MXC_SPI_RevA1_GetMTMode(mxc_spi_reva_regs_t *spi)
 
 int MXC_SPI_RevA1_SetSlave(mxc_spi_reva_regs_t *spi, int ssIdx)
 {
-    int spi_num;
+    int spi_num = MXC_SPI_GET_IDX((mxc_spi_regs_t *)spi);
 
     // HW has problem with these two character sizes
     if (ssIdx >= MXC_SPI_SS_INSTANCES) {
@@ -354,8 +350,6 @@ int MXC_SPI_RevA1_SetSlave(mxc_spi_reva_regs_t *spi, int ssIdx)
     if (!(spi->ctrl0 & MXC_F_SPI_REVA_CTRL0_MST_MODE)) {
         return E_BAD_STATE;
     }
-
-    spi_num = MXC_SPI_GET_IDX((mxc_spi_regs_t *)spi);
 
     if (states[spi_num].hw_ss_control) {
         // Setup the slave select
@@ -485,8 +479,7 @@ int MXC_SPI_RevA1_GetActive(mxc_spi_reva_regs_t *spi)
 
 int MXC_SPI_RevA1_AbortTransmission(mxc_spi_reva_regs_t *spi)
 {
-    int spi_num;
-    spi_num = MXC_SPI_GET_IDX((mxc_spi_regs_t *)spi);
+    int spi_num = MXC_SPI_GET_IDX((mxc_spi_regs_t *)spi);
 
     // Disable interrupts, clear the flags
     spi->inten = 0;
@@ -792,9 +785,7 @@ int MXC_SPI_RevA1_TransSetup(mxc_spi_reva_req_t *req)
 uint32_t MXC_SPI_RevA1_MasterTransHandler(mxc_spi_reva_regs_t *spi, mxc_spi_reva_req_t *req)
 {
     uint32_t retval;
-    int spi_num;
-
-    spi_num = MXC_SPI_GET_IDX((mxc_spi_regs_t *)spi);
+    int spi_num = MXC_SPI_GET_IDX((mxc_spi_regs_t *)spi);
 
     // Leave slave select asserted at the end of the transaction
     if (states[spi_num].hw_ss_control && !req->ssDeassert) {
