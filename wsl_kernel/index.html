@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Analog Devices" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Wsl kernel - Analog Devices MSDK Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+        <link href="../css/extra.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Wsl kernel";
+        var mkdocs_page_input_path = "wsl_kernel.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <script src="../js/jquery-3.6.0.min.js" defer></script>
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+      <script>hljs.initHighlightingOnLoad();</script> 
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-79C65FSVL6"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-79C65FSVL6');
+      </script>
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Analog Devices MSDK Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../USERGUIDE/">MSDK User Guide</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../Libraries/Cordio/docs/CORDIO_USERGUIDE/">Cordio BLE User Guide</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../CONTRIBUTING/">Contributing</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../LICENSE/">License</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Analog Devices MSDK Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a> &raquo;</li>
+      <li>Wsl kernel</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/Analog-Devices-MSDK/msdk/edit/master/docs/wsl_kernel.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h2 id="useful-wsl-documentation">Useful WSL documentation</h2>
+<p>https://learn.microsoft.com/en-us/windows/wsl/filesystems</p>
+<h2 id="usbipd-setup">usbipd setup</h2>
+<p>Follow <a href="https://github.com/dorssel/usbipd-win/wiki/WSL-support#wsl-setup">WSL Setup</a></p>
+<h2 id="symptoms">Symptoms</h2>
+<p>Mount USB device with <code>usbipd wsl attach -b &lt;busid&gt;</code></p>
+<p>USB device shows up successfully with <code>lsusb</code></p>
+<p>openocd fails to connect to PICO debugger running git SHA a209 with error <code>[ 6222.907293] hid-generic 0003:0D28:0204.000C: device has no listeners, quitting</code></p>
+<p>Listing the Linux kernel configuration with <code>zcat /proc/config.gz &gt; wsl_kernel.config</code> shows <code>CONFIG_HIDRAW</code> is disabled</p>
+<h2 id="recompiling-the-kernel">Recompiling the kernel</h2>
+<p>Clone the <a href="https://github.com/microsoft/WSL2-Linux-Kernel">WSL2-Linux-Kernel</a></p>
+<p>Install Ubuntu build dependencies</p>
+<p><code>sudo apt install build-essential flex bison dwarves libssl-dev libelf-dev</code></p>
+<p>Edit the kernel configuration</p>
+<p><code>make menuconfig KCONFIG_CONFIG=Microsoft/config-wsl</code></p>
+<p>Enable <code>CONFIG_HIDRAW</code></p>
+<p>Recompile the kernel</p>
+<p><code>make KCONFIG_CONFIG=Microsoft/config-wsl</code></p>
+<p>Copy the kernel onto Windows filesystem</p>
+<p><code>cp arch/x86/boot/bzImage /mnt/c/Users/&lt;username&gt;/wsl_kernel_mod</code></p>
+<p>Edit Windows-side <a href="https://learn.microsoft.com/en-us/windows/wsl/wsl-config#configure-global-options-with-wslconfig">.wslconfig</a> to use the new kernel.</p>
+<pre><code class="language-config">[wsl2]
+kernel = C:/Users/&lt;username&gt;/wsl_kernel_mod
+</code></pre>
+<p>On Windows command prompt, shut down wsl</p>
+<p><code>wsl --shutdown</code></p>
+<p>Restart WSL and reattach usb device</p>
+<p><code>usbipd.exe wsl attach -b 5-10</code></p>
+<p>Verify device connects successfully</p>
+<p><code>dmesg | tail</code></p>
+<pre><code class="language-bash">[  595.414780] usb 1-1: new full-speed USB device number 3 using vhci_hcd
+[  595.494812] vhci_hcd: vhci_device speed not set
+[  595.564789] usb 1-1: SetAddress Request (3) to port 0
+[  595.707665] usb 1-1: New USB device found, idVendor=0d28, idProduct=0204, bcdDevice=10.00
+[  595.707669] usb 1-1: New USB device strings: Mfr=1, Product=2, SerialNumber=3
+[  595.707670] usb 1-1: Product: DAPLink CMSIS-DAP
+[  595.707670] usb 1-1: Manufacturer: ARM
+[  595.707671] usb 1-1: SerialNumber: 04441701dde703f600000000000000000000000097969906
+[  595.721771] cdc_acm 1-1:1.1: ttyACM0: USB ACM device
+[  595.736740] hid-generic 0003:0D28:0204.0002: hidraw0: USB HID v1.00 Device [ARM DAPLink CMSIS-DAP] on usb-vhci_hcd.0-1/input3
+</code></pre>
+              
+            </div>
+          </div><footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+      <p>Copyright (C) Maxim Integrated Products, Inc., All rights Reserved.</p>
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/Analog-Devices-MSDK/msdk" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
