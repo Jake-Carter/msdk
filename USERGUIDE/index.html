@@ -8,7 +8,7 @@
     <title>MSDK User Guide - Analog Devices MSDK Documentation</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
         <link href="../css/extra.css" rel="stylesheet" />
     
       <script>
@@ -18,19 +18,18 @@
         var mkdocs_page_url = null;
       </script>
     
-    <script src="../js/jquery-3.6.0.min.js" defer></script>
     <!--[if lt IE 9]>
       <script src="../js/html5shiv.min.js"></script>
     <![endif]-->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
-      <script>hljs.initHighlightingOnLoad();</script> 
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-79C65FSVL6"></script>
       <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
 
-        gtag('config', 'G-79C65FSVL6');
+        gtag('config', "G-79C65FSVL6");
       </script>
 </head>
 
@@ -378,8 +377,6 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#max32520-examples">MAX32520 Examples</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#max32570-examples">MAX32570 Examples</a>
-    </li>
     <li class="toctree-l3"><a class="reference internal" href="#max32572-examples">MAX32572 Examples</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#max32650-examples">MAX32650 Examples</a>
@@ -451,7 +448,7 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href=".." class="icon icon-home" aria-label="Docs"></a> &raquo;</li>
-      <li>MSDK User Guide</li>
+      <li class="breadcrumb-item active">MSDK User Guide</li>
     <li class="wy-breadcrumbs-aside">
           <a href="https://github.com/Analog-Devices-MSDK/msdk/edit/master/docs/USERGUIDE.md" class="icon icon-github"> Edit on GitHub</a>
     </li>
@@ -3377,12 +3374,12 @@ int main(void)
 <tr>
 <td><strong>ADC</strong></td>
 <td>ADC demo application</td>
-<td>MAX32570<br>MAX32572<br>MAX32650<br>MAX32655<br>MAX32662<br>MAX32665<br>MAX32672<br>MAX32675<br>MAX32680<br>MAX32690<br>MAX78000<br>MAX78002</td>
+<td>MAX32572<br>MAX32650<br>MAX32655<br>MAX32662<br>MAX32665<br>MAX32672<br>MAX32675<br>MAX32680<br>MAX32690<br>MAX78000<br>MAX78002</td>
 </tr>
 <tr>
 <td><strong>AES</strong></td>
 <td>AES Example</td>
-<td>MAX32520<br>MAX32570<br>MAX32572<br>MAX32650<br>MAX32655<br>MAX32665<br>MAX32670<br>MAX32672<br>MAX32675<br>MAX32680<br>MAX78000<br>MAX78002</td>
+<td>MAX32520<br>MAX32572<br>MAX32650<br>MAX32655<br>MAX32665<br>MAX32670<br>MAX32672<br>MAX32675<br>MAX32680<br>MAX78000<br>MAX78002</td>
 </tr>
 <tr>
 <td><strong>BLE4_ctr</strong></td>
@@ -3440,11 +3437,6 @@ int main(void)
 <td>MAX32655<br>MAX32665<br>MAX32690</td>
 </tr>
 <tr>
-<td><strong>Barcode_Decoder</strong></td>
-<td>Decode barcodes from an image.  Supports Code39, Code128, and QR decoding algorithms.</td>
-<td>MAX32570<br>MAX32572</td>
-</tr>
-<tr>
 <td><strong>CAN</strong></td>
 <td>Demonstrates Controller Area Network (CAN) drivers and transactions.</td>
 <td>MAX32662<br>MAX32690</td>
@@ -3452,7 +3444,7 @@ int main(void)
 <tr>
 <td><strong>CRC</strong></td>
 <td>Example showing how to use the CRC module. Covers 16 and 32-bit CRC.</td>
-<td>MAX32520<br>MAX32570<br>MAX32572<br>MAX32650<br>MAX32655<br>MAX32665<br>MAX32670<br>MAX32672<br>MAX32675<br>MAX32680<br>MAX32690<br>MAX78000<br>MAX78002</td>
+<td>MAX32520<br>MAX32572<br>MAX32650<br>MAX32655<br>MAX32665<br>MAX32670<br>MAX32672<br>MAX32675<br>MAX32680<br>MAX32690<br>MAX78000<br>MAX78002</td>
 </tr>
 <tr>
 <td><strong>CTB_AES</strong></td>
@@ -3462,7 +3454,7 @@ int main(void)
 <tr>
 <td><strong>CameraIF</strong></td>
 <td>Paralel Camera Interface!</td>
-<td>MAX32570<br>MAX32572<br>MAX78000<br>MAX78002</td>
+<td>MAX32572<br>MAX78000<br>MAX78002</td>
 </tr>
 <tr>
 <td><strong>CameraIF_Debayer</strong></td>
@@ -3472,12 +3464,12 @@ int main(void)
 <tr>
 <td><strong>DES</strong></td>
 <td>Data Encryption Standard (DES) Example.</td>
-<td>MAX32570<br>MAX32572<br>MAX32650<br>MAX32665</td>
+<td>MAX32572<br>MAX32650<br>MAX32665</td>
 </tr>
 <tr>
 <td><strong>DMA</strong></td>
 <td>DMA Example</td>
-<td>MAX32520<br>MAX32570<br>MAX32572<br>MAX32650<br>MAX32655<br>MAX32660<br>MAX32662<br>MAX32665<br>MAX32670<br>MAX32672<br>MAX32675<br>MAX32680<br>MAX32690<br>MAX78000<br>MAX78002</td>
+<td>MAX32520<br>MAX32572<br>MAX32650<br>MAX32655<br>MAX32660<br>MAX32662<br>MAX32665<br>MAX32670<br>MAX32672<br>MAX32675<br>MAX32680<br>MAX32690<br>MAX78000<br>MAX78002</td>
 </tr>
 <tr>
 <td><strong>Demo</strong></td>
@@ -3507,22 +3499,22 @@ int main(void)
 <tr>
 <td><strong>Flash</strong></td>
 <td>Flash Controller Example</td>
-<td>MAX32520<br>MAX32570<br>MAX32572<br>MAX32650<br>MAX32655<br>MAX32660<br>MAX32662<br>MAX32665<br>MAX32670<br>MAX32672<br>MAX32675<br>MAX32680<br>MAX32690<br>MAX78000<br>MAX78002</td>
+<td>MAX32520<br>MAX32572<br>MAX32650<br>MAX32655<br>MAX32660<br>MAX32662<br>MAX32665<br>MAX32670<br>MAX32672<br>MAX32675<br>MAX32680<br>MAX32690<br>MAX78000<br>MAX78002</td>
 </tr>
 <tr>
 <td><strong>Flash_CLI</strong></td>
 <td>Flash Control Mass Erase &amp; Write 32-bit enabled mode Example</td>
-<td>MAX32520<br>MAX32570<br>MAX32650<br>MAX32655<br>MAX32660<br>MAX32662<br>MAX32665<br>MAX32670<br>MAX32672<br>MAX32675<br>MAX32680<br>MAX32690<br>MAX78000<br>MAX78002</td>
+<td>MAX32520<br>MAX32650<br>MAX32655<br>MAX32660<br>MAX32662<br>MAX32665<br>MAX32670<br>MAX32672<br>MAX32675<br>MAX32680<br>MAX32690<br>MAX78000<br>MAX78002</td>
 </tr>
 <tr>
 <td><strong>FreeRTOSDemo</strong></td>
 <td>FreeRTOS Example Application.</td>
-<td>MAX32520<br>MAX32570<br>MAX32572<br>MAX32650<br>MAX32655<br>MAX32660<br>MAX32665<br>MAX32670<br>MAX32672<br>MAX32675<br>MAX32680<br>MAX32690<br>MAX78000<br>MAX78002</td>
+<td>MAX32520<br>MAX32572<br>MAX32650<br>MAX32655<br>MAX32660<br>MAX32665<br>MAX32670<br>MAX32672<br>MAX32675<br>MAX32680<br>MAX32690<br>MAX78000<br>MAX78002</td>
 </tr>
 <tr>
 <td><strong>GPIO</strong></td>
 <td>GPIO Example</td>
-<td>MAX32520<br>MAX32570<br>MAX32572<br>MAX32650<br>MAX32655<br>MAX32660<br>MAX32662<br>MAX32665<br>MAX32670<br>MAX32672<br>MAX32675<br>MAX32680<br>MAX32690<br>MAX78000<br>MAX78002</td>
+<td>MAX32520<br>MAX32572<br>MAX32650<br>MAX32655<br>MAX32660<br>MAX32662<br>MAX32665<br>MAX32670<br>MAX32672<br>MAX32675<br>MAX32680<br>MAX32690<br>MAX78000<br>MAX78002</td>
 </tr>
 <tr>
 <td><strong>HART_UART</strong></td>
@@ -3537,17 +3529,17 @@ int main(void)
 <tr>
 <td><strong>HTMR</strong></td>
 <td>Configures and starts the RTC and demonstrates the use of the alarms.</td>
-<td>MAX32570<br>MAX32572<br>MAX32665</td>
+<td>MAX32572<br>MAX32665</td>
 </tr>
 <tr>
 <td><strong>Hash</strong></td>
 <td>Hash Example</td>
-<td>MAX32570<br>MAX32572<br>MAX32665<br>MAX32690</td>
+<td>MAX32572<br>MAX32665<br>MAX32690</td>
 </tr>
 <tr>
 <td><strong>Hello_World</strong></td>
 <td>Hello World!</td>
-<td>MAX32520<br>MAX32570<br>MAX32572<br>MAX32650<br>MAX32655<br>MAX32660<br>MAX32662<br>MAX32665<br>MAX32670<br>MAX32672<br>MAX32675<br>MAX32680<br>MAX32690<br>MAX78000<br>MAX78002</td>
+<td>MAX32520<br>MAX32572<br>MAX32650<br>MAX32655<br>MAX32660<br>MAX32662<br>MAX32665<br>MAX32670<br>MAX32672<br>MAX32675<br>MAX32680<br>MAX32690<br>MAX78000<br>MAX78002</td>
 </tr>
 <tr>
 <td><strong>Hello_World-riscv</strong></td>
@@ -3557,22 +3549,22 @@ int main(void)
 <tr>
 <td><strong>I2C</strong></td>
 <td>I2C Loopback Example</td>
-<td>MAX32570<br>MAX32572<br>MAX32650<br>MAX32655<br>MAX32660<br>MAX32662<br>MAX32665<br>MAX32670<br>MAX32672<br>MAX32675<br>MAX32680<br>MAX32690<br>MAX78002</td>
+<td>MAX32572<br>MAX32650<br>MAX32655<br>MAX32660<br>MAX32662<br>MAX32665<br>MAX32670<br>MAX32672<br>MAX32675<br>MAX32680<br>MAX32690<br>MAX78002</td>
 </tr>
 <tr>
 <td><strong>I2C_MNGR</strong></td>
 <td>This example shows how to manage multiple concurrent I2C transactions from a single I2C instance.</td>
-<td>MAX32520<br>MAX32570<br>MAX32650<br>MAX32655<br>MAX32660<br>MAX32662<br>MAX32665<br>MAX32670<br>MAX32672<br>MAX32675<br>MAX32680<br>MAX32690<br>MAX78000<br>MAX78002</td>
+<td>MAX32520<br>MAX32650<br>MAX32655<br>MAX32660<br>MAX32662<br>MAX32665<br>MAX32670<br>MAX32672<br>MAX32675<br>MAX32680<br>MAX32690<br>MAX78000<br>MAX78002</td>
 </tr>
 <tr>
 <td><strong>I2C_SCAN</strong></td>
 <td>Example code for scanning the available addresses on an I2C bus</td>
-<td>MAX32520<br>MAX32570<br>MAX32650<br>MAX32655<br>MAX32660<br>MAX32662<br>MAX32665<br>MAX32670<br>MAX32672<br>MAX32675<br>MAX32680<br>MAX32690<br>MAX78000<br>MAX78002</td>
+<td>MAX32520<br>MAX32650<br>MAX32655<br>MAX32660<br>MAX32662<br>MAX32665<br>MAX32670<br>MAX32672<br>MAX32675<br>MAX32680<br>MAX32690<br>MAX78000<br>MAX78002</td>
 </tr>
 <tr>
 <td><strong>I2C_Sensor</strong></td>
 <td>I2C generic sensor Example</td>
-<td>MAX32520<br>MAX32570<br>MAX32572<br>MAX32650<br>MAX32655<br>MAX32660<br>MAX32662<br>MAX32665<br>MAX32670<br>MAX32672<br>MAX32675<br>MAX32680<br>MAX32690<br>MAX78000<br>MAX78002</td>
+<td>MAX32520<br>MAX32572<br>MAX32650<br>MAX32655<br>MAX32660<br>MAX32662<br>MAX32665<br>MAX32670<br>MAX32672<br>MAX32675<br>MAX32680<br>MAX32690<br>MAX78000<br>MAX78002</td>
 </tr>
 <tr>
 <td><strong>I2S</strong></td>
@@ -3587,7 +3579,7 @@ int main(void)
 <tr>
 <td><strong>ICC</strong></td>
 <td>Instruction cache example</td>
-<td>MAX32520<br>MAX32570<br>MAX32572<br>MAX32650<br>MAX32655<br>MAX32660<br>MAX32662<br>MAX32665<br>MAX32670<br>MAX32672<br>MAX32675<br>MAX32680<br>MAX32690<br>MAX78000<br>MAX78002</td>
+<td>MAX32520<br>MAX32572<br>MAX32650<br>MAX32655<br>MAX32660<br>MAX32662<br>MAX32665<br>MAX32670<br>MAX32672<br>MAX32675<br>MAX32680<br>MAX32690<br>MAX78000<br>MAX78002</td>
 </tr>
 <tr>
 <td><strong>ImgCapture</strong></td>
@@ -3602,7 +3594,7 @@ int main(void)
 <tr>
 <td><strong>LP</strong></td>
 <td>Demonstrates the various low power modes.</td>
-<td>MAX32520<br>MAX32570<br>MAX32572<br>MAX32650<br>MAX32655<br>MAX32660<br>MAX32662<br>MAX32665<br>MAX32670<br>MAX32672<br>MAX32675<br>MAX32680<br>MAX32690<br>MAX78000<br>MAX78002</td>
+<td>MAX32520<br>MAX32572<br>MAX32650<br>MAX32655<br>MAX32660<br>MAX32662<br>MAX32665<br>MAX32670<br>MAX32672<br>MAX32675<br>MAX32680<br>MAX32690<br>MAX78000<br>MAX78002</td>
 </tr>
 <tr>
 <td><strong>LPCMP</strong></td>
@@ -3612,7 +3604,7 @@ int main(void)
 <tr>
 <td><strong>Library_Use</strong></td>
 <td>Static library example</td>
-<td>MAX32520<br>MAX32570<br>MAX32572<br>MAX32650<br>MAX32655<br>MAX32660<br>MAX32662<br>MAX32665<br>MAX32670<br>MAX32672<br>MAX32675<br>MAX32680<br>MAX32690<br>MAX78000<br>MAX78002</td>
+<td>MAX32520<br>MAX32572<br>MAX32650<br>MAX32655<br>MAX32660<br>MAX32662<br>MAX32665<br>MAX32670<br>MAX32672<br>MAX32675<br>MAX32680<br>MAX32690<br>MAX78000<br>MAX78002</td>
 </tr>
 <tr>
 <td><strong>MAA</strong></td>
@@ -3620,24 +3612,19 @@ int main(void)
 <td>MAX32650<br>MAX32665</td>
 </tr>
 <tr>
-<td><strong>MSR</strong></td>
-<td>Empty Description</td>
-<td>MAX32570<br>MAX32572</td>
-</tr>
-<tr>
 <td><strong>OTP_Dump</strong></td>
 <td>OTP Dump Example</td>
-<td>MAX32520<br>MAX32570<br>MAX32572<br>MAX32650<br>MAX32665</td>
+<td>MAX32520<br>MAX32572<br>MAX32650<br>MAX32665</td>
 </tr>
 <tr>
 <td><strong>OWM</strong></td>
 <td>Empty Description</td>
-<td>MAX32570<br>MAX32572<br>MAX32650<br>MAX32665</td>
+<td>MAX32572<br>MAX32650<br>MAX32665</td>
 </tr>
 <tr>
 <td><strong>Pulse_Train</strong></td>
 <td>Configures and starts four different pulse trains on GPIO LEDs.</td>
-<td>MAX32570<br>MAX32572<br>MAX32650<br>MAX32655<br>MAX32665<br>MAX32680<br>MAX32690<br>MAX78000<br>MAX78002</td>
+<td>MAX32572<br>MAX32650<br>MAX32655<br>MAX32665<br>MAX32680<br>MAX32690<br>MAX78000<br>MAX78002</td>
 </tr>
 <tr>
 <td><strong>RF_Test</strong></td>
@@ -3647,12 +3634,12 @@ int main(void)
 <tr>
 <td><strong>RTC</strong></td>
 <td>Configures and starts the RTC and demonstrates the use of the alarms.</td>
-<td>MAX32570<br>MAX32572<br>MAX32650<br>MAX32655<br>MAX32660<br>MAX32662<br>MAX32665<br>MAX32670<br>MAX32672<br>MAX32690<br>MAX78000<br>MAX78002</td>
+<td>MAX32572<br>MAX32650<br>MAX32655<br>MAX32660<br>MAX32662<br>MAX32665<br>MAX32670<br>MAX32672<br>MAX32690<br>MAX78000<br>MAX78002</td>
 </tr>
 <tr>
 <td><strong>RTC_Backup</strong></td>
 <td>Demonstrates the alarm functionality of the Real-Time Clock (RTC)</td>
-<td>MAX32570<br>MAX32650<br>MAX32655<br>MAX32660<br>MAX32662<br>MAX32665<br>MAX32670<br>MAX32672<br>MAX32690<br>MAX78000<br>MAX78002</td>
+<td>MAX32650<br>MAX32655<br>MAX32660<br>MAX32662<br>MAX32665<br>MAX32670<br>MAX32672<br>MAX32690<br>MAX78000<br>MAX78002</td>
 </tr>
 <tr>
 <td><strong>RV_ARM_Loader</strong></td>
@@ -3662,32 +3649,27 @@ int main(void)
 <tr>
 <td><strong>SCPA_OTP_Dump</strong></td>
 <td>SCP Applet OTP Dump Example</td>
-<td>MAX32520<br>MAX32570<br>MAX32650<br>MAX32662<br>MAX32665<br>MAX32672<br>MAX32690</td>
+<td>MAX32520<br>MAX32650<br>MAX32662<br>MAX32665<br>MAX32672<br>MAX32690</td>
 </tr>
 <tr>
 <td><strong>SDHC_FAT</strong></td>
 <td>read and write sdhc</td>
-<td>MAX32570<br>MAX32572<br>MAX32650<br>MAX32665<br>MAX78002</td>
+<td>MAX32572<br>MAX32650<br>MAX32665<br>MAX78002</td>
 </tr>
 <tr>
 <td><strong>SDHC_Raw</strong></td>
 <td>read and write sdhc</td>
-<td>MAX32570<br>MAX32572<br>MAX32650<br>MAX32665<br>MAX78002</td>
-</tr>
-<tr>
-<td><strong>SKB</strong></td>
-<td>Secure Keyboard Example</td>
-<td>MAX32570<br>MAX32572</td>
+<td>MAX32572<br>MAX32650<br>MAX32665<br>MAX78002</td>
 </tr>
 <tr>
 <td><strong>SMON</strong></td>
 <td>Security Monitor example</td>
-<td>MAX32520<br>MAX32570<br>MAX32572</td>
+<td>MAX32520<br>MAX32572</td>
 </tr>
 <tr>
 <td><strong>SPI</strong></td>
 <td>SPI Master Demo</td>
-<td>MAX32520<br>MAX32570<br>MAX32572<br>MAX32650<br>MAX32655<br>MAX32660<br>MAX32662<br>MAX32665<br>MAX32670<br>MAX32672<br>MAX32675<br>MAX32680<br>MAX32690<br>MAX78000<br>MAX78002</td>
+<td>MAX32520<br>MAX32572<br>MAX32650<br>MAX32655<br>MAX32660<br>MAX32662<br>MAX32665<br>MAX32670<br>MAX32672<br>MAX32675<br>MAX32680<br>MAX32690<br>MAX78000<br>MAX78002</td>
 </tr>
 <tr>
 <td><strong>SPIMSS</strong></td>
@@ -3697,17 +3679,12 @@ int main(void)
 <tr>
 <td><strong>SPIXF</strong></td>
 <td>SPIX example using the external flash.</td>
-<td>MAX32570<br>MAX32572<br>MAX32650<br>MAX32665</td>
-</tr>
-<tr>
-<td><strong>SPIXF_SFCC</strong></td>
-<td>Demonstrates the SPIXF Cache Controller (SFCC)</td>
-<td>MAX32570<br>MAX32665</td>
+<td>MAX32572<br>MAX32650<br>MAX32665</td>
 </tr>
 <tr>
 <td><strong>SPIXR</strong></td>
 <td>SPIXR example writing to SRAM Microchip 23LC1024</td>
-<td>MAX32570<br>MAX32572<br>MAX32650<br>MAX32665</td>
+<td>MAX32572<br>MAX32650<br>MAX32665</td>
 </tr>
 <tr>
 <td><strong>SPI_MasterSlave</strong></td>
@@ -3717,47 +3694,42 @@ int main(void)
 <tr>
 <td><strong>SPI_Usecase</strong></td>
 <td>SPI Usecase!</td>
-<td>MAX32570<br>MAX32572<br>MAX32670</td>
+<td>MAX32572<br>MAX32670</td>
 </tr>
 <tr>
 <td><strong>SRCC</strong></td>
 <td>External Memory Cache Controller (SRCC) using SPIXR, writing to external SRAM</td>
-<td>MAX32570<br>MAX32572<br>MAX32665</td>
-</tr>
-<tr>
-<td><strong>Security_Monitor</strong></td>
-<td>Empty Description</td>
-<td>MAX32570<br>MAX32572</td>
+<td>MAX32572<br>MAX32665</td>
 </tr>
 <tr>
 <td><strong>Semaphore</strong></td>
 <td>Semaphore example</td>
-<td>MAX32570<br>MAX32572<br>MAX32650<br>MAX32665</td>
+<td>MAX32572<br>MAX32650<br>MAX32665</td>
 </tr>
 <tr>
 <td><strong>TFT_Demo</strong></td>
 <td>TFT Demo Example!</td>
-<td>MAX32570<br>MAX32572<br>MAX32655<br>MAX32690<br>MAX78000<br>MAX78002</td>
+<td>MAX32572<br>MAX32655<br>MAX32690<br>MAX78000<br>MAX78002</td>
 </tr>
 <tr>
 <td><strong>TMR</strong></td>
 <td>Timer example</td>
-<td>MAX32520<br>MAX32570<br>MAX32572<br>MAX32650<br>MAX32655<br>MAX32660<br>MAX32662<br>MAX32665<br>MAX32670<br>MAX32672<br>MAX32675<br>MAX32680<br>MAX32690<br>MAX78000<br>MAX78002</td>
+<td>MAX32520<br>MAX32572<br>MAX32650<br>MAX32655<br>MAX32660<br>MAX32662<br>MAX32665<br>MAX32670<br>MAX32672<br>MAX32675<br>MAX32680<br>MAX32690<br>MAX78000<br>MAX78002</td>
 </tr>
 <tr>
 <td><strong>TRNG</strong></td>
 <td>True Random Number Generator (TRNG) example</td>
-<td>MAX32520<br>MAX32570<br>MAX32572<br>MAX32650<br>MAX32655<br>MAX32665<br>MAX32670<br>MAX32672<br>MAX32675<br>MAX32680<br>MAX32690<br>MAX78000<br>MAX78002</td>
+<td>MAX32520<br>MAX32572<br>MAX32650<br>MAX32655<br>MAX32665<br>MAX32670<br>MAX32672<br>MAX32675<br>MAX32680<br>MAX32690<br>MAX78000<br>MAX78002</td>
 </tr>
 <tr>
 <td><strong>Temp_Monitor</strong></td>
 <td>Low-Power Temp Monitor example.</td>
-<td>MAX32570<br>MAX32572<br>MAX32650<br>MAX32655<br>MAX32660<br>MAX32662<br>MAX32665<br>MAX32670<br>MAX32672<br>MAX32680<br>MAX32690<br>MAX78000<br>MAX78002</td>
+<td>MAX32572<br>MAX32650<br>MAX32655<br>MAX32660<br>MAX32662<br>MAX32665<br>MAX32670<br>MAX32672<br>MAX32680<br>MAX32690<br>MAX78000<br>MAX78002</td>
 </tr>
 <tr>
 <td><strong>UART</strong></td>
 <td>Main for UART example.</td>
-<td>MAX32570<br>MAX32572<br>MAX32650<br>MAX32655<br>MAX32660<br>MAX32662<br>MAX32665<br>MAX32670<br>MAX32672<br>MAX32675<br>MAX32680<br>MAX32690<br>MAX78000<br>MAX78002</td>
+<td>MAX32572<br>MAX32650<br>MAX32655<br>MAX32660<br>MAX32662<br>MAX32665<br>MAX32670<br>MAX32672<br>MAX32675<br>MAX32680<br>MAX32690<br>MAX78000<br>MAX78002</td>
 </tr>
 <tr>
 <td><strong>UART_Wakeup</strong></td>
@@ -3767,27 +3739,27 @@ int main(void)
 <tr>
 <td><strong>USB_CDCACM</strong></td>
 <td>USB CDC-ACM example</td>
-<td>MAX32570<br>MAX32572<br>MAX32650<br>MAX32665<br>MAX32690<br>MAX78002</td>
+<td>MAX32572<br>MAX32650<br>MAX32665<br>MAX32690<br>MAX78002</td>
 </tr>
 <tr>
 <td><strong>USB_CompositeDevice_MSC_CDC</strong></td>
-<td>USB composite device with Mass Storage driver class and CDC-SCM driver class.</td>
-<td>MAX32570<br>MAX32572<br>MAX32650<br>MAX32665<br>MAX32690<br>MAX78002</td>
+<td>Empty Description</td>
+<td>MAX32572<br>MAX32650<br>MAX32665<br>MAX32690<br>MAX78002</td>
 </tr>
 <tr>
 <td><strong>USB_CompositeDevice_MSC_HID</strong></td>
-<td>USB composite device with Mass Storage driver class and HID driver class.</td>
-<td>MAX32570<br>MAX32572<br>MAX32650<br>MAX32665<br>MAX32690<br>MAX78002</td>
+<td>Empty Description</td>
+<td>MAX32572<br>MAX32650<br>MAX32665<br>MAX32690<br>MAX78002</td>
 </tr>
 <tr>
 <td><strong>USB_HIDKeyboard</strong></td>
 <td>Demonstrates how to configure a the USB device controller as a HID keyboard class device</td>
-<td>MAX32570<br>MAX32572<br>MAX32650<br>MAX32665<br>MAX32690<br>MAX78002</td>
+<td>MAX32572<br>MAX32650<br>MAX32665<br>MAX32690<br>MAX78002</td>
 </tr>
 <tr>
 <td><strong>USB_MassStorage</strong></td>
 <td>USB Mass Storage Class example</td>
-<td>MAX32570<br>MAX32572<br>MAX32650<br>MAX32665<br>MAX32690<br>MAX78002</td>
+<td>MAX32572<br>MAX32650<br>MAX32665<br>MAX32690<br>MAX78002</td>
 </tr>
 <tr>
 <td><strong>WUT</strong></td>
@@ -3797,12 +3769,12 @@ int main(void)
 <tr>
 <td><strong>Watchdog</strong></td>
 <td>Demonstrates a watchdog timer in run mode</td>
-<td>MAX32520<br>MAX32570<br>MAX32572<br>MAX32650<br>MAX32655<br>MAX32660<br>MAX32662<br>MAX32665<br>MAX32670<br>MAX32672<br>MAX32675<br>MAX32680<br>MAX32690<br>MAX78000<br>MAX78002</td>
+<td>MAX32520<br>MAX32572<br>MAX32650<br>MAX32655<br>MAX32660<br>MAX32662<br>MAX32665<br>MAX32670<br>MAX32672<br>MAX32675<br>MAX32680<br>MAX32690<br>MAX78000<br>MAX78002</td>
 </tr>
 <tr>
 <td><strong>WearLeveling</strong></td>
 <td>LittleFS and wear leveling example.</td>
-<td>MAX32570<br>MAX32572<br>MAX32650<br>MAX32655<br>MAX32660<br>MAX32662<br>MAX32665<br>MAX32670<br>MAX32672<br>MAX32675<br>MAX32680<br>MAX32690<br>MAX78000<br>MAX78002</td>
+<td>MAX32572<br>MAX32650<br>MAX32655<br>MAX32660<br>MAX32662<br>MAX32665<br>MAX32670<br>MAX32672<br>MAX32675<br>MAX32680<br>MAX32690<br>MAX78000<br>MAX78002</td>
 </tr>
 <tr>
 <td><strong>faceid</strong></td>
@@ -3820,24 +3792,14 @@ int main(void)
 <td>MAX78000<br>MAX78002</td>
 </tr>
 <tr>
-<td><strong>lwIP_Ping</strong></td>
-<td>lwIP Ping Example</td>
-<td>MAX32570<br>MAX32572</td>
-</tr>
-<tr>
-<td><strong>lwIP_TCP</strong></td>
-<td>lwIP TCP Example</td>
-<td>MAX32570<br>MAX32572</td>
-</tr>
-<tr>
 <td><strong>src</strong></td>
 <td>Secure ROM Bootloader Host Example</td>
-<td>MAX32570<br>MAX32660<br>MAX32662<br>MAX32665<br>MAX32670</td>
+<td>MAX32660<br>MAX32662<br>MAX32665<br>MAX32670</td>
 </tr>
 </tbody>
 </table>
 <h3 id="max32520-examples">MAX32520 Examples</h3>
-<p>In addition to the <a href="#common-examples">Common Examples</a>, the following examples are available specificly for the MAX32520.</p>
+<p>In addition to the <a href="#common-examples">Common Examples</a>, the following examples are available specifically for the MAX32520.</p>
 <table>
 <thead>
 <tr>
@@ -3869,56 +3831,8 @@ int main(void)
 </tr>
 </tbody>
 </table>
-<h3 id="max32570-examples">MAX32570 Examples</h3>
-<p>In addition to the <a href="#common-examples">Common Examples</a>, the following examples are available specificly for the MAX32570.</p>
-<table>
-<thead>
-<tr>
-<th>Example</th>
-<th>Description</th>
-<th>MSDK Location</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>MAX32570_Demo_BareMetal</strong></td>
-<td>MAX32570 Bare-metal Demo Example!</td>
-<td><em>Local:</em><code>Examples/MAX32570/MAX32570_Demo_BareMetal</code><br><em>Github:</em> <a href="https://github.com/Analog-Devices-MSDK/msdk/tree/release/Examples/MAX32570/MAX32570_Demo_BareMetal">link</a></td>
-</tr>
-<tr>
-<td><strong>MAX32570_Demo_FreeRTOS</strong></td>
-<td>MAX32570 FreeRTOS Demo Example!</td>
-<td><em>Local:</em><code>Examples/MAX32570/MAX32570_Demo_FreeRTOS</code><br><em>Github:</em> <a href="https://github.com/Analog-Devices-MSDK/msdk/tree/release/Examples/MAX32570/MAX32570_Demo_FreeRTOS">link</a></td>
-</tr>
-<tr>
-<td><strong>NFC_PCD_DTE_EMV_Loopback</strong></td>
-<td>Empty Description</td>
-<td><em>Local:</em><code>Examples/MAX32570/NFC_PCD_DTE_EMV_Loopback</code><br><em>Github:</em> <a href="https://github.com/Analog-Devices-MSDK/msdk/tree/release/Examples/MAX32570/NFC_PCD_DTE_EMV_Loopback">link</a></td>
-</tr>
-<tr>
-<td><strong>SC_Basic_Example</strong></td>
-<td>Smart Card Basic Example</td>
-<td><em>Local:</em><code>Examples/MAX32570/SC_Basic_Example</code><br><em>Github:</em> <a href="https://github.com/Analog-Devices-MSDK/msdk/tree/release/Examples/MAX32570/SC_Basic_Example">link</a></td>
-</tr>
-<tr>
-<td><strong>SC_EMV_Loopback</strong></td>
-<td>Smart Card EMV Loopback</td>
-<td><em>Local:</em><code>Examples/MAX32570/SC_EMV_Loopback</code><br><em>Github:</em> <a href="https://github.com/Analog-Devices-MSDK/msdk/tree/release/Examples/MAX32570/SC_EMV_Loopback">link</a></td>
-</tr>
-<tr>
-<td><strong>USB_CCID</strong></td>
-<td>USB Smart Card example</td>
-<td><em>Local:</em><code>Examples/MAX32570/USB_CCID</code><br><em>Github:</em> <a href="https://github.com/Analog-Devices-MSDK/msdk/tree/release/Examples/MAX32570/USB_CCID">link</a></td>
-</tr>
-<tr>
-<td><strong>lwIP_FreeRTOS</strong></td>
-<td>Empty Description</td>
-<td><em>Local:</em><code>Examples/MAX32570/lwIP_FreeRTOS</code><br><em>Github:</em> <a href="https://github.com/Analog-Devices-MSDK/msdk/tree/release/Examples/MAX32570/lwIP_FreeRTOS">link</a></td>
-</tr>
-</tbody>
-</table>
 <h3 id="max32572-examples">MAX32572 Examples</h3>
-<p>In addition to the <a href="#common-examples">Common Examples</a>, the following examples are available specificly for the MAX32572.</p>
+<p>In addition to the <a href="#common-examples">Common Examples</a>, the following examples are available specifically for the MAX32572.</p>
 <table>
 <thead>
 <tr>
@@ -3928,6 +3842,11 @@ int main(void)
 </tr>
 </thead>
 <tbody>
+<tr>
+<td><strong>Barcode_Decoder</strong></td>
+<td>Decode barcodes from an image.  Supports Code39, Code128, and QR decoding algorithms.</td>
+<td><em>Local:</em><code>Examples/MAX32572/Barcode_Decoder</code><br><em>Github:</em> <a href="https://github.com/Analog-Devices-MSDK/msdk/tree/release/Examples/MAX32572/Barcode_Decoder">link</a></td>
+</tr>
 <tr>
 <td><strong>MAX32572_Demo_BareMetal</strong></td>
 <td>MAX32572 Bare-metal Demo Example!</td>
@@ -3938,10 +3857,35 @@ int main(void)
 <td>MAX32572 FreeRTOS Demo Example!</td>
 <td><em>Local:</em><code>Examples/MAX32572/MAX32572_Demo_FreeRTOS</code><br><em>Github:</em> <a href="https://github.com/Analog-Devices-MSDK/msdk/tree/release/Examples/MAX32572/MAX32572_Demo_FreeRTOS">link</a></td>
 </tr>
+<tr>
+<td><strong>MSR</strong></td>
+<td>Empty Description</td>
+<td><em>Local:</em><code>Examples/MAX32572/MSR</code><br><em>Github:</em> <a href="https://github.com/Analog-Devices-MSDK/msdk/tree/release/Examples/MAX32572/MSR">link</a></td>
+</tr>
+<tr>
+<td><strong>SKB</strong></td>
+<td>Secure Keyboard Example</td>
+<td><em>Local:</em><code>Examples/MAX32572/SKB</code><br><em>Github:</em> <a href="https://github.com/Analog-Devices-MSDK/msdk/tree/release/Examples/MAX32572/SKB">link</a></td>
+</tr>
+<tr>
+<td><strong>Security_Monitor</strong></td>
+<td>Empty Description</td>
+<td><em>Local:</em><code>Examples/MAX32572/Security_Monitor</code><br><em>Github:</em> <a href="https://github.com/Analog-Devices-MSDK/msdk/tree/release/Examples/MAX32572/Security_Monitor">link</a></td>
+</tr>
+<tr>
+<td><strong>lwIP_Ping</strong></td>
+<td>lwIP Ping Example</td>
+<td><em>Local:</em><code>Examples/MAX32572/lwIP_Ping</code><br><em>Github:</em> <a href="https://github.com/Analog-Devices-MSDK/msdk/tree/release/Examples/MAX32572/lwIP_Ping">link</a></td>
+</tr>
+<tr>
+<td><strong>lwIP_TCP</strong></td>
+<td>lwIP TCP Example</td>
+<td><em>Local:</em><code>Examples/MAX32572/lwIP_TCP</code><br><em>Github:</em> <a href="https://github.com/Analog-Devices-MSDK/msdk/tree/release/Examples/MAX32572/lwIP_TCP">link</a></td>
+</tr>
 </tbody>
 </table>
 <h3 id="max32650-examples">MAX32650 Examples</h3>
-<p>In addition to the <a href="#common-examples">Common Examples</a>, the following examples are available specificly for the MAX32650.</p>
+<p>In addition to the <a href="#common-examples">Common Examples</a>, the following examples are available specifically for the MAX32650.</p>
 <table>
 <thead>
 <tr>
@@ -3979,7 +3923,7 @@ int main(void)
 </tbody>
 </table>
 <h3 id="max32655-examples">MAX32655 Examples</h3>
-<p>In addition to the <a href="#common-examples">Common Examples</a>, the following examples are available specificly for the MAX32655.</p>
+<p>In addition to the <a href="#common-examples">Common Examples</a>, the following examples are available specifically for the MAX32655.</p>
 <table>
 <thead>
 <tr>
@@ -4017,7 +3961,7 @@ int main(void)
 </tbody>
 </table>
 <h3 id="max32660-examples">MAX32660 Examples</h3>
-<p>In addition to the <a href="#common-examples">Common Examples</a>, the following examples are available specificly for the MAX32660.</p>
+<p>In addition to the <a href="#common-examples">Common Examples</a>, the following examples are available specifically for the MAX32660.</p>
 <table>
 <thead>
 <tr>
@@ -4035,7 +3979,7 @@ int main(void)
 </tbody>
 </table>
 <h3 id="max32662-examples">MAX32662 Examples</h3>
-<p>In addition to the <a href="#common-examples">Common Examples</a>, the following examples are available specificly for the MAX32662.</p>
+<p>In addition to the <a href="#common-examples">Common Examples</a>, the following examples are available specifically for the MAX32662.</p>
 <table>
 <thead>
 <tr>
@@ -4053,7 +3997,7 @@ int main(void)
 </tbody>
 </table>
 <h3 id="max32665-examples">MAX32665 Examples</h3>
-<p>In addition to the <a href="#common-examples">Common Examples</a>, the following examples are available specificly for the MAX32665.</p>
+<p>In addition to the <a href="#common-examples">Common Examples</a>, the following examples are available specifically for the MAX32665.</p>
 <table>
 <thead>
 <tr>
@@ -4068,10 +4012,15 @@ int main(void)
 <td>Resource Protection Unit Example</td>
 <td><em>Local:</em><code>Examples/MAX32665/RPU</code><br><em>Github:</em> <a href="https://github.com/Analog-Devices-MSDK/msdk/tree/release/Examples/MAX32665/RPU">link</a></td>
 </tr>
+<tr>
+<td><strong>SPIXF_SFCC</strong></td>
+<td>Demonstrates the SPIXF Cache Controller (SFCC)</td>
+<td><em>Local:</em><code>Examples/MAX32665/SPIXF_SFCC</code><br><em>Github:</em> <a href="https://github.com/Analog-Devices-MSDK/msdk/tree/release/Examples/MAX32665/SPIXF_SFCC">link</a></td>
+</tr>
 </tbody>
 </table>
 <h3 id="max32670-examples">MAX32670 Examples</h3>
-<p>In addition to the <a href="#common-examples">Common Examples</a>, the following examples are available specificly for the MAX32670.</p>
+<p>In addition to the <a href="#common-examples">Common Examples</a>, the following examples are available specifically for the MAX32670.</p>
 <table>
 <thead>
 <tr>
@@ -4089,7 +4038,7 @@ int main(void)
 </tbody>
 </table>
 <h3 id="max32672-examples">MAX32672 Examples</h3>
-<p>In addition to the <a href="#common-examples">Common Examples</a>, the following examples are available specificly for the MAX32672.</p>
+<p>In addition to the <a href="#common-examples">Common Examples</a>, the following examples are available specifically for the MAX32672.</p>
 <table>
 <thead>
 <tr>
@@ -4117,7 +4066,7 @@ int main(void)
 </tbody>
 </table>
 <h3 id="max32675-examples">MAX32675 Examples</h3>
-<p>In addition to the <a href="#common-examples">Common Examples</a>, the following examples are available specificly for the MAX32675.</p>
+<p>In addition to the <a href="#common-examples">Common Examples</a>, the following examples are available specifically for the MAX32675.</p>
 <table>
 <thead>
 <tr>
@@ -4135,7 +4084,7 @@ int main(void)
 </tbody>
 </table>
 <h3 id="max32680-examples">MAX32680 Examples</h3>
-<p>In addition to the <a href="#common-examples">Common Examples</a>, the following examples are available specificly for the MAX32680.</p>
+<p>In addition to the <a href="#common-examples">Common Examples</a>, the following examples are available specifically for the MAX32680.</p>
 <table>
 <thead>
 <tr>
@@ -4153,7 +4102,7 @@ int main(void)
 </tbody>
 </table>
 <h3 id="max32690-examples">MAX32690 Examples</h3>
-<p>In addition to the <a href="#common-examples">Common Examples</a>, the following examples are available specificly for the MAX32690.</p>
+<p>In addition to the <a href="#common-examples">Common Examples</a>, the following examples are available specifically for the MAX32690.</p>
 <table>
 <thead>
 <tr>
@@ -4171,7 +4120,7 @@ int main(void)
 </tbody>
 </table>
 <h3 id="max78000-examples">MAX78000 Examples</h3>
-<p>In addition to the <a href="#common-examples">Common Examples</a>, the following examples are available specificly for the MAX78000.</p>
+<p>In addition to the <a href="#common-examples">Common Examples</a>, the following examples are available specifically for the MAX78000.</p>
 <table>
 <thead>
 <tr>
@@ -4339,7 +4288,7 @@ int main(void)
 </tbody>
 </table>
 <h3 id="max78002-examples">MAX78002 Examples</h3>
-<p>In addition to the <a href="#common-examples">Common Examples</a>, the following examples are available specificly for the MAX78002.</p>
+<p>In addition to the <a href="#common-examples">Common Examples</a>, the following examples are available specifically for the MAX78002.</p>
 <table>
 <thead>
 <tr>
@@ -4565,14 +4514,15 @@ These limitations may make the device difficult (or impossible) for the debugger
     
   </span>
 </div>
-    <script>var base_url = '..';</script>
-    <script src="../js/theme_extra.js" defer></script>
-    <script src="../js/theme.js" defer></script>
-      <script src="../search/main.js" defer></script>
-    <script defer>
-        window.onload = function () {
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
             SphinxRtdTheme.Navigation.enable(true);
-        };
+        });
     </script>
 
 </body>
