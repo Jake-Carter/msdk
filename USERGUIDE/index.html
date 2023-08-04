@@ -4291,12 +4291,10 @@ int main(void)
 <li>
 <details class="warning" open="open">
 <summary><strong>⚠️ Warning</strong></summary>
-It’s important to note some fundamental limitations of debugging the MSDK's supported parts:<ul>
+It’s important to note some fundamental limitations of debugging the MSDK's supported parts.  These limitations may make the device difficult (or impossible) for the debugger to connect in certain states. In such cases, the device can attempt to be recovered using a <a href="#max32625pico-pico">MAX32625PICO</a>.  See <a href="#how-to-unlock-a-microcontroller-that-can-no-longer-be-programmed">How to Unlock a Microcontroller That Can No Longer Be Programmed</a><ul>
 <li>A debugger can not be connected to a microcontroller <em>while</em> the device is in reset.</li>
-<li>A microcontroller can not be debugged while it's <em>Sleep</em>, <em>Low Power Mode</em>, <em>Micro Power Mode</em>, <em>Standby</em>, <em>Backup</em>, or <em>Shutdown</em> mode.<ul>
-<li>These modes shut down the SWD clock.</li>
-<li>Examples that enter these low power modes usually have a 2-second delay in place at the beginning of code to give the debugger a window to connect. For low-power development, it is also recommended to have the same delay in place.
-These limitations may make the device difficult (or impossible) for the debugger to connect in certain states. In such cases, the device can attempt to be recovered using a <a href="#max32625pico-pico">MAX32625PICO</a>.  See <a href="#how-to-unlock-a-microcontroller-that-can-no-longer-be-programmed">How to Unlock a Microcontroller That Can No Longer Be Programmed</a></li>
+<li>A microcontroller can not be debugged while it's <em>Sleep</em>, <em>Low Power Mode</em>, <em>Micro Power Mode</em>, <em>Standby</em>, <em>Backup</em>, or <em>Shutdown</em> mode.  These modes shut down the SWD clock.<ul>
+<li>For low-power development, it's recommended to place a 2-second blocking delay at the start of <code>main</code>.</li>
 </ul>
 </li>
 </ul>
@@ -4354,7 +4352,7 @@ These limitations may make the device difficult (or impossible) for the debugger
 <p>The <a href="#debug-limitations">debug limitations</a> of the MSDK's supported parts may make some devices difficult to connect to if bad firmware has been flashed.  In such cases, the device can attempt to be recovered from the “locked out” firmware by mass erasing the application code from the flash memory bank.  Note that this does not always work.  Success will depend on a small window being available for the debugger to connect immediately after reset. </p>
 <p>Before following the procedure below, ensure that you have updated the PICO debugger firmware to the latest version. See <a href="#updating-the-max32625pico-pico-debug-adapter-firmware">Updating the MAX32625PICO (PICO) Debug Adapter Firmware</a></p>
 <h5 id="unlock-with-vs-code">Unlock with VS Code</h5>
-<p>For VS Code users, the `"erase flash"``<a href="#build-tasks">build task</a> can be used to attempt a mass erase.  If this task fails to recover the part, attempt the procedure below.</p>
+<p>For VS Code users, the <code>"erase flash"</code> <a href="#build-tasks">build task</a> can be used to attempt a mass erase.  If this task fails to recover the part, attempt the procedure below.</p>
 <h5 id="unlock-with-eraseact">Unlock with <code>erase.act</code></h5>
 <ol>
 <li>
