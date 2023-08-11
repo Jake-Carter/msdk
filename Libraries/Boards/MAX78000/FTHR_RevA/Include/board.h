@@ -42,10 +42,19 @@
 #include <stdio.h>
 #include <spi_regs.h>
 #include <gpio_regs.h>
-#include "tft_ili9341.h"
+//#include "tft_ili9341.h"
 #include "tsc2046.h"
 #include "led.h"
 #include "pb.h"
+
+#ifdef TFT_ADAFRUIT
+//#include "tft_ili9341.h"
+#include "adafruit_3315_touch.h"
+#endif
+#ifdef TFT_NEWHAVEN
+#include "tft_st7789v.h"
+#include "tsc2046.h"
+#endif
 
 #ifdef __cplusplus
 extern "C" {
@@ -65,6 +74,27 @@ extern "C" {
 #define SCCB_SCL_PIN MXC_GPIO_PIN_30 /// SCCB clock pin
 #define SCCB_SDA_PORT MXC_GPIO0 /// SCCB data port
 #define SCCB_SDA_PIN MXC_GPIO_PIN_31 /// SCCB data pin
+
+#define TFT_SPI MXC_SPI0 // SPI port to use for TFT display
+#ifdef TFT_NEWHAVEN
+#define TFT_SPI_FREQ 20000000 /**< SPI clock frequency in Hertz. */
+#endif
+#define TFT_SPI_PORT MXC_GPIO0 
+#define TFT_SPI_PINS \
+    MXC_GPIO_PIN_5 | MXC_GPIO_PIN_6 | MXC_GPIO_PIN_7 /**< GPIO pins for SPI peripheral. */
+
+#define TFT_DC_PORT MXC_GPIO2 /**< GPIO port for Data/Command signal. */
+#define TFT_DC_PIN MXC_GPIO_PIN_2 /**< GPIO pin for Data/Command signal. */
+#define TFT_SS_PORT MXC_GPIO0 /**< GPIO port for select signal. */
+#define TFT_SS_PIN MXC_GPIO_PIN_3 /**< GPIO pin for select signal. */
+#define TS_IRQ_PORT MXC_GPIO0
+#define TS_IRQ_PIN MXC_GPIO_PIN_19
+
+#define TS_SS_PORT MXC_GPIO1
+#define TS_SS_PIN MXC_GPIO_PIN_1
+
+#define TS_SPI MXC_SPI0
+#define TS_SPI_FREQ 1000000
 
 #ifdef LED_OFF
 #undef LED_OFF
