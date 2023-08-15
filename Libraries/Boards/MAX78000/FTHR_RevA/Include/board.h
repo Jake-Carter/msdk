@@ -83,10 +83,10 @@ extern "C" {
 #define TFT_SPI_PINS \
     MXC_GPIO_PIN_5 | MXC_GPIO_PIN_6 | MXC_GPIO_PIN_7 /**< GPIO pins for SPI peripheral. */
 
-#define TFT_DC_PORT MXC_GPIO2 /**< GPIO port for Data/Command signal. */
-#define TFT_DC_PIN MXC_GPIO_PIN_2 /**< GPIO pin for Data/Command signal. */
+#define TFT_DC_PORT MXC_GPIO0 /**< GPIO port for Data/Command signal. */
+#define TFT_DC_PIN MXC_GPIO_PIN_8 /**< GPIO pin for Data/Command signal. */
 #define TFT_SS_PORT MXC_GPIO0 /**< GPIO port for select signal. */
-#define TFT_SS_PIN MXC_GPIO_PIN_3 /**< GPIO pin for select signal. */
+#define TFT_SS_PIN MXC_GPIO_PIN_11 /**< GPIO pin for select signal. */
 #define TS_IRQ_PORT MXC_GPIO0
 #define TS_IRQ_PIN MXC_GPIO_PIN_19
 
