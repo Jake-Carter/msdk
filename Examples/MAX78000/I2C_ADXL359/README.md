@@ -1,6 +1,6 @@
 ## Description
 
-This application demonstrates I2C communication between the MAX78000FTHR Application Platform and an ADXL343 Digital MEMS Accelerometer.  The application first configures the I2C peripheral instance, probes the I2C bus for the presence of a ADXL343, configures the ADXL343, waits for console input then enters low power mode.  The ADXL343 configured to enable Data Ready interrupts on pin INT2.  The INT2 signal is used as an external interrupt source capable of waking the MAX78000 from sleep mode.  Acceleration data is printed to the console UART on each interrupt.
+This application demonstrates I2C communication between the MAX78000FTHR Application Platform and an ADXL359 Digital MEMS Accelerometer.  The application first configures the I2C peripheral instance, configures the ADXL359, and reads the data from the sensor.
 
 ## Software
 
@@ -16,8 +16,11 @@ Universal instructions on building, flashing, and debugging this project can be 
 
 ### Prepare Hardware:
 
--   Connect INT2 on the ADXL343 to header J4.9, labeled "3".
--   Connect ADXL343 I2C pins to the header pins J4.11 and J4.12, labeled "SDA" and "SCL" respectively.
+-   Connect ADXL359 I2C pins to the header pins for I2C1 labeled "SDA" and "SCL" respectively.  
+-   Supply 3V power supply to the board.  
+-   Connect SCLK pin to ground to disable SPI and enable I2C.  
+-   Connect ASEL pin to ground to get the I2C device address as 0x1D  
+Note:- This requires five pin connections with the board.
 
 ### Required Connections:
 
@@ -29,7 +32,6 @@ Universal instructions on building, flashing, and debugging this project can be 
 The console UART of the MAX78000FTHR will output these messages:
 
 ```
-MAX78000FTHR I2C ADXL343 demo.
-Press Enter/Return to continue ...
+MAX78000FTHR I2C ADXL359 demo.
 x:-0.02  y: 0.02  z: 0.99
 ```
