@@ -47,7 +47,7 @@ def build_project(project:Path, target, board, maxim_path:Path, distclean=False,
     res = run(clean_cmd, cwd=project, shell=True, capture_output=True, encoding="utf-8")
 
     # Test build
-    build_cmd = f"make -r -j 8 TARGET={target} MAXIM_PATH={maxim_path.as_posix()} BOARD={board} FORCE_COLOR=1"
+    build_cmd = f"make -r -j 8 --output-sync=target --no-print-directory TARGET={target} MAXIM_PATH={maxim_path.as_posix()} BOARD={board}"
     if extra_args:
         build_cmd += f" {str(extra_args)}"
     res = run(build_cmd, cwd=project, shell=True, capture_output=True, encoding="utf-8")
@@ -94,7 +94,7 @@ def build_project(project:Path, target, board, maxim_path:Path, distclean=False,
     return (return_code, project_info)
 
 
-def test(maxim_path : Path = None, targets=None, boards=None, projects=None): 
+def test(examples_path: Path = None, maxim_path : Path = None, targets=None, boards=None, projects=None): 
 
     console = Console(emoji=False, color_system="standard")
 
@@ -102,7 +102,10 @@ def test(maxim_path : Path = None, targets=None, boards=None, projects=None):
     if maxim_path is None and "MAXIM_PATH" in env.keys():
         maxim_path = Path(env['MAXIM_PATH']).absolute()
         console.print(f"[green]Detected MAXIM_PATH[/green] = {maxim_path}")
-    else:
+    elif maxim_path is not None:
+        maxim_path = Path(maxim_path)
+        console.print(f"[green]Using MAXIM_PATH[/green] = {maxim_path}")
+    else:    
         console.print("MAXIM_PATH not set.")
         return
     
@@ -158,16 +161,20 @@ def test(maxim_path : Path = None, targets=None, boards=None, projects=None):
         boards = sorted(boards) # Enforce alphabetical ordering
                 
         # Get list of examples for this target.
+        if examples_path is None: examples_path = Path(maxim_path / "Examples")
+        else:
+            examples_path = Path(examples_path) 
+            console.print(f"Searching {examples_path}")
         _projects = []
         if projects is None:
-            console.print(f"[yellow]Auto-searching for {target} examples...[/yellow]")
-            for dirpath, subdirs, items in os.walk(maxim_path / "Examples" / target):
+            console.print(f"[yellow]Auto-searching for {target} examples...[/yellow]")            
+            for dirpath, subdirs, items in os.walk(examples_path / target):
                 if 'Makefile' in items and ("main.c" in items or "project.mk" in items):
                     _projects.append(Path(dirpath))
 
         else:
             assert(type(projects) is list)
-            for dirpath, subdirs, items in os.walk(maxim_path / "Examples" / target):
+            for dirpath, subdirs, items in os.walk(examples_path / target):
                 dirpath = Path(dirpath)
                 if dirpath.name in projects:
                     _projects.append(dirpath)
@@ -188,7 +195,7 @@ def test(maxim_path : Path = None, targets=None, boards=None, projects=None):
             for p in _projects:
                 if p.name == "Hello_World":
                     hello_world = p
-            
+
             if hello_world is None:
                 console.print(f"[red]Failed to locate Hello_World for {target}[/red]")
             else:
@@ -330,6 +337,7 @@ parser.add_argument("--maxim_path", type=str, help="(Optional) Location of the M
 parser.add_argument("--targets", type=str, nargs="+", required=False, help="Target microcontrollers to test.")
 parser.add_argument("--boards", type=str, nargs="+", required=False, help="Boards to test.  Should match the BSP folder-name exactly.")
 parser.add_argument("--projects", type=str, nargs="+", required=False, help="Examples to populate.  Should match the example's folder name.")
+parser.add_argument("--examples_path", type=str, required=False, help="Examples folder to search/test")
 
 if __name__ == "__main__":
     args = parser.parse_args()
@@ -339,6 +347,7 @@ if __name__ == "__main__":
             maxim_path=args.maxim_path,
             targets=args.targets,
             boards=args.boards,
-            projects=args.projects
+            projects=args.projects,
+            examples_path=args.examples_path
         )
     )
