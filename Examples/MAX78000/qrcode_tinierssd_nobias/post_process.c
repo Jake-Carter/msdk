@@ -394,9 +394,10 @@ void draw_obj_rect(float *xy, uint32_t w, uint32_t h, uint8_t scale)
     int r = 255, g = 0, b = 0;
     uint32_t color;
 
-    int x1 = w * xy[0];
+    int x1 = w - (w * xy[0]); /* Note(JC): Modified bounding box coordinates here because boxes 
+                                were moving in the opposite x direction */
     int y1 = h * xy[1];
-    int x2 = w * xy[2];
+    int x2 = w - (w * xy[2]); // ^
     int y2 = h * xy[3];
     int x, y;
 
@@ -421,7 +422,7 @@ void draw_obj_rect(float *xy, uint32_t w, uint32_t h, uint8_t scale)
 
     color = (0x01000100 | ((b & 0xF8) << 13) | ((g & 0x1C) << 19) | ((g & 0xE0) >> 5) | (r & 0xF8));
 
-    for (x = x1; x < x2; ++x) {
+    for (x = x2; x < x1; ++x) {
         MXC_TFT_WritePixel(x * scale + TFT_X_OFFSET, y1 * scale, scale, scale, color);
         MXC_TFT_WritePixel(x * scale + TFT_X_OFFSET, y2 * scale, scale, scale, color);
     }
