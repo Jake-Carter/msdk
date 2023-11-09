@@ -143,8 +143,8 @@ int main(void)
     cnn_start(); // Start CNN processing
     load_camera_input();
 
-    while (cnn_time == 0)
-      MXC_LP_EnterSleepMode(); // Wait for CNN
+    while (cnn_time == 0) {}
+      // MXC_LP_EnterSleepMode(); // Wait for CNN
 
 #ifdef CNN_INFERENCE_TIMER
     printf("Approximate data loading and inference time: %u us\n\n", cnn_time);
