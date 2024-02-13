@@ -204,6 +204,8 @@ Functions</h2></td></tr>
 <tr class="separator:gac1faca4d71abb6b56bf43e9eabcf73be"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga9d7f7ec4a2f457569169a8194ea29555"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__spi.html#ga9d7f7ec4a2f457569169a8194ea29555">MXC_SPI_AsyncHandler</a> (<a class="el" href="group__spi__registers.html#structmxc__spi__regs__t">mxc_spi_regs_t</a> *spi)</td></tr>
 <tr class="separator:ga9d7f7ec4a2f457569169a8194ea29555"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf9df08a8b18d74c3c9a06ca5a328398d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__spi.html#gaf9df08a8b18d74c3c9a06ca5a328398d">MXC_SPI_HWSSControl</a> (<a class="el" href="group__spi__registers.html#structmxc__spi__regs__t">mxc_spi_regs_t</a> *spi, int state)</td></tr>
+<tr class="separator:gaf9df08a8b18d74c3c9a06ca5a328398d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <hr/><h2 class="groupheader">Data Structure Documentation</h2>
@@ -1018,6 +1020,44 @@ uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>rxCnt</b></td></t
 
 </div>
 </div>
+<a id="gaf9df08a8b18d74c3c9a06ca5a328398d" name="gaf9df08a8b18d74c3c9a06ca5a328398d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaf9df08a8b18d74c3c9a06ca5a328398d">&#9670;&nbsp;</a></span>MXC_SPI_HWSSControl()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MXC_SPI_HWSSControl </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__spi__registers.html#structmxc__spi__regs__t">mxc_spi_regs_t</a> *&#160;</td>
+          <td class="paramname"><em>spi</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>state</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Enable/Disable HW CS control feature. </p>
+<p >Depending on the application, the user might need to manually drive the slave select pin. The SPI driver automatically drives the SS pin and this function enables/disables this feature.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">spi</td><td>Pointer to SPI registers (selects the SPI block used.) </td></tr>
+    <tr><td class="paramname">state</td><td>Non-zero values: enable HW SS mode. Zero: disable HW SS mode. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="ga812c8b820873b071de819b8db2c1a845" name="ga812c8b820873b071de819b8db2c1a845"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga812c8b820873b071de819b8db2c1a845">&#9670;&nbsp;</a></span>MXC_SPI_Init()</h2>
 
@@ -1077,6 +1117,7 @@ uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>rxCnt</b></td></t
 <p>Initialize and enable SPI peripheral. </p>
 <p >This function initializes everything necessary to call a SPI transaction function. Some parameters are set to defaults as follows: SPI Mode - 0 SPI Width - SPI_WIDTH_STANDARD (even if quadModeUsed is set)</p>
 <p >These parameters can be modified after initialization using low level functions</p>
+<dl class="section note"><dt>Note</dt><dd>On default this function enables SPI peripheral clock and spi gpio pins. if you wish to manage clock and gpio related things in upper level instead of here. Define MSDK_NO_GPIO_CLK_INIT flag in project.mk file. By this flag this function will remove clock and gpio related codes from file.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">spi</td><td>Pointer to SPI registers (selects the SPI block used.) </td></tr>
@@ -1085,7 +1126,7 @@ uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>rxCnt</b></td></t
     <tr><td class="paramname">numSlaves</td><td>The number of slaves used, if in master mode. This is used to obtain control of the necessary SS pins. In slave mode this is ignored and SS1 is used. </td></tr>
     <tr><td class="paramname">ssPolarity</td><td>This field sets the SS active polarity for each slave, each bit position corresponds to each SS line. </td></tr>
     <tr><td class="paramname">hz</td><td>The requested clock frequency. The actual clock frequency will be returned by the function if successful. Used in master mode only. </td></tr>
-    <tr><td class="paramname">pins</td><td>SPI pin structure. Pins selected as true will be initialized for the requested SPI block.</td></tr>
+    <tr><td class="paramname">pins</td><td>SPI pin structure. Pins selected as true will be initialized for the requested SPI block. Has no effect incase of MSDK_NO_GPIO_CLK_INIT has been defined.</td></tr>
   </table>
   </dd>
 </dl>
@@ -1808,7 +1849,7 @@ uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>rxCnt</b></td></t
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Fri Aug 4 2023 17:03:11 for MAX32655 Peripheral Driver API by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4 </li>
+    <li class="footer">Generated on Tue Feb 13 2024 21:58:59 for MAX32655 Peripheral Driver API by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4 </li>
   </ul>
 </div>
 </body>

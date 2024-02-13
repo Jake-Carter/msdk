@@ -65,13 +65,13 @@ var NAVTREEINDEX =
 "group___w_d_t___c_t_r_l.html#ga7589c42720c3eb2be8f78aa101c52177",
 "group__ctb.html#ga3992929491d2fb212418dead2a92fc3e",
 "group__emac.html#gga914a3ec0eeeed411cab62a41ccbc3785a03166d866880b6097ea68f28bafcef2d",
-"group__gpio__registers.html#structmxc__gpio__regs__t",
-"group__mxc__sys.html#gga6b3ca6c369c2018baa508a4f52526095a7fe9f5ffbbdccdc25d77dce3e124309c",
-"group__ptg__registers.html",
-"group__sdhc__registers.html#aff1af51601cdcda9c553c8f276fdcbb0",
-"group__spixf.html#a256d7e94a7be63f0ce48b1e8a676c690",
-"group__srcc.html#ga87d5dc72d568234b768ac33d1442ead2",
-"group__usbhs__registers.html#aceca2b4c90bd4b8deb849e136c7da945"
+"group__gpio__registers.html#acdb9bef766e5d0b611a870843775a4c7",
+"group__mxc__sys.html#gga6b3ca6c369c2018baa508a4f52526095a676cbf601cbc4a69b406c1ec724908f2",
+"group__pt.html#ga6ba3996890baa25488f6c93cf3291c9e",
+"group__sdhc__registers.html#abd801edb642553c657934732e39e837d",
+"group__spi__registers.html#a165ffa7e0db53fbc622c375b63a436d7",
+"group__spixr__registers.html#a54231319a86f336883cece7855774f08",
+"group__usbhs__registers.html#a82f82fb94e22268189a6458acaeef5c4"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

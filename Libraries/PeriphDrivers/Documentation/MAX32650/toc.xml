@@ -1722,6 +1722,7 @@
         </topic>
       </topic>
       <topic label="mxc_gpio_cfg_t" href="group__gpio.html#structmxc__gpio__cfg__t">
+        <topic label="drvstr" href="group__gpio.html#ae47f3c6571885f5689eced52d0e66eca"/>
         <topic label="func" href="group__gpio.html#a82db8d3ca4a2643b6b3214d4e16b832a"/>
         <topic label="mask" href="group__gpio.html#ad3bee21df6875eeccd25d3c577e0600a"/>
         <topic label="pad" href="group__gpio.html#a8da839c23daf8bc3c04c00ec207ae50c"/>
@@ -1729,6 +1730,12 @@
         <topic label="vssel" href="group__gpio.html#a717b92819b1b33b48303b9f819510eb7"/>
       </topic>
       <topic label="mxc_gpio_callback_fn" href="group__gpio.html#gacf8ba5a444349caba7cdbe2861ca06b0"/>
+      <topic label="mxc_gpio_drvstr_t" href="group__gpio.html#gaced0392721f83747a888ad3f64508e14">
+        <topic label="MXC_GPIO_DRVSTR_0" href="group__gpio.html#ggaced0392721f83747a888ad3f64508e14a693b43114c62adc1c8c3ddd100ba4e03"/>
+        <topic label="MXC_GPIO_DRVSTR_1" href="group__gpio.html#ggaced0392721f83747a888ad3f64508e14a61a7eee49be32e156bbf95152e5c5e1f"/>
+        <topic label="MXC_GPIO_DRVSTR_2" href="group__gpio.html#ggaced0392721f83747a888ad3f64508e14ae7a2e3bf3cb50222dbfeb7dc7f524869"/>
+        <topic label="MXC_GPIO_DRVSTR_3" href="group__gpio.html#ggaced0392721f83747a888ad3f64508e14a3ed5375f8bc5465c8888316c7c3603e3"/>
+      </topic>
       <topic label="mxc_gpio_func_t" href="group__gpio.html#ga61baee17171940ad183cabe62297e891">
         <topic label="MXC_GPIO_FUNC_IN" href="group__gpio.html#gga61baee17171940ad183cabe62297e891ad883cc21c3c163837666be25f5415827"/>
         <topic label="MXC_GPIO_FUNC_OUT" href="group__gpio.html#gga61baee17171940ad183cabe62297e891a84a4fa624bcb7ac3b50e437cedcb6d57"/>
@@ -1775,6 +1782,7 @@
       <topic label="MXC_GPIO_OutToggle" href="group__gpio.html#ga756e913d214298748f0107c0f10b6a5d"/>
       <topic label="MXC_GPIO_RegisterCallback" href="group__gpio.html#ga3265819f3bee4f107d6f02716b4394d1"/>
       <topic label="MXC_GPIO_Reset" href="group__gpio.html#ga9a03d0668d588a08fcdf6462a672f539"/>
+      <topic label="MXC_GPIO_SetDriveStrength" href="group__gpio.html#ga63004e4c450b8f1a755c88393668e0b2"/>
       <topic label="MXC_GPIO_SetVSSEL" href="group__gpio.html#ga53687f1fd275708a6404f9d64b6e0549"/>
       <topic label="MXC_GPIO_SetWakeEn" href="group__gpio.html#gae3e2023e6c3b8783aaaa2f68aa4d9b2f"/>
       <topic label="MXC_GPIO_Shutdown" href="group__gpio.html#ga7da8e2e92a5f84bb2c49da60b14f6ff9"/>
@@ -2530,6 +2538,10 @@
       <topic label="MXC_I2C_DisableGeneralCall" href="group__i2c.html#ga63aab1fcc4e60971532b8b6dcf9f2037"/>
       <topic label="MXC_I2C_DisableInt" href="group__i2c.html#gadc27ac288f41d583048b9f90cf8aebd9"/>
       <topic label="MXC_I2C_DisablePreload" href="group__i2c.html#ga1d80b18ac960c15b428533c3a029cec7"/>
+      <topic label="MXC_I2C_DMA_GetRXChannel" href="group__i2c.html#ga4c3ccb2ce18ad6d421cff8fd81c81f6f"/>
+      <topic label="MXC_I2C_DMA_GetTXChannel" href="group__i2c.html#gabf39c8a30f3042844a198bc44a369740"/>
+      <topic label="MXC_I2C_DMA_Init" href="group__i2c.html#gad207529023caa8ffc550eec5bb6f51ce"/>
+      <topic label="MXC_I2C_DMA_SetRequestSelect" href="group__i2c.html#gafbf8e8e9c4a612322c8f12d35bd693b7"/>
       <topic label="MXC_I2C_DMACallback" href="group__i2c.html#gada949222dbe550f528f7a52fd19b7723"/>
       <topic label="MXC_I2C_EnableGeneralCall" href="group__i2c.html#ga53bfbcf321baaf94f79712c2f1e422a5"/>
       <topic label="MXC_I2C_EnableInt" href="group__i2c.html#ga3191ddeb97b19c0c103ad9e78c1f12c9"/>
@@ -2882,10 +2894,16 @@
       <topic label="MXC_I2S_Unmute" href="group__spimss.html#gaccb5009a9a8555c011ba3d94373efb59"/>
       <topic label="MXC_I2S_Unpause" href="group__spimss.html#gab79a86e1927466808447a854324278c8"/>
       <topic label="MXC_SPIMSS_AbortAsync" href="group__spimss.html#ga1dee28040de0569a5a6db6494b4bf531"/>
+      <topic label="MXC_SPIMSS_GetRXDMAChannel" href="group__spimss.html#gab6a865a3ba4b0828948864887ee401e3"/>
+      <topic label="MXC_SPIMSS_GetTXDMAChannel" href="group__spimss.html#ga050b7263072704662ab2afcf84151790"/>
       <topic label="MXC_SPIMSS_Handler" href="group__spimss.html#gaa379ce4608aacf8bf4901f44b8d940ad"/>
       <topic label="MXC_SPIMSS_Init" href="group__spimss.html#gaa5210bc1cf9197631996515ecfa5ef59"/>
       <topic label="MXC_SPIMSS_MasterTrans" href="group__spimss.html#ga5c9e2ecadfa4960ce2f6d31c419ed893"/>
       <topic label="MXC_SPIMSS_MasterTransAsync" href="group__spimss.html#ga1f60ba20e55f665f6340e3102a9e631b"/>
+      <topic label="MXC_SPIMSS_MasterTransDMA" href="group__spimss.html#ga84881d246f54e3f60512abf47013e1a5"/>
+      <topic label="MXC_SPIMSS_SetAutoDMAHandlers" href="group__spimss.html#ga0d6762b7c3fad93a230f3c40feb3009f"/>
+      <topic label="MXC_SPIMSS_SetRXDMAChannel" href="group__spimss.html#ga5483a480f8398f40e3c8f4702a9cf143"/>
+      <topic label="MXC_SPIMSS_SetTXDMAChannel" href="group__spimss.html#gab7c294c47490aa829bf1dc200171c5e7"/>
       <topic label="MXC_SPIMSS_Shutdown" href="group__spimss.html#ga7baf01022a96065ab81477b2f113909d"/>
       <topic label="MXC_SPIMSS_SlaveTrans" href="group__spimss.html#ga0fde19f066d0675be689b97593a94087"/>
       <topic label="MXC_SPIMSS_SlaveTransAsync" href="group__spimss.html#gafbd94ff9e47ef4a71c50c280edf9392b"/>
@@ -3276,6 +3294,8 @@
       <topic label="MXC_LP_EnterBackupMode" href="group__pwrseq.html#ga7114f139cf0400c690ad23f16320e65c"/>
       <topic label="MXC_LP_EnterDeepSleepMode" href="group__pwrseq.html#ga95c80fbcb83070408fac907302718dcc"/>
       <topic label="MXC_LP_EnterSleepMode" href="group__pwrseq.html#gade48c6aae021a798a082c9e3ff143e50"/>
+      <topic label="MXC_LP_USBClearPONRST" href="group__pwrseq.html#gac371035c0c592a0693185f3c3f6af5e4"/>
+      <topic label="MXC_LP_USBSetPONRST" href="group__pwrseq.html#ga5e93b1e123b01c0164a2e6d85c09e11d"/>
     </topic>
     <topic label="Memory Utility Functions" href="group__mem__utils.html">
       <topic label="memcmp32" href="group__mem__utils.html#ga6af6cfdc01cbbee56488af07c6a5be5f"/>
@@ -3423,6 +3443,7 @@
       <topic label="MXC_SYS_GetUSN" href="group__mxc__sys.html#ga75a557ab4342d521c52fd95f1a143042"/>
       <topic label="MXC_SYS_In_Crit_Section" href="group__mxc__sys.html#ga67ad6842f412bbd588e3db6c2851a229"/>
       <topic label="MXC_SYS_IsClockEnabled" href="group__mxc__sys.html#ga99851205dae88b405f598e68fe984943"/>
+      <topic label="MXC_SYS_LockDAP_Permanent" href="group__mxc__sys.html#ga1c5d4a29edae167a9480becd6e51b471"/>
       <topic label="MXC_SYS_Reset_Periph" href="group__mxc__sys.html#ga17d1dfd7917527ba53a613a6d92f0c24"/>
       <topic label="MXC_SYS_RTCClockDisable" href="group__mxc__sys.html#ga8c7f04d1f3e8b9ff4e8ba50d0db6bb27"/>
       <topic label="MXC_SYS_RTCClockEnable" href="group__mxc__sys.html#ga9f625d3a7d7beb23cc402d29da6be185"/>
@@ -4696,6 +4717,7 @@
       <topic label="MXC_SDHC_ClearFlags" href="group__sdhc.html#ga792d935d928797dbaa43ce99a42ad6aa"/>
       <topic label="MXC_SDHC_Get_Clock_Config" href="group__sdhc.html#gacee4399e921d839474c42ea8a42bdfa0"/>
       <topic label="MXC_SDHC_Get_Host_Cn_1" href="group__sdhc.html#gad58d9861ae574e8cc881a80f010d98b8"/>
+      <topic label="MXC_SDHC_Get_Input_Clock_Freq" href="group__sdhc.html#gaed5886ab0604ce9e83c6cf1942dea9b1"/>
       <topic label="MXC_SDHC_Get_Response128" href="group__sdhc.html#gad35460c504b2293857f5fcc13d2e005c"/>
       <topic label="MXC_SDHC_Get_Response32" href="group__sdhc.html#gadc9785956d71368aac0d2a0b11003197"/>
       <topic label="MXC_SDHC_Get_Response32_Auto" href="group__sdhc.html#gae0d6d270245ca6a835acc59ba8c07768"/>
@@ -5217,6 +5239,7 @@
       <topic label="MXC_SPI_GetTXFIFOAvailable" href="group__spi.html#ga168bef8ae6817c9494bdc15a93cd7a44"/>
       <topic label="MXC_SPI_GetTXThreshold" href="group__spi.html#ga3fa6c3821155ce8782390638f2632a86"/>
       <topic label="MXC_SPI_GetWidth" href="group__spi.html#ga88101bd57a262e6719d5b497a692d528"/>
+      <topic label="MXC_SPI_HWSSControl" href="group__spi.html#gaf9df08a8b18d74c3c9a06ca5a328398d"/>
       <topic label="MXC_SPI_Init" href="group__spi.html#gac73239d78d1d0be946056113ef567a18"/>
       <topic label="MXC_SPI_MasterTransaction" href="group__spi.html#gaefbd13c12a7d9fbaef9595df2cd6c308"/>
       <topic label="MXC_SPI_MasterTransactionAsync" href="group__spi.html#ga6c9da2bba6624ca85e0aaafc94bad2f6"/>
@@ -6236,34 +6259,35 @@
         <topic label="pres" href="group__tmr.html#a5003c035ba324f076222cc14167b5950"/>
       </topic>
       <topic label="mxc_tmr_mode_t" href="group__tmr.html#gaa4b41159cb2e0fc8fcfb3c258f2972da">
-        <topic label="TMR_MODE_CONTINUOUS" href="group__tmr.html#ggaa4b41159cb2e0fc8fcfb3c258f2972daa6a097db2261286e787a34eb08cc610aa"/>
-        <topic label="TMR_MODE_COUNTER" href="group__tmr.html#ggaa4b41159cb2e0fc8fcfb3c258f2972daa8c51323e1a787e560b92a259c7d1a075"/>
-        <topic label="TMR_MODE_PWM" href="group__tmr.html#ggaa4b41159cb2e0fc8fcfb3c258f2972daa8c99bcdde0f804e02fbd7c86ac069d9a"/>
-        <topic label="TMR_MODE_CAPTURE" href="group__tmr.html#ggaa4b41159cb2e0fc8fcfb3c258f2972daa1f3a7e9c5fb5deee163471e7212ded43"/>
-        <topic label="TMR_MODE_COMPARE" href="group__tmr.html#ggaa4b41159cb2e0fc8fcfb3c258f2972daad99d98483fc55690aa9c78618cb3267e"/>
-        <topic label="TMR_MODE_GATED" href="group__tmr.html#ggaa4b41159cb2e0fc8fcfb3c258f2972daab0b90c2ef57ff7df5f9dda0ef72f7ab6"/>
-        <topic label="TMR_MODE_CAPTURE_COMPARE" href="group__tmr.html#ggaa4b41159cb2e0fc8fcfb3c258f2972daafbb601e3292cb98d6dc282f19b20c444"/>
+        <topic label="MXC_TMR_MODE_CONTINUOUS" href="group__tmr.html#ggaa4b41159cb2e0fc8fcfb3c258f2972daabcd9d29e94609eb514b54fb00f27eb9b"/>
+        <topic label="MXC_TMR_MODE_COUNTER" href="group__tmr.html#ggaa4b41159cb2e0fc8fcfb3c258f2972daaf44070db3f02ebb83722e8f4de92228b"/>
+        <topic label="MXC_TMR_MODE_PWM" href="group__tmr.html#ggaa4b41159cb2e0fc8fcfb3c258f2972daa1a6d6bdab29679e47ad7927689702882"/>
+        <topic label="MXC_TMR_MODE_CAPTURE" href="group__tmr.html#ggaa4b41159cb2e0fc8fcfb3c258f2972daa9b893781cbeebd233e27ed47dae7e0ec"/>
+        <topic label="MXC_TMR_MODE_COMPARE" href="group__tmr.html#ggaa4b41159cb2e0fc8fcfb3c258f2972daacf401e331379fec07e06d27ddd8ad0a5"/>
+        <topic label="MXC_TMR_MODE_GATED" href="group__tmr.html#ggaa4b41159cb2e0fc8fcfb3c258f2972daad637ba81b6daeb3542cb59c008ec4ce5"/>
+        <topic label="MXC_TMR_MODE_CAPTURE_COMPARE" href="group__tmr.html#ggaa4b41159cb2e0fc8fcfb3c258f2972daa3bc58b246a68511d5f78b4d465f0997d"/>
+        <topic label="TMR_MODE_ONESHOT" href="group__tmr.html#ggaa4b41159cb2e0fc8fcfb3c258f2972daae7303dc834c0ee36694a2e25658792c9"/>
       </topic>
       <topic label="mxc_tmr_pres_t" href="group__tmr.html#gaa8ad001ef87dfd27884960ac2769fdd3">
-        <topic label="TMR_PRES_1" href="group__tmr.html#ggaa8ad001ef87dfd27884960ac2769fdd3ab923668f522e031a8a1ed3a812c38fd2"/>
-        <topic label="TMR_PRES_2" href="group__tmr.html#ggaa8ad001ef87dfd27884960ac2769fdd3acf4e4b064505d5c9a2e68e07efdb8619"/>
-        <topic label="TMR_PRES_4" href="group__tmr.html#ggaa8ad001ef87dfd27884960ac2769fdd3a4dca208928ecba6af6211d5e97de9aec"/>
-        <topic label="TMR_PRES_8" href="group__tmr.html#ggaa8ad001ef87dfd27884960ac2769fdd3a0e06943c8ca12d3b6e687992acd00c61"/>
-        <topic label="TMR_PRES_16" href="group__tmr.html#ggaa8ad001ef87dfd27884960ac2769fdd3af12d76322f02e0ae63b59963fdedd963"/>
-        <topic label="TMR_PRES_32" href="group__tmr.html#ggaa8ad001ef87dfd27884960ac2769fdd3aab033a113daa3d8be4b468a6cd22c9d4"/>
-        <topic label="TMR_PRES_64" href="group__tmr.html#ggaa8ad001ef87dfd27884960ac2769fdd3a3dccec18243d070c9e013249436eb4d8"/>
-        <topic label="TMR_PRES_128" href="group__tmr.html#ggaa8ad001ef87dfd27884960ac2769fdd3a0bc7367ebff4ea201cc9661b5af4443a"/>
-        <topic label="TMR_PRES_256" href="group__tmr.html#ggaa8ad001ef87dfd27884960ac2769fdd3a0e142e82398d262742a4a5a8516092e4"/>
-        <topic label="TMR_PRES_512" href="group__tmr.html#ggaa8ad001ef87dfd27884960ac2769fdd3af8be33d6101bc4f04414466279fc6774"/>
-        <topic label="TMR_PRES_1024" href="group__tmr.html#ggaa8ad001ef87dfd27884960ac2769fdd3aaf6eb6a98e9858679080ee8a0fc908d3"/>
-        <topic label="TMR_PRES_2048" href="group__tmr.html#ggaa8ad001ef87dfd27884960ac2769fdd3a8e41d22d79da856177027eeaa31fe217"/>
-        <topic label="TMR_PRES_4096" href="group__tmr.html#ggaa8ad001ef87dfd27884960ac2769fdd3ac222ef58d33714e336a8488e88e6b358"/>
+        <topic label="MXC_TMR_PRES_1" href="group__tmr.html#ggaa8ad001ef87dfd27884960ac2769fdd3ab5fea17f034c388d90e31ee9869cf0c4"/>
+        <topic label="MXC_TMR_PRES_2" href="group__tmr.html#ggaa8ad001ef87dfd27884960ac2769fdd3a2dc519470609a45c72752fc1fca43090"/>
+        <topic label="MXC_TMR_PRES_4" href="group__tmr.html#ggaa8ad001ef87dfd27884960ac2769fdd3a092a0216aff8094e5842b7c309f182ad"/>
+        <topic label="MXC_TMR_PRES_8" href="group__tmr.html#ggaa8ad001ef87dfd27884960ac2769fdd3a5cc7f8834c340319084d5357dbbbd45f"/>
+        <topic label="MXC_TMR_PRES_16" href="group__tmr.html#ggaa8ad001ef87dfd27884960ac2769fdd3afa69cc8c271bbf9ce13c19592b738a23"/>
+        <topic label="MXC_TMR_PRES_32" href="group__tmr.html#ggaa8ad001ef87dfd27884960ac2769fdd3a9f9425aa14233bb29e9728cdda3bb453"/>
+        <topic label="MXC_TMR_PRES_64" href="group__tmr.html#ggaa8ad001ef87dfd27884960ac2769fdd3a47aed942f49a783371b52087ca99e929"/>
+        <topic label="MXC_TMR_PRES_128" href="group__tmr.html#ggaa8ad001ef87dfd27884960ac2769fdd3a8433dc773a16a2069688be2b3339ee70"/>
+        <topic label="MXC_TMR_PRES_256" href="group__tmr.html#ggaa8ad001ef87dfd27884960ac2769fdd3aa53c5372551a7af0a6458e960a561f98"/>
+        <topic label="MXC_TMR_PRES_512" href="group__tmr.html#ggaa8ad001ef87dfd27884960ac2769fdd3af389f6d0d93bae6e93e6a83b3a98208e"/>
+        <topic label="MXC_TMR_PRES_1024" href="group__tmr.html#ggaa8ad001ef87dfd27884960ac2769fdd3a62ef6702c74d1e591c3db28b35a8920c"/>
+        <topic label="MXC_TMR_PRES_2048" href="group__tmr.html#ggaa8ad001ef87dfd27884960ac2769fdd3af20929e4d84c9953c398050564a78d3d"/>
+        <topic label="MXC_TMR_PRES_4096" href="group__tmr.html#ggaa8ad001ef87dfd27884960ac2769fdd3af0d6582e3508e1f4221b979585329801"/>
       </topic>
       <topic label="mxc_tmr_unit_t" href="group__tmr.html#gaa0d647d7ed191977d06968a0594b9eeb">
+        <topic label="MXC_TMR_UNIT_MICROSEC" href="group__tmr.html#ggaa0d647d7ed191977d06968a0594b9eeba8b9c044adc728b43871d1be68e55d118"/>
+        <topic label="MXC_TMR_UNIT_MILLISEC" href="group__tmr.html#ggaa0d647d7ed191977d06968a0594b9eeba727d161251381d5bde5c66c9be6a1f81"/>
+        <topic label="MXC_TMR_UNIT_SEC" href="group__tmr.html#ggaa0d647d7ed191977d06968a0594b9eeba3a58f8d48214a0685aa3a5b54d1a78c9"/>
         <topic label="TMR_UNIT_NANOSEC" href="group__tmr.html#ggaa0d647d7ed191977d06968a0594b9eebab8f996e33a7db25ad4a9bdd0cd8c4683"/>
-        <topic label="TMR_UNIT_MICROSEC" href="group__tmr.html#ggaa0d647d7ed191977d06968a0594b9eeba131e891bdd5c315820e1c997407e6400"/>
-        <topic label="TMR_UNIT_MILLISEC" href="group__tmr.html#ggaa0d647d7ed191977d06968a0594b9eebaf1b005e4ef751c17a37364cf002091be"/>
-        <topic label="TMR_UNIT_SEC" href="group__tmr.html#ggaa0d647d7ed191977d06968a0594b9eebacb8bc0791c9684cca5735d34747ff8eb"/>
       </topic>
       <topic label="MXC_TMR_ClearFlags" href="group__tmr.html#ga0cffb0acccf89461d81a330dda6639bb"/>
       <topic label="MXC_TMR_Delay" href="group__tmr.html#gaf5f910fb8442d3f8f716297b8f7c6cf5"/>
@@ -7154,11 +7178,11 @@
         <topic label="MXC_UART_STOP_1" href="group__uart.html#gga9ef512c6d921959fa4aa91c24bf60edba6b7f5177a03a1dd02990e0cfa04c94f1"/>
         <topic label="MXC_UART_STOP_2" href="group__uart.html#gga9ef512c6d921959fa4aa91c24bf60edba9d6b138c738e9acc03b9aaf1dc4f1850"/>
       </topic>
-      <topic label="MXC_UART_AbortAsync" href="group__uart.html#gae291b08b1a65cd6cd0e482ad4d651ab6"/>
+      <topic label="MXC_UART_AbortAsync" href="group__uart.html#ga56e16b50653c8574a3c67d64f084799f"/>
       <topic label="MXC_UART_AbortTransmission" href="group__uart.html#gabcad53d7f1842f4b7619e2282b9ffc39"/>
-      <topic label="MXC_UART_AsyncCallback" href="group__uart.html#gaed0ae1159045ba5ebba86436b154df65"/>
+      <topic label="MXC_UART_AsyncCallback" href="group__uart.html#gaf72d97022719a1d83daa9f191451ee62"/>
       <topic label="MXC_UART_AsyncHandler" href="group__uart.html#gaa7f5ebbf76bb2718c587e42b5b3e1bbb"/>
-      <topic label="MXC_UART_AsyncStop" href="group__uart.html#gaa3febf28096c6e37a2f8213c97317203"/>
+      <topic label="MXC_UART_AsyncStop" href="group__uart.html#ga4dcacc595458a92e0ffa5e42fc139d4b"/>
       <topic label="MXC_UART_ClearFlags" href="group__uart.html#ga5a89515cd6a6cfe834bba17f93c0874c"/>
       <topic label="MXC_UART_ClearRXFIFO" href="group__uart.html#gac6b86cff9dd03547bef1b291876de08b"/>
       <topic label="MXC_UART_ClearTXFIFO" href="group__uart.html#gae92c16e452b63a0b66e8530a109f70e5"/>
@@ -7170,9 +7194,11 @@
       <topic label="MXC_UART_GetAsyncTXCount" href="group__uart.html#gacb94f3a1b1db38ee0074a02d81bd9bbb"/>
       <topic label="MXC_UART_GetFlags" href="group__uart.html#gada86ebafb9a1dd74f57ec7fe9e828173"/>
       <topic label="MXC_UART_GetFrequency" href="group__uart.html#gadce4a857e97b46b185b8a1cd52c4f810"/>
+      <topic label="MXC_UART_GetRXDMAChannel" href="group__uart.html#ga8d50d63b25df5fc82d066a881d84d733"/>
       <topic label="MXC_UART_GetRXFIFOAvailable" href="group__uart.html#ga2a155a324ba71f154592e9ec8677f87d"/>
       <topic label="MXC_UART_GetRXThreshold" href="group__uart.html#gaedb7868e4c73e7621833179d2e54517a"/>
       <topic label="MXC_UART_GetStatus" href="group__uart.html#ga48d266430dbc2da08edffcbc7419464a"/>
+      <topic label="MXC_UART_GetTXDMAChannel" href="group__uart.html#ga9fe255e686e8f057088c42d46f76acf6"/>
       <topic label="MXC_UART_GetTXFIFOAvailable" href="group__uart.html#ga61b48048b479472c323906f6da316946"/>
       <topic label="MXC_UART_GetTXThreshold" href="group__uart.html#gaf72976d58f7956fe746b994ec5aad745"/>
       <topic label="MXC_UART_Init" href="group__uart.html#gaf4139bffa0406c40e3c2fa33ffa31ff1"/>
@@ -7183,14 +7209,17 @@
       <topic label="MXC_UART_ReadRXFIFODMA" href="group__uart.html#gae426b74298d37d7b61f4249ffa8e12eb"/>
       <topic label="MXC_UART_ReadyForSleep" href="group__uart.html#ga90b8d6f056ac83b357b3402bb22d2156"/>
       <topic label="MXC_UART_SendBreak" href="group__uart.html#gac77b91f2bbe1eb5845ab219d6ec9ea78"/>
+      <topic label="MXC_UART_SetAutoDMAHandlers" href="group__uart.html#ga9ef2631dbd5226e6f68631cf3c2411c0"/>
       <topic label="MXC_UART_SetClockSource" href="group__uart.html#ga79b4198e1cd2d0048c6cd4be9dd9df27"/>
       <topic label="MXC_UART_SetDataSize" href="group__uart.html#gaefee3a2e176828e5ce0825ee0e4d3920"/>
       <topic label="MXC_UART_SetFlowCtrl" href="group__uart.html#gaef819588401eaf694c2527306f39c166"/>
       <topic label="MXC_UART_SetFrequency" href="group__uart.html#gafdf7fe1ed637a04b8bee9ad19a2fdee6"/>
       <topic label="MXC_UART_SetNullModem" href="group__uart.html#gad9f5d0ad151fdae5a220608fe55c80d8"/>
       <topic label="MXC_UART_SetParity" href="group__uart.html#ga707af12ae69509a55967aa9e002664a5"/>
+      <topic label="MXC_UART_SetRXDMAChannel" href="group__uart.html#gaadbee118385dd3e6c476c2ce95eed267"/>
       <topic label="MXC_UART_SetRXThreshold" href="group__uart.html#ga0c6a9a0836596871c254f5faca574099"/>
       <topic label="MXC_UART_SetStopBits" href="group__uart.html#gad7ecfc361a9de73ec60ce9009958b77e"/>
+      <topic label="MXC_UART_SetTXDMAChannel" href="group__uart.html#ga44dc443b9e06e4abe96bcd3a93a18be6"/>
       <topic label="MXC_UART_SetTXThreshold" href="group__uart.html#gad2c8704d76e0a156991a3d78890895c7"/>
       <topic label="MXC_UART_Shutdown" href="group__uart.html#gaab9695a4bc94ad372aa336492f563692"/>
       <topic label="MXC_UART_Transaction" href="group__uart.html#ga5d377cae041f2db6ae76d1d07063e89f"/>
@@ -10320,6 +10349,7 @@
         <topic label="sys_stat_ie" href="group__gcr__registers.html#a8fc2deabbb742a1a4a2713655a6b2e0c"/>
       </topic>
       <topic label="mxc_gpio_cfg_t" href="group__gpio.html#structmxc__gpio__cfg__t">
+        <topic label="drvstr" href="group__gpio.html#ae47f3c6571885f5689eced52d0e66eca"/>
         <topic label="func" href="group__gpio.html#a82db8d3ca4a2643b6b3214d4e16b832a"/>
         <topic label="mask" href="group__gpio.html#ad3bee21df6875eeccd25d3c577e0600a"/>
         <topic label="pad" href="group__gpio.html#a8da839c23daf8bc3c04c00ec207ae50c"/>
