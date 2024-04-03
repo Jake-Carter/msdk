@@ -1,8 +1,39 @@
 /******************************************************************************
  *
- * Copyright (C) 2022-2023 Maxim Integrated Products, Inc. (now owned by 
- * Analog Devices, Inc.),
- * Copyright (C) 2023-2024 Analog Devices, Inc.
+ * Copyright (C) 2022-2023 Maxim Integrated Products, Inc., All Rights Reserved.
+ * (now owned by Analog Devices, Inc.)
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a
+ * copy of this software and associated documentation files (the "Software"),
+ * to deal in the Software without restriction, including without limitation
+ * the rights to use, copy, modify, merge, publish, distribute, sublicense,
+ * and/or sell copies of the Software, and to permit persons to whom the
+ * Software is furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included
+ * in all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+ * OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+ * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+ * IN NO EVENT SHALL MAXIM INTEGRATED BE LIABLE FOR ANY CLAIM, DAMAGES
+ * OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+ * ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+ * OTHER DEALINGS IN THE SOFTWARE.
+ *
+ * Except as contained in this notice, the name of Maxim Integrated
+ * Products, Inc. shall not be used except as stated in the Maxim Integrated
+ * Products, Inc. Branding Policy.
+ *
+ * The mere transfer of this software does not imply any licenses
+ * of trade secrets, proprietary technology, copyrights, patents,
+ * trademarks, maskwork rights, or any other form of intellectual
+ * property whatsoever. Maxim Integrated Products, Inc. retains all
+ * ownership rights.
+ *
+ ******************************************************************************
+ *
+ * Copyright 2023 Analog Devices, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -30,6 +61,9 @@
 #include "mxc_sys.h"
 #include "mcr_regs.h"
 #include "mxc_lock.h"
+#include "gcr_regs.h"
+#include "fcr_regs.h"
+#include "adc_revb_regs.h"
 
 // Mask for all Interrupt Enable Fields
 #define ADC_IE_MASK                                                                             \
@@ -50,6 +84,188 @@ static mxc_adc_complete_cb_t async_callback;
 static mxc_adc_conversion_req_t *async_req;
 // static volatile uint8_t flag;      //indicates  to irqhandler where to store data
 
+#if (TARGET_NUM == 32662)
+void MXC_ADC_RefCalibration(mxc_adc_revb_regs_t* adc, mxc_adc_req_t *req)
+{
+    uint32_t vx2_tune = 0, vrefp = 0, iboost = 0, vrefm = 0, vcm = 0, idrv = 0;
+    uint32_t read_sfr = 0;
+
+    switch(req->ref) {
+    case MXC_ADC_REF_EXT:
+         vx2_tune = ((MXC_FCR->adcreftrim2 >>24) & 0x3F);
+         vcm = ((MXC_FCR->adcreftrim0 >>16) & 0x03);
+         break;
+
+    case MXC_ADC_REF_INT_1V25:
+         vx2_tune = ((MXC_FCR->adcreftrim0 >>24) & 0x3F);
+         vcm = ((MXC_FCR->adcreftrim0 >>16) & 0x03);
+         vrefm = ((MXC_FCR->adcreftrim0 >>8) & 0x7F);
+         vrefp = MXC_FCR->adcreftrim0 & 0x7F;
+         iboost = ((MXC_FCR->adcreftrim2 >>4) & 0x01);
+         idrv = ((MXC_FCR->adcreftrim2) & 0x0F);
+         break;
+
+    case MXC_ADC_REF_INT_2V048:
+         vx2_tune = ((MXC_FCR->adcreftrim1 >>24) & 0x3F);
+         vcm = ((MXC_FCR->adcreftrim1 >>16) & 0x03);
+         vrefm = ((MXC_FCR->adcreftrim1 >>8) & 0x7F);
+         vrefp = MXC_FCR->adcreftrim1 & 0x7F;
+         iboost = ((MXC_FCR->adcreftrim2 >>12) & 0x01);
+         idrv = ((MXC_FCR->adcreftrim2 >>8) & 0x0F);
+         break;
+   }
+
+    // Steps 1-4 which are the same for internal refs as well as external refs
+    adc->sfraddr = 0x01;
+    read_sfr = adc->sfrrddata;
+    read_sfr |= 0x0F;
+    adc->sfraddr = 0x01;
+    adc->sfrwrdata = read_sfr;
+
+    // vx2_tune
+    // Steps 5-9 which are the same for internal refs as well as external refs
+    adc->sfraddr = 0x0B;
+    read_sfr = adc->sfrrddata;
+    read_sfr &= 0xC0;
+    read_sfr |= vx2_tune;
+    adc->sfraddr = 0x0B;
+    adc->sfrwrdata = read_sfr;
+
+    if (req->ref != MXC_ADC_REF_EXT)
+    {
+        MXC_MCR->adccfg2 = (vcm << MXC_F_MCR_ADCCFG2_VCM_POS)    \
+                           | (vrefm<<MXC_F_MCR_ADCCFG2_VREFM_POS)\
+                           | (vrefp<<MXC_F_MCR_ADCCFG2_VREFP_POS)\
+                           |(iboost << MXC_F_MCR_ADCCFG2_D_IBOOST_POS) \
+                           | (idrv<<MXC_F_MCR_ADCCFG2_IDRV_POS)      \
+                           ;
+    }
+    else
+    {
+        MXC_MCR->adccfg2 = (vcm << MXC_F_MCR_ADCCFG2_VCM_POS);
+    }
+
+   //TODO(ADI):Bias counter and wake-up counter needs to change if ADC sampling rate is not 1MSPS.
+   //Write Bias Counter setting
+   adc->sfraddr = 0x05;
+   read_sfr = adc->sfrrddata;
+   read_sfr &= 0xF0;
+   adc->sfraddr = 0x05;
+   adc->sfrwrdata = read_sfr;
+
+   //Write Wake-up Counter setting
+   adc->sfraddr = 0x06;
+   read_sfr = adc->sfrrddata;
+   read_sfr &= 0xF0;
+   adc->sfraddr = 0x06;
+   adc->sfrwrdata = read_sfr;
+}
+#elif TARGET_NUM == 32672
+
+void MXC_ADC_RefCalibration(mxc_adc_revb_regs_t* adc, mxc_adc_req_t *req)
+{
+    uint32_t vx2_tune = 0, vrefp = 0, iboost = 0, vrefm = 0, vcm = 0, idrv = 0;
+    uint32_t data_wr, read_sfr = 0;
+
+    switch(req->ref) {
+    case MXC_ADC_REF_EXT:
+         vx2_tune = ((MXC_FCR->adcreftrim2 >>24) & 0x3F);
+         vcm = ((MXC_FCR->adcreftrim0 >>16) & 0x03);
+         break;
+
+    case MXC_ADC_REF_INT_1V25:
+         vx2_tune = ((MXC_FCR->adcreftrim0 >>24) & 0x3F);
+         vcm = ((MXC_FCR->adcreftrim0 >>16) & 0x03);
+         vrefm = ((MXC_FCR->adcreftrim0 >>8) & 0x7F);
+         vrefp = MXC_FCR->adcreftrim0 & 0x7F;
+         iboost = ((MXC_FCR->adcreftrim2 >>4) & 0x01);
+         idrv = ((MXC_FCR->adcreftrim2) & 0x0F);
+         break;
+
+    case MXC_ADC_REF_INT_2V048:
+         vx2_tune = ((MXC_FCR->adcreftrim1 >>24) & 0x3F);
+         vcm = ((MXC_FCR->adcreftrim1 >>16) & 0x03);
+         vrefm = ((MXC_FCR->adcreftrim1 >>8) & 0x7F);
+         vrefp = MXC_FCR->adcreftrim1 & 0x7F;
+         iboost = ((MXC_FCR->adcreftrim2 >>12) & 0x01);
+         idrv = ((MXC_FCR->adcreftrim2 >>8) & 0x0F);
+         break;
+   }
+
+    // Steps 1-4 which are the same for internal refs as well as external refs
+   if ( MXC_GCR->revision >= 177) {
+      adc->sfraddr = 0x01;
+      read_sfr = adc->sfrrddata;
+      read_sfr |= 0x0F;
+      adc->sfraddr = 0x01;
+      adc->sfrwrdata = read_sfr;
+   }
+
+   // vx2_tune
+   // Steps 5-9 which are the same for internal refs as well as external refs
+   adc->sfraddr = 0x0B;
+   read_sfr = adc->sfrrddata;
+   read_sfr &= 0xC0;
+   read_sfr |= vx2_tune;
+   adc->sfraddr = 0x0B;
+   adc->sfrwrdata = read_sfr;
+
+   if ( MXC_GCR->revision >= 177) {
+      /* Internal Reference calibration */
+      if(req->ref != MXC_ADC_REF_EXT) {
+         data_wr = ( vrefm | (vrefp << 8) | (idrv << 16) | (vcm << 20) | (iboost << 24));
+         MXC_MCR->adc_cfg3 = MXC_MCR->adc_cfg3 & ~0x013F7F7F; //[bits 24 bits 21:20, bits19:16, bits14:8, bits6:0]
+      } else { /* External Reference calibration */
+         data_wr = (vcm << 20);
+         MXC_MCR->adc_cfg3 = MXC_MCR->adc_cfg3 & ~0x00300000;
+      }
+
+      MXC_MCR->adc_cfg3 |= data_wr;
+   } else {
+       if(req->ref != MXC_ADC_REF_EXT) {
+          adc->sfraddr = 0x0C;
+          adc->sfrwrdata = ((iboost << 7) | vrefp);
+
+          adc->sfraddr = 0x0D;
+          read_sfr = adc->sfrrddata;
+          read_sfr &= 0x80;
+          read_sfr |= vrefm;
+          adc->sfrwrdata = read_sfr;
+
+          adc->sfraddr = 0x0E;
+          read_sfr = adc->sfrrddata;
+          read_sfr &= 0x0C;
+          read_sfr |= (idrv << 4) | vcm;
+          adc->sfrwrdata = read_sfr;
+       } else {
+          adc->sfraddr = 0x0E;
+          read_sfr = adc->sfrrddata;
+          read_sfr &= 0xFC;
+          read_sfr |= vcm;
+          adc->sfraddr = 0x0E;
+          adc->sfrwrdata = read_sfr;
+       }
+   }
+
+   //TODO(ADI):Bias counter and wake-up counter needs to change if ADC sampling rate is not 1MSPS.
+   //Write Bias Counter setting
+   adc->sfraddr = 0x05;
+   read_sfr = adc->sfrrddata;
+   read_sfr &= 0xF0;
+   read_sfr |= 0x07;
+   adc->sfraddr = 0x05;
+   adc->sfrwrdata = read_sfr;
+
+   //Write Wake-up Counter setting
+   adc->sfraddr = 0x06;
+   read_sfr = adc->sfrrddata;
+   read_sfr &= 0xF0;
+   read_sfr |= 0x0B;
+   adc->sfraddr = 0x06;
+   adc->sfrwrdata = read_sfr;
+}
+#endif
+
 int MXC_ADC_RevB_Init(mxc_adc_revb_regs_t *adc, mxc_adc_req_t *req)
 {
     if (req == NULL) {
@@ -64,10 +280,10 @@ int MXC_ADC_RevB_Init(mxc_adc_revb_regs_t *adc, mxc_adc_req_t *req)
     adc->ctrl0 &= ~MXC_F_ADC_REVB_CTRL0_RESETB;
 
     //Power up to Sleep State
-    MXC_SETFIELD(adc->clkctrl, MXC_F_ADC_REVB_CLKCTRL_CLKSEL,
-                 (req->clock << MXC_F_ADC_REVB_CLKCTRL_CLKSEL_POS));
-    MXC_SETFIELD(adc->clkctrl, MXC_F_ADC_REVB_CLKCTRL_CLKDIV,
-                 (req->clkdiv << MXC_F_ADC_REVB_CLKCTRL_CLKDIV_POS));
+    adc->clkctrl |= (req->clock << MXC_F_ADC_REVB_CLKCTRL_CLKSEL) & MXC_F_ADC_REVB_CLKCTRL_CLKSEL;
+
+    adc->clkctrl |= (req->clkdiv << MXC_F_ADC_REVB_CLKCTRL_CLKDIV_POS) &
+                    MXC_F_ADC_REVB_CLKCTRL_CLKDIV;
 
     adc->ctrl0 |= MXC_F_ADC_REVB_CTRL0_RESETB;
 
@@ -75,16 +291,20 @@ int MXC_ADC_RevB_Init(mxc_adc_revb_regs_t *adc, mxc_adc_req_t *req)
     adc->ctrl0 |= MXC_F_ADC_REVB_CTRL0_BIAS_EN;
     MXC_Delay(500);
 
+#if (TARGET_NUM == 32662) || (TARGET_NUM == 32672)
+    MXC_ADC_RefCalibration(adc, req);
+#endif
+
     if (req->cal == MXC_ADC_EN_CAL) {
         adc->ctrl0 &= ~MXC_F_ADC_REVB_CTRL0_SKIP_CAL;
     } else {
         adc->ctrl0 |= MXC_F_ADC_REVB_CTRL0_SKIP_CAL;
     }
 
-    MXC_SETFIELD(adc->sampclkctrl, MXC_F_ADC_REVB_SAMPCLKCTRL_TRACK_CNT,
-                 (req->trackCount << MXC_F_ADC_REVB_SAMPCLKCTRL_TRACK_CNT_POS));
-    MXC_SETFIELD(adc->sampclkctrl, MXC_F_ADC_REVB_SAMPCLKCTRL_IDLE_CNT,
-                 (req->idleCount << MXC_F_ADC_REVB_SAMPCLKCTRL_IDLE_CNT_POS));
+    adc->sampclkctrl |= (req->trackCount << MXC_F_ADC_REVB_SAMPCLKCTRL_TRACK_CNT_POS) &
+                        MXC_F_ADC_REVB_SAMPCLKCTRL_TRACK_CNT;
+    adc->sampclkctrl |= (req->idleCount << MXC_F_ADC_REVB_SAMPCLKCTRL_IDLE_CNT_POS) &
+                        MXC_F_ADC_REVB_SAMPCLKCTRL_IDLE_CNT;
 
     adc->ctrl0 |= MXC_F_ADC_REVB_CTRL0_ADC_EN;
 
@@ -140,8 +360,7 @@ void MXC_ADC_RevB_ClearFlags(mxc_adc_revb_regs_t *adc, uint32_t flags)
 
 void MXC_ADC_RevB_ClockSelect(mxc_adc_revb_regs_t *adc, mxc_adc_clock_t clock)
 {
-    MXC_SETFIELD(adc->clkctrl, MXC_F_ADC_REVB_CLKCTRL_CLKSEL,
-                 (clock << MXC_F_ADC_REVB_CLKCTRL_CLKSEL_POS));
+    adc->clkctrl |= (clock << MXC_F_ADC_REVB_CLKCTRL_CLKSEL) & MXC_F_ADC_REVB_CLKCTRL_CLKSEL;
 }
 
 int MXC_ADC_RevB_StartConversion(mxc_adc_revb_regs_t *adc)
@@ -204,7 +423,7 @@ int MXC_ADC_RevB_StartConversionDMA(mxc_adc_revb_regs_t *adc, mxc_adc_conversion
 
     channel = req->dma_channel;
 
-    config.reqsel = MXC_DMA_REQUEST_ADC;
+    config.reqsel = MXC_S_DMA_CTRL_REQUEST_ADC;
     config.ch = channel;
 
     config.srcwd = MXC_DMA_WIDTH_WORD;
