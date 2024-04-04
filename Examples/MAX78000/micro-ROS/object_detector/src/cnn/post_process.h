@@ -36,12 +36,12 @@
 
 #define LOC_DIM 4
 #define KPTS_DIM 8
-#define NUM_PRIORS_PER_AR 388
+#define NUM_PRIORS_PER_AR 387
 #define NUM_PRIORS        NUM_PRIORS_PER_AR* NUM_ARS
 
 #define MAX_PRIORS  20
 
-#define MIN_CLASS_SCORE     128 // ~0.5*256
+#define MIN_CLASS_SCORE     50 // ~0.5*256
 #define MAX_ALLOWED_OVERLAP 0.1f
 
 #define TFT_W 320

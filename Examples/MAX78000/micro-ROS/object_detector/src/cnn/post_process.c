@@ -265,6 +265,8 @@ void get_indices(int* ar_idx, int* scale_idx, int* rel_idx, int prior_idx)
 
 int8_t check_for_validity(int8_t *cl_addr)
 {
+    return 1;
+    /*
     int ch;
     int8_t validity = 0;
     for (ch = 1; ch < (NUM_CLASSES); ++ch) {
@@ -275,6 +277,7 @@ int8_t check_for_validity(int8_t *cl_addr)
     }
 
     return validity;
+    */
 }
 
 void calc_softmax(int8_t *prior_cls_vals, int prior_idx)
