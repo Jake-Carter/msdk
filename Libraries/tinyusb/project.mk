@@ -1,6 +1,6 @@
 include tinyusb.mk
 
-PROJECT := tinyusb
+override PROJECT := tinyusb
 
 LIB_PERIPHDRIVERS := 1
 
