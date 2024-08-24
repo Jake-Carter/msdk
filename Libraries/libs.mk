@@ -59,10 +59,16 @@ endif
 # ************************
 LIB_CORDIO ?= 0
 CODED_PHY_DEMO ?= 0
+INIT_EXTENDED ?= 0
 ifeq ($(LIB_CORDIO), 1)
 # Include the Cordio Library
 CORDIO_DIR ?= $(LIBS_DIR)/Cordio
 include $(CORDIO_DIR)/platform/targets/maxim/build/cordio_lib.mk
+PROJ_CFLAGS += -D__CORDIO__
+
+ifeq ($(INIT_EXTENDED),1)
+PROJ_CFLAGS += -DINIT_EXTENDED=1
+endif
 
 CHIP_REVISION ?= b
 export CHIP_REVISION
@@ -311,5 +317,20 @@ LIB_CLI ?= 0
 ifeq ($(LIB_CLI), 1)
 LIB_CLI_DIR ?= $(LIBS_DIR)/CLI
 include $(LIB_CLI_DIR)/CLI.mk
+endif
+# ************************
+
+# Unified Security Software (USS) (Disabled by default)
+# Only available via NDA
+# ************************
+LIB_USS ?= 0
+ifeq ($(LIB_USS),1)
+LIB_USS_DIR ?= $(LIBS_DIR)/USS
+
+ifeq ("$(wildcard $(LIB_USS_DIR))","")
+$(error ERR_LIBNOTFOUND: USS library not found (Only available via NDA). Please install the USS package to $(LIB_USS_DIR))
+endif
+
+include $(LIB_USS_DIR)/uss.mk
 endif
 # ************************
